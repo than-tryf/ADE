@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.camf.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.camf.ui" id="authTokenUI" name="Authentication Token UI Components"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to provide UI components for managing authentication tokens. These UI components are used to create tokens and to show token information.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="factory" minOccurs="0" maxOccurs="1"/>
+            <element ref="wizard" minOccurs="0" maxOccurs="1"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="factory">
+      <complexType>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  A unique ID that is used internally to refer to this factory.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  A user readable string that is used by the UI to represent this factory to the user.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An implementation of the &lt;code&gt;eu.geclipse.ui.IAuthTokenUIFactory&lt;/code&gt; interface that is used to create a dialog showing token related information.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.camf.ui.IAuthTokenUIFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="wizard">
+      <complexType>
+         <sequence>
+            <element ref="canReplace" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique ID that is used internally to refer to this wizard.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A user readable string that is used by the UI to represent this wizard to the user.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An implementation of the &lt;code&gt;org.eclipse.ui.INewWizard&lt;/code&gt; interface that is used to specify token specific parameters for initializing an authentication token.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.ui.INewWizard"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="icon" type="string">
+            <annotation>
+               <documentation>
+                  An icon that is used to graphically represent this wizard in the UI.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="canReplace">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         0.5
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         See the &lt;code&gt;org.eclipse.camf.ui.IAuthTokenUIFactory&lt;/code&gt; and &lt;code&gt;org.eclipse.ui.INewWizard&lt;/code&gt; interfaces.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         The UI itself does not contain an implementation of this extension point. Implementations are normally contained in middleware extensions.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2006, 2007 g-Eclipse Consortium
+&lt;br&gt;&lt;br&gt;
+All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;
+Initial development of the original code was made for the g-Eclipse project founded by European Union project number: FP6-IST-034327 &lt;a href=&quot;http://www.geclipse.eu&quot;&gt;http://www.geclipse.eu&lt;/a&gt;.
+      </documentation>
+   </annotation>
+
+</schema>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         name="AWS Element Creators"
+         point="org.eclipse.camf.core.cloudElementCreator">
+      <creator
+            class="org.eclipse.camf.connectors.aws.AWSCloudProviderCreator"
+            id="org.eclipse.camf.connectors.aws.awsCloudProviderCreator"
+            name="AWS Cloud Provider"
+            wizard="org.eclipse.camf.connectors.aws.ui.wizards.awsCloudProviderWizard">
+         <source
+               class="org.eclipse.core.filesystem.IFileStore"
+               matcher="org.eclipse.camf.connectors.aws.AWSCloudProviderCreator">
+         </source>
+         <target
+               class="org.eclipse.camf.connectors.aws.AWSCloudProvider"
+               name="AWS">
+         </target>
+      </creator>
+      <creator
+            class="org.eclipse.camf.connectors.aws.AWSDeploymentServiceCreator"
+            id="org.eclipse.camf.connectors.aws.AWSDeploymentServiceCreator"
+            name="AWS Application Deployment Service">
+         <target
+               class="org.eclipse.camf.connectors.aws.AWSApplicationDeploymentService"
+               name="AWS Deployment Service">
+         </target>
+         <source
+               class="java.net.URI">
+         </source>
+         <source
+               class="org.eclipse.core.filesystem.IFileStore">
+         </source>
+      </creator>
+      <creator
+            class="org.eclipse.camf.connectors.aws.ec2.EC2ServiceCreator"
+            id="org.eclipse.camf.connectors.aws.ec2.service.ec2ServiceCreator"
+            name="%ec2ServiceCreator.service.name">
+         <source
+               class="java.net.URL"
+               default="true"
+               pattern="%ec2ServiceCreator.source.pattern">
+         </source>
+         <target
+               class="org.eclipse.camf.connectors.aws.IAWSService"
+               name="AWS Service">
+         </target>
+      </creator>
+   </extension>
+   <extension
+         point="org.eclipse.camf.core.authTokens">
+      <token
+            description="org.eclipse.camf.connectors.aws.auth.AWSAuthTokenDescription"
+            id="org.eclipse.camf.connectors.aws.authToken"
+            name="AWS Credentials"
+            wizard="org.eclipse.camf.connectors.aws.ui.wizards.awsAuthTokenWizard">
+      </token>
+   </extension>
+   
+   <extension
+         point="org.eclipse.camf.core.reporting.problemReporting">
+      <problem
+            description="%problem.auth.authFailed.description"
+            id="org.eclipse.camf.connectors.aws.ec2.problem.auth.authFailed">
+			<reference
+				referenceID="org.eclipse.camf.connectors.aws.ec2.solution.auth.authFailed.falseEC2Url.description">
+			</reference>
+			<reference
+         		referenceID="org.eclipse.camf.connectors.aws.solution.auth.authFailed.falseAWSCredentials">
+			</reference>            
+      </problem>
+      <problem
+            description="%problem.net.ec2.error.description"
+            id="org.eclipse.camf.connectors.aws.ec2.problem.net.ec2">
+            <reference
+				referenceID="org.eclipse.camf.connectors.aws.ec2.solution.auth.authFailed.falseEC2Url.description">
+			</reference>
+			<reference
+         		referenceID="org.eclipse.camf.connectors.aws.solution.auth.authFailed.falseAWSCredentials">
+			</reference>            
+      </problem>
+      <solution 
+            description="%solution.auth.authFailed.falseEC2Url.description"
+            id="org.eclipse.camf.connectors.aws.ec2.solution.auth.authFailed.falseEC2Url.description">
+      </solution>
+            <solution 
+            description="%solution.auth.authFailed.falseAWSCredentials.description"
+            id="org.eclipse.camf.connectors.aws.solution.auth.authFailed.falseAWSCredentials">
+      </solution>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            category="org.eclipse.ui.externaltools"
+            delegate="org.eclipse.camf.connectors.aws.ec2.launch.EC2LaunchConfigurationDelegate"
+            id="org.eclipse.camf.connectors.aws.ec2.launch.ec2LaunchConfigurationType"
+            modes="run, debug"
+            name="Amazon EC2">
+      </launchConfigurationType>
+   </extension>
+      <extension
+         point="org.eclipse.camf.core.cloudResourceCategory">
+      <category
+            id="org.eclipse.camf.connectors.aws.ec2.images"
+            name="%category.images"
+            parent="org.eclipse.camf.connectors.aws.service">
+      </category>
+      <category
+            id="org.eclipse.camf.connectors.aws.ec2.networking"
+            name="%category.networking">
+      </category>
+      <category
+            id="org.eclipse.camf.connectors.aws.ec2.storage"
+            name="%category.storage">
+      </category>
+	  <category
+            id="org.eclipse.camf.connectors.aws.ec2.security"
+            name="%category.security">
+      </category>
+   </extension>
+
+
+</plugin>

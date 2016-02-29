@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenStack UI
+Bundle-SymbolicName: org.eclipse.camf.connectors.openstack.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.camf.connectors.openstack.ui.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.camf.connectors.openstack,
+ org.eclipse.camf.connectors.openstack.auth,
+ org.eclipse.camf.core,
+ org.eclipse.camf.core.auth,
+ org.eclipse.camf.core.model,
+ org.eclipse.camf.core.reporting,
+ org.eclipse.camf.ui,
+ org.eclipse.camf.ui.dialogs,
+ org.eclipse.camf.ui.wizards,
+ org.eclipse.camf.ui.wizards.wizardselection

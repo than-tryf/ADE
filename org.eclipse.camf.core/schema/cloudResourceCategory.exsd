@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.camf.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.camf.core" id="clourResourceCategory" name="Clour Resource Category"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to provide categories for Cloud resources (org.eclipse.camf.core.model.ICloudResource). These categories are used within Cloud projects to organize the available resources in a tree structure. Categories are either top-level categories or sub-categories. In the later case they have a defined parent.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="category" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="category">
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of the resource category.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The name of the resource category that will be displayed in the resource tree of a Cloud project.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="parent" type="string">
+            <annotation>
+               <documentation>
+                  The parent category or &lt;code&gt;null&lt;/code&gt; if this is a top-level category.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="active" type="boolean">
+            <annotation>
+               <documentation>
+                  Determines if this category is active, i.e. if it is used to query the underlying information service for available resources. If a category is passive it is just a container for sub-categories.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+
+
+
+
+</schema>

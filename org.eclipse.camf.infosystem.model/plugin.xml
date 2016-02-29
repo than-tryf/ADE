@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://www.example.org/InfoSystem"
+            class="org.eclipse.camf.infosystem.model.base.InfoSystemPackage"
+            genModel="model/InfoSystem.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="infosystem"
+            class="org.eclipse.camf.infosystem.model.base.util.InfoSystemResourceFactoryImpl"/>
+   </extension>
+
+</plugin>

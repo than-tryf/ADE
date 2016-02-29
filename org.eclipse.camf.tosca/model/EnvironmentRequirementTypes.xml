@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions id="CELARRequirementTypes" name="CELARRequirementTypes"
+  targetNamespace="http://www.example.com/Types/EnvironmentRequirementTypes"
+  xmlns="http://docs.oasis-open.org/tosca/ns/2011/12"
+  xmlns:prop="http://www.example.org/EnvironmentRequirementProperties">
+  
+  <Import importType="http://www.w3.org/2001/XMLSchema"
+    namespace="http://www.example.org/EnvironmentRequirementProperties"/>
+    
+  <RequirementType name="HostingEnvironmentRequirement">
+  	<documentation> Hosting Environment Requirement </documentation>
+  </RequirementType>
+  
+  <RequirementType name="CPURequirement">
+  	<documentation> Number of CPUs </documentation>
+  	<DerivedFrom typeRef="HostingEnvironmentRequirement"/>
+  	<PropertiesDefinition element="prop:CPURequirementProperties"/>
+  </RequirementType>
+  
+  <RequirementType name="MemoryRequirement">
+  	<documentation> Memory </documentation>
+  	<DerivedFrom typeRef="HostingEnvironmentRequirement"/>
+  	<PropertiesDefinition element="prop:MemoryRequirementProperties"/>
+  </RequirementType>
+  
+  <RequirementType name="StorageRequirement">
+  	<documentation> Disk Space </documentation>
+  	<DerivedFrom typeRef="HostingEnvironmentRequirement"/>
+  	<PropertiesDefinition element="prop:StorageRequirementProperties"/>
+  </RequirementType>
+  
+  <RequirementType name="NetworkRequirement">
+  	<documentation> Bandwidth </documentation>
+  	<DerivedFrom typeRef="HostingEnvironmentRequirement"/>
+  	<PropertiesDefinition element="prop:NetworkRequirementProperties"/>
+  </RequirementType>
+ 
+</Definitions>

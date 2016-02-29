@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+	<artifactId>p2-site</artifactId>
+	<packaging>pom</packaging>
+
+	<parent>
+		<groupId>org.eclipse.camf.tycho</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.camf.tycho</relativePath>
+	</parent>
+
+	<properties>
+		<jclouds.version>1.8.0</jclouds.version>
+	</properties>
+	
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.reficio</groupId>
+                <artifactId>p2-maven-plugin</artifactId>
+                <version>1.1.1-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>default-cli</id>
+                        <!-- QUICK-START EXAMPLE -->
+                        <!--
+                        This is the default quick-start configuration.
+
+                        Expected behavior:
+                          - specified dependencies will be fetched
+                          - transitive dependencies will be fetched (no default exclusions)
+                          - jars containing source source code will NOT be fetched
+                          - jars that are NOT OSGi bundles will be "bundled" using bnd tool,
+                            if you specify instructions for these jars they will be APPLIED
+                          - jars that are OSGi bundles will be simply included
+                            if you specify instructions for these jars they will be IGNORED (see <override> option)
+                          - p2 site will be generated
+
+                        How the instructions works:
+                          - instructions are applied only to the root artifact that you specify!
+                          - instructions are not applied to the TRANSITIVE dependencies!
+                          - transitive dependencies are never overridden (see <override> option)
+                          - transitive dependencies are bundled using the default instructions:
+                              <instructions>
+                                  <Import-Package>*;resolution:=optional</Import-Package>
+                                  <Export-Package>*</Export-Package>
+                              </instructions>
+                          - other instructions, such as, Bundle-SymbolicName, Bundle-Name, Bundle-Version, etc.
+                            are calculated according to the following rules:
+                            http://felix.apache.org/site/apache-felix-maven-bundle-plugin-bnd.html
+                          - if you specify any instructions they will be applied only if
+                            the jar is not already an OSGi bundle - otherwise you have to use the override
+                            option - please see the /examples/override/pom.xml example
+
+                        The following definition of an artifact:
+                            <artifact>
+                                <id>commons-io:commons-io:2.1</id>
+                            </artifact>
+
+                        is an equivalent of the following definition:
+                            <artifact>
+                                <id>commons-io:commons-io:2.1</id>
+                                <transitive>true</transitive>
+                                <source>false</source>
+                                <override>false</override>
+                                <instructions>
+                                    <Import-Package>*;resolution:=optional</Import-Package>
+                                    <Export-Package>*</Export-Package>
+                                </instructions>
+                                <excludes/>
+                            </artifact>
+
+                        To run the example please invoke: mvn p2:site
+                        -->
+                        <configuration>
+                            <artifacts>
+                            
+                                <!-- jclouds Core dependencies -->
+
+                                <artifact>
+                                    <id>org.apache.jclouds.driver:jclouds-slf4j:${jclouds.version}</id>
+                                </artifact>
+								<artifact>
+                                    <id>org.apache.jclouds.api:swift:${jclouds.version}</id>
+                                </artifact>                                
+
+                                 
+                                 <!--  JClouds OpenStack Dependencies -->
+								<artifact>
+                                    <id>org.apache.jclouds.api:openstack-nova:${jclouds.version}</id>
+                                </artifact>
+								<artifact>
+                                    <id>org.apache.jclouds.api:openstack-keystone:${jclouds.version}</id>
+                                </artifact>
+								<artifact>
+                                    <id>org.apache.jclouds.api:openstack-cinder:${jclouds.version}</id>
+                                </artifact> 
+								<artifact>
+                                    <id>org.apache.jclouds.labs:openstack-neutron:${jclouds.version}</id>
+                                </artifact>   
+                            	<artifact>
+                                    <id>org.apache.jclouds:jclouds-scriptbuilder:${jclouds.version}</id>
+                                </artifact> 
+                                
+                                <!-- JClouds Amazon AWS EC2 Dependencies -->
+                                <artifact>
+                                    <id>org.apache.jclouds.api:ec2:${jclouds.version}</id>
+                                </artifact>  
+                                 <artifact>
+                                    <id>org.apache.jclouds.api:cloudwatch:${jclouds.version}</id>
+                                </artifact>
+                                
+                                
+                                <!-- JClouds Docker Dependencies -->
+                                <artifact>
+                                	<id>org.apache.jclouds.labs:docker:${jclouds.version}</id>
+                                </artifact>
+                                        
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>8.1.5.v20120716</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webAppSourceDirectory>${basedir}/target/repository/</webAppSourceDirectory>
+                    <webApp>
+                        <contextPath>/site</contextPath>
+                    </webApp>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>reficio</id>
+            <url>http://repo.reficio.org/maven/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

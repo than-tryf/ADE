@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.camf.ui"
+            class="org.eclipse.camf.infosystem.ui.InfoSystemView"
+            id="org.eclipse.camf.infosystem.ui.InfoSystemView"
+            name="Cloud Information Tool"
+            restorable="true">
+      </view>
+   </extension>
+
+
+</plugin>

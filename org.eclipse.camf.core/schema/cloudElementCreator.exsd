@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.camf.core" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.camf.core" id="cloudElementCreator" name="Cloud Element Creator"/>
+      </appinfo>
+      <documentation>
+         [Enter description of this extension point.]
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="creator" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="creator">
+      <complexType>
+         <sequence>
+            <element ref="source" minOccurs="1" maxOccurs="unbounded"/>
+            <element ref="target"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique ID that is used to reference to this element creator extension.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A name of the creator that may be used to represent the creator in the UI, e.g. in wizard pages.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Implementation of the &lt;code&gt;org.eclipse.camf.core.model.ICloudElementCreator&lt;/code&gt; interface that is used to create Cloud elements and to insert them into the Cloud model hierarchy.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="org.eclipse.camf.core.model.ICloudElementCreator"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="wizard" type="string">
+            <annotation>
+               <documentation>
+                  An optional wizard ID that may be used by the UI to specify initial arguments for a new Cloud element.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="source">
+      <annotation>
+         <documentation>
+            Specifies the source of the creator. The source of a creator is an arbitrary class (inheriting from &lt;code&gt;java.lang.Object&lt;/code&gt; from which a Cloud element can be created. Furthermore an optional pattern can be defined that will be matched against toString() of the source. As last step a matcher may be defined that may have a final look at the specified object. Only if all defined matching rules hold for the specified source object it is assumed that this creator potentially can create an ICloudElement from the source object.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  An arbitrary &lt;code&gt;java.lang.Object&lt;/code&gt; from which this creator can create a Cloud element.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="java.lang.Object:"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="pattern" type="string">
+            <annotation>
+               <documentation>
+                  An optional regular expression that may be used to further restrict the sources. If the source itself is for instance a &lt;code&gt;java.io.File&lt;/code&gt; the pattern may be used to match the filename of the file. The pattern therefore is applied to the toString() method of the source. If this source element is declared to be the default source the pattern attribute may be interpreted as default value of the source, e.g. if this is a String or URI source.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="priority" type="string">
+            <annotation>
+               <documentation>
+                  If more than one creator matches the requirements this field is used to decide which creator should be taken to create a cloud model element. Values from 1 to 99 are supported. Values less than 1 will be treated as 1, values greater than 99 will be treated as 99. The default value is 50.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="default" type="boolean">
+            <annotation>
+               <documentation>
+                  A boolean element determining if this is the default source for the element creator. There should either be no default source or exactly one default source. Specifying more than one default sources may result in undetermined behaviour. If this is the default resource the pattern attribute may be interpreted as default value, e.g. for a URI source.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="matcher" type="string">
+            <annotation>
+               <documentation>
+                  This implementation of org.eclipse.camf.core.model.ICreatorSourceMatcher is used to match the source object against the element creator. A matcher is defined in addition to the class and pattern attributes. Only if both class and pattern do already match the object the matcher is also invoked. Only if all matching methods succeed this creator is assumed to be appropriate to create an element from the source.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.camf.core.model.ICreatorSourceMatcher"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="target">
+      <annotation>
+         <documentation>
+            Specifies the target of the creator. The target of a creator is a class that implements &lt;code&gt;org.eclipse.camf.core.model.ICloudElement&lt;/code&gt; and that is created by a specific creator.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A &lt;code&gt;org.eclipse.camf.core.model.ICloudElement&lt;/code&gt; that denotes the types of elements that are created by an element creator.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.camf.core.model.ICloudElement"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         See the &lt;code&gt;org.eclipse.camf.core.model.ICloudElementCreator&lt;/code&gt; interface.
+      </documentation>
+   </annotation>
+
+
+
+
+
+</schema>

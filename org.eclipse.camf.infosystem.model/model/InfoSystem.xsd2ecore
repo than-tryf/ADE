@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="file:/home/nickl/Desktop/InfoSystem.xsd#/"
+    outputs="infosystem.ecore#/" topToBottom="true">
+  <nested inputs="bundleentry://838.fwk381322754/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//MonitoringProbe;XSDComplexTypeDefinition=1"
+      outputs="infosystem.ecore#//MonitoringProbe">
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//MonitoringProbe;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="infosystem.ecore#//MonitoringProbe/uID"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//MonitoringProbe;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="infosystem.ecore#//MonitoringProbe/name"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//MonitoringProbe;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="infosystem.ecore#//MonitoringProbe/description"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//MonitoringProbe;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="infosystem.ecore#//MonitoringProbe/uRL"/>
+  </nested>
+  <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//ResizingAction;XSDComplexTypeDefinition=3"
+      outputs="infosystem.ecore#//ResizingAction">
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//ResizingAction;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="infosystem.ecore#//ResizingAction/uID"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//ResizingAction;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="infosystem.ecore#//ResizingAction/name"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//ResizingAction;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="infosystem.ecore#//ResizingAction/description"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//ResizingAction;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="infosystem.ecore#//ResizingAction/uRL"/>
+  </nested>
+  <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//SoftwareDependency;XSDComplexTypeDefinition=2"
+      outputs="infosystem.ecore#//SoftwareDependency">
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//SoftwareDependency;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="infosystem.ecore#//SoftwareDependency/uID"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//SoftwareDependency;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="infosystem.ecore#//SoftwareDependency/name"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//SoftwareDependency;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="infosystem.ecore#//SoftwareDependency/description"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//SoftwareDependency;XSDComplexTypeDefinition=2/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="infosystem.ecore#//SoftwareDependency/uRL"/>
+  </nested>
+  <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImageType;XSDSimpleTypeDefinition"
+      outputs="infosystem.ecore#//VirtualMachineImageType">
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImageType;XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="infosystem.ecore#//VirtualMachineImageType/BaseImage"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImageType;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="infosystem.ecore#//VirtualMachineImageType/CustomImage"/>
+  </nested>
+  <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition"
+      outputs="infosystem.ecore#//VirtualMachineImage">
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="infosystem.ecore#//VirtualMachineImage/uID"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="infosystem.ecore#//VirtualMachineImage/name"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="infosystem.ecore#//VirtualMachineImage/description"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="infosystem.ecore#//VirtualMachineImage/type"/>
+    <nested inputs="file:/home/nickl/Desktop/InfoSystem.xsd#//VirtualMachineImage;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="infosystem.ecore#//VirtualMachineImage/uRL"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

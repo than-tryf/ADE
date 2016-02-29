@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.camf.ui.newCloudProviderWizards">
+      <wizard
+            class="org.eclipse.camf.connectors.openstack.ui.wizards.OpenStackCloudProviderWizard"
+            id="org.eclipse.camf.connectors.openstack.ui.wizards.openstackCloudProviderWizard"
+            name="OpenStack Cloud Provider">
+      </wizard>
+   </extension>
+<extension
+         point="org.eclipse.camf.ui.authTokenUI">
+      <wizard
+            class="org.eclipse.camf.connectors.openstack.ui.wizards.OpenStackAuthTokenWizard"
+            icon="icons/obj16/proxy.gif"
+            id="org.eclipse.camf.connectors.openstack.ui.wizards.openstackAuthTokenWizard"
+            name="OpenStack Auth Token">
+      </wizard>
+      <factory
+            class="org.eclipse.camf.connectors.openstack.ui.dialogs.OpenStackAuthTokenUIFactory"
+            id="org.eclipse.camf.connectors.openstack.ui.openstackAuthTokenUIFactory"
+            name="OpenStack Auth Token UI Factory">
+      </factory>
+   </extension>
+<extension
+      point="org.eclipse.camf.ui.cloudProviderIcon">
+   <icon
+         location="/icons/obj16/cp.gif"
+         type="org.eclipse.camf.connectors.openstack">
+   </icon>
+</extension>
+</plugin>

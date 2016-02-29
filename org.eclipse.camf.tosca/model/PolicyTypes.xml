@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Definitions id="CELARPolicyTypes" name="CELARPolicyTypes"
+  targetNamespace="http://www.example.com/Types/CELARPolicyTypes"
+  xmlns="http://docs.oasis-open.org/tosca/ns/2011/12"
+  xmlns:sybl="http://www.example.org/SYBL"
+  xmlns:tns="http://www.example.com/Types/CELARPolicyTypes">
+    
+  <PolicyType name="ElasticityPolicy">
+  	<documentation> Elasticity Policy </documentation>
+  </PolicyType>
+  
+  <PolicyType name="Constraint">
+  	<documentation> Elasticity Constraint </documentation>
+  	<DerivedFrom typeRef="tns:ElasticityPolicy"/>
+  	<PropertiesDefinition element="sybl:ConstraintProperties"/>
+  </PolicyType>
+  
+  <PolicyType name="Strategy">
+  	<documentation> Elasticity Strategy </documentation>
+  	<DerivedFrom typeRef="tns:ElasticityPolicy"/>
+  	<PropertiesDefinition element="sybl:StrategyProperties"/>
+  </PolicyType>
+  
+ </Definitions>

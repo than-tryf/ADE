@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.camf.infosystem.model.edit;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: org.eclipse.camf.infosystem.model.base.provider.InfoSystemEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.camf.infosystem.model.base.provider
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.camf.infosystem.model;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ org.eclipse.jface,
+ org.eclipse.ui.workbench
+Bundle-ActivationPolicy: lazy

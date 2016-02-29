@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+	<extension-point id="problemReporting" name="ProblemReporting" schema="schema/problemReporting.exsd"/>
+   <extension
+         point="org.eclipse.camf.core.reporting.problemReporting">
+      <problem
+            description="An unknown problem occurred"
+            id="org.eclipse.camf.core.reporting.problem.unknown">
+      </problem>
+   </extension>
+
+</plugin>

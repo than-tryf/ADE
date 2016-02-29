@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="propertiesFactory" name="propertiesFactory" schema="schema/PropertiesFactory.exsd"/>
+   <extension-point id="authTokenUI" name="Authentication Token UI Contributions" schema="schema/authTokenUI.exsd"/>
+   <extension-point id="newCloudProviderWizards" name="org.eclipse.camf.ui.newCloudProviderWizards" schema="schema/newCloudProviderWizards.exsd"/>
+   <extension-point id="cloudProviderIcon" name="org.eclipse.camf.ui.cloudProviderIcon" schema="schema/cloudProviderIcon.exsd"/>
+   <extension-point id="cloudMarketplace" name="cloudMarketplace" schema="schema/cloudMarketplace.exsd"/>
+   
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Cloud Application Management Framework"
+            id="org.eclipse.camf.ui">
+      </category>
+      <view
+            name="Cloud Project View"
+            icon="icons/celar.gif"
+            category="org.eclipse.camf.ui"
+            class="org.eclipse.camf.ui.views.CloudProjectView"
+            id="org.eclipse.camf.ui.views.CloudProjectView">
+      </view>
+      <view
+            category="org.eclipse.camf.ui"
+            class="org.eclipse.camf.ui.views.AuthTokenView"
+            icon="icons/eview16/authtokens.gif"
+            id="org.eclipse.camf.ui.views.authenticationTokenView"
+            name="Authentication Token UI"
+            restorable="true">
+      </view>
+      <view
+            category="org.eclipse.camf.ui"
+            class="org.eclipse.camf.ui.views.ApplicationDeploymentMockupView"
+            id="org.eclipse.camf.ui.views.deploymentview"
+            name="Application Deployments"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   
+      <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="false"
+            class="org.eclipse.camf.ui.decorators.CloudProjectFolderDecorator"
+            id="eu.clear.ui.CloudProjectFolderDecorator"
+            label="Cloud Project Folder Decorator"
+            lightweight="true"
+            state="true">
+         <enablement>
+            <objectClass
+                  name="org.eclipse.camf.core.model.ICloudContainer">
+            </objectClass></enablement>
+      </decorator>
+   </extension>
+   
+      <extension
+         point="org.eclipse.camf.core.authTokenProvider">
+      <provider
+            class="org.eclipse.camf.ui.UIAuthTokenProvider"
+            priority="999">
+      </provider>
+   </extension>
+   
+      <extension
+         point="org.eclipse.camf.core.cloudProjectFolder">
+      <folder
+            elementClass="org.eclipse.camf.core.model.ICloudApplicationDescription"
+            id="org.eclipse.camf.core.projectfolder.appdescriptions"
+            label="Application Descriptions"
+            name="Application Description Folder"
+            preset="true">
+      </folder>
+            <folder
+            elementClass="org.eclipse.camf.core.model.ICloudApplicationSubmission"
+            id="org.eclipse.camf.core.projectfolder.applicationsubmissions"
+            label="Application Submissions"
+            name="Application Submissions Folder"
+            preset="true">
+      </folder>
+      <folder
+            elementClass="org.eclipse.camf.core.model.ICloudScript"
+            id="org.eclipse.camf.core.projectfolder.scripts"
+            label="Artifacts"
+            name="Artifacts Folder"
+            preset="true">
+      </folder>
+      <folder
+            elementClass="org.eclipse.camf.core.model.ICloudApplicationMonitorDescription"
+            id="org.eclipse.camf.core.projectfolder.monitoring"
+            label="Monitoring"
+            name="Monitoring Folder"
+            preset="true">
+      </folder>
+   </extension>
+      <extension
+            point="org.eclipse.ui.newWizards">
+         <wizard
+               canFinishEarly="false"
+               category="org.eclipse.camf.ui.newResourceCategory"
+               class="org.eclipse.camf.ui.wizards.NewCloudProjectWizard"
+               hasPages="true"
+               icon="icons/etool16/newcelarprj_wiz.gif"
+               id="org.eclipse.camf.ui.wizards.cloudProjectWizard"
+               name="Cloud Project"
+               project="true">
+            <description>
+               Create a new CELAR Cloud project
+            </description>
+         </wizard>
+         <category
+               id="org.eclipse.camf.ui.newResourceCategory"
+               name="Cloud Application Management Framework">
+         </category>
+         <wizard
+               canFinishEarly="false"
+               category="org.eclipse.camf.ui.newResourceCategory"
+               class="org.eclipse.camf.ui.wizards.NewApplicationDescription"
+               hasPages="true"
+               icon="icons/etool16/newtosca_wiz.gif"
+               id="org.eclipse.camf.ui.wizards.applicationDescriptionWizard"
+               name="Application Description"
+               project="false">
+            <description>
+               Create a new CELAR Application Description
+            </description>
+         </wizard>
+         <wizard
+               canFinishEarly="false"
+               class="org.eclipse.camf.ui.wizards.NewSubmissionWizard"
+               icon="icons/etool16/newsubmit_wiz.gif"
+               id="org.eclipse.camf.ui.wizards.applicationSubmissionWizard"
+               name="Application Submission"
+               project="false">
+            <description>
+               Submit a new CELAR Application for deployment
+            </description>
+         </wizard>
+         <wizard
+               canFinishEarly="false"
+               class="org.eclipse.camf.ui.wizards.NewDeploymentWizard"
+               icon="icons/etool16/newsubmit_wiz.gif"
+               id="org.eclipse.camf.ui.wizards.applicationDeploymentWizard"
+               name="Application Deployment"
+               project="false">
+         </wizard>
+      </extension>
+      <extension
+            point="org.eclipse.ui.menus">
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="org.eclipse.ui.newWizard"
+                  label="Submit"
+                  style="push">
+               <parameter
+                     name="newWizardId"
+                     value="org.eclipse.camf.ui.wizards.applicationSubmissionWizard">
+               </parameter>
+        <visibleWhen>
+                <with variable="selection">
+                    <iterate ifEmpty="false">
+                        <adapt type="org.eclipse.core.resources.IResource">
+                            <test property="org.eclipse.core.resources.path" value="*Application Descriptions*" /> 
+                               
+                        </adapt>
+                    </iterate>
+                </with>                 
+            </visibleWhen>
+            </command>
+         </menuContribution>
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="org.eclipse.ui.newWizard"
+                  label="Deploy"
+                  style="push">
+               <parameter
+                     name="newWizardId"
+                     value="org.eclipse.camf.ui.wizards.applicationDeploymentWizard">
+               </parameter>
+        <visibleWhen>
+                <with variable="selection">
+                    <iterate ifEmpty="false">
+                        <adapt type="org.eclipse.core.resources.IResource">
+                            <test property="org.eclipse.core.resources.path" value="*Application Submissions*" /> 
+                               
+                        </adapt>
+                    </iterate>
+                </with>                 
+            </visibleWhen>
+            </command>
+         </menuContribution>
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="org.eclipse.ui.file.import"
+                  label="Import"
+                  style="push">
+            </command>
+         </menuContribution>
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="org.eclipse.ui.edit.delete"
+                  label="Delete"
+                  style="push">
+            </command>
+         </menuContribution>
+         <menuContribution
+               allPopups="false"
+               locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+            <command
+                  commandId="org.eclipse.ui.file.export"
+                  label="Export"
+                  style="push">
+            </command>
+         </menuContribution>
+      </extension>
+      <extension
+            point="org.eclipse.ui.ide.projectNatureImages">
+         <image
+               icon="icons/ovr16/project_ovr.gif"
+               id="org.eclipse.camf.ui.NatureImage"
+               natureId="org.eclipse.camf.core.project.CloudProjectNature">
+         </image>
+      </extension>
+      <extension
+            point="org.eclipse.ui.preferencePages">
+         <page
+               class="org.eclipse.camf.ui.internal.preference.CEclipsePreferencePage"
+               id="org.eclipse.camf.ui.internal.preference.CEclipsePreferencePage"
+               name="Cloud Application Management Framework">
+         </page>
+         <page
+               category="org.eclipse.camf.ui.internal.preference.CEclipsePreferencePage"
+               class="org.eclipse.camf.ui.internal.preference.CloudProviderPreferencePage"
+               id="org.eclipse.camf.ui.internal.preference.CloudProviderPreferencePage"
+               name="Cloud Providers">
+         </page>
+      </extension>
+      <extension
+            point="org.eclipse.camf.ui.newCloudProviderWizards">
+         <wizard
+               class="org.eclipse.camf.ui.wizards.CELARCloudProviderWizard"
+               id="org.eclipse.camf.ui.wizards.CELARCloudProviderWizard"
+               name="CELAR Cloud Provider">
+         </wizard>
+      </extension>
+      <extension
+            point="org.eclipse.camf.ui.newCloudProviderWizards">
+         <wizard
+               class="org.eclipse.camf.ui.wizards.GenericCloudProviderWizard"
+               id="org.eclipse.camf.ui.wizards.GenericCloudProviderWizard"
+               name="Generic Cloud Provider">
+         </wizard>
+      </extension>
+      <extension
+            point="org.eclipse.ui.handlers">
+         <handler
+               commandId="org.eclipse.ui.edit.delete">
+         </handler>
+      </extension>
+      <extension
+            point="org.eclipse.ui.exportWizards">
+         <category
+               id="org.eclipse.camf.ui.newExportCategory"
+               name="Cloud Application Management Framework">
+         </category>
+         <wizard
+               category="org.eclipse.camf.ui.newExportCategory"
+               class="org.eclipse.camf.ui.wizards.ApplicationDescriptionExportWizard"
+               id="org.eclipse.camf.ui.wizards.ApplicationDescriptionExportWizard"
+               name="Cloud Service Archive (CSAR)">
+         </wizard>
+      </extension>
+      <extension
+            point="org.eclipse.ui.perspectives">
+         <perspective
+               class="org.eclipse.camf.ui.perspectives.PerspectiveFactory"
+               icon="icons/celar.gif"
+               id="org.eclipse.camf.ui.perspective"
+               name="CAMF">
+         </perspective>
+      </extension>
+</plugin>

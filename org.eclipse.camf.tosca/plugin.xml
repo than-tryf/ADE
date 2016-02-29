@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://docs.oasis-open.org/tosca/ns/2011/12"
+            class="org.eclipse.camf.tosca.ToscaPackage"
+            genModel="model/TOSCA-v1.0.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+            type="tosca"
+            class="org.eclipse.camf.tosca.util.ToscaResourceFactoryImpl"/>
+   </extension>
+   <extension
+         id="org.eclipse.camf.tosca.toscaCreator"
+         name="TOSCA Creator"
+         point="org.eclipse.camf.core.cloudElementCreator">
+      <creator
+            class="org.eclipse.camf.tosca.core.TOSCACreator"
+            id="org.eclipse.camf.tosca.creator"
+            name="TOSCA">
+         <source
+               class="org.eclipse.core.resources.IFile"
+               pattern=".*\.tosca">
+         </source>
+         <target
+               class="org.eclipse.camf.tosca.core.TOSCAResource"
+               name="TOSCA App Description">
+         </target>
+         <source
+               class="org.eclipse.core.resources.IFile"
+               pattern=".*\.deployment">
+         </source>
+      </creator>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated elasticity -->
+      <package
+            uri="http://www.example.org/SYBL"
+            class="org.example.sybl.SyblPackage"
+            genModel="model/elasticity.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated elasticity -->
+      <parser
+            type="sybl"
+            class="org.example.sybl.util.SyblResourceFactoryImpl"/>
+   </extension>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated elasticity -->
+      <package
+            uri="http://www.example.org/NewXMLSchema"
+            class="org.eclipse.camf.tosca.elasticity.Tosca_Elasticity_ExtensionsPackage"
+            genModel="model/elasticity.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <!-- @generated elasticity -->
+      <parser
+            type="tosca_elasticity_extensions"
+            class="org.eclipse.camf.tosca.elasticity.util.Tosca_Elasticity_ExtensionsResourceFactoryImpl"/>
+   </extension>
+null</plugin>

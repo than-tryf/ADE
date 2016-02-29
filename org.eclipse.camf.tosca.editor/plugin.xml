@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypes">
+      <diagramType
+            description="Diagram Type for Tosca editor"
+            id="org.eclipse.camf.tosca.editor.DiagramTypeTOSCA"
+            name="Graphiti Tosca Diagram Type"
+            type="ToscaDiagram">
+      </diagramType>
+   </extension>
+   <extension
+         point="org.eclipse.graphiti.ui.diagramTypeProviders">
+      <diagramTypeProvider
+            class="org.eclipse.camf.tosca.editor.diagram.ToscaDiagramTypeProvider"
+            id="org.eclipse.camf.tosca.editor.diagram.ToscaTypeProvider"
+            name="Tosca Editor">
+         <diagramType
+               id="org.eclipse.camf.tosca.editor.DiagramTypeTOSCA">
+         </diagramType>
+          <imageProvider
+               id="org.eclipse.camf.tosca.editor.ImageProvider">
+         </imageProvider>
+      </diagramTypeProvider>
+   </extension>
+   
+      <extension
+         point="org.eclipse.graphiti.ui.imageProviders">
+      <imageProvider
+            class="org.eclipse.camf.tosca.editor.ImageProvider"
+            id="org.eclipse.camf.tosca.editor.ImageProvider">
+      </imageProvider>
+   </extension>
+<extension
+	    point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+	    <propertyContributor contributorId="ToscaDiagram.PropertyContributor">
+	        <propertyCategory category="CELAR">
+	        </propertyCategory>
+	    </propertyContributor>
+	</extension>
+	 
+	<extension
+	    point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	    <propertyTabs contributorId="ToscaDiagram.PropertyContributor">
+	        <propertyTab label="Main" category="CELAR" 
+	            id="graphiti.main.tab">
+	        </propertyTab>
+	        
+	        <!--
+	        Defines a property sheet tab for the Eclipse tabbed property sheet for EReferences.
+	        -->
+   <propertyTab
+         afterTab="graphiti.main.tab"
+         category="CELAR"
+         id="graphiti.component.elasticity.tab"
+         label="Elasticity">
+   </propertyTab>
+   <propertyTab
+         category="CELAR"
+         id="graphiti.connection.tab"
+         label="Connection">
+   </propertyTab>
+   <propertyTab
+         category="CELAR"
+         id="graphiti.application.tab"
+         label="Application">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.application.tab"
+         category="CELAR"
+         id="graphiti.application.advanced.tab"
+         label="Elasticity">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.connection.tab"
+         category="CELAR"
+         id="graphiti.connection.advanced.tab"
+         label="Network">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.application.advanced.tab"
+         category="CELAR"
+         id="graphiti.data.load.tab"
+         label="Data/Load">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.component.elasticity.tab"
+         category="CELAR"
+         id="graphiti.component.data.load.tab"
+         label="Data/Load">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.component.data.load.tab"
+         category="CELAR"
+         id="graphiti.component.monitoring.resizing.tab"
+         label="Monitoring">
+   </propertyTab>
+   <propertyTab
+         category="CELAR"
+         id="graphiti.composite.elasticity"
+         label="Elasticity">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.composite.elasticity"
+         category="CELAR"
+         id="graphiti.composite.data.load"
+         label="Data/Load">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.composite.data.load"
+         category="CELAR"
+         id="graphiti.composite.monitoring"
+         label="Monitoring">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.component.data.load.tab"
+         category="CELAR"
+         id="graphiti.component.parameters.tab"
+         label="Parameters">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.composite.data.load"
+         category="CELAR"
+         id="graphiti.composite.network"
+         label="Network">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.data.load.tab"
+         category="CELAR"
+         id="graphiti.application.monitoring"
+         label="Monitoring">
+   </propertyTab>
+   <propertyTab
+         afterTab="graphiti.component.parameters.tab"
+         category="CELAR"
+         id="graphiti.component.deployment.script.tab"
+         label="Deployment">
+   </propertyTab>
+	    </propertyTabs>
+	</extension>
+	 
+	<extension
+	    point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	    <propertySections contributorId="ToscaDiagram.PropertyContributor">
+	        <propertySection
+               class="org.eclipse.camf.tosca.editor.property.ApplicationComponentNameSection"
+               filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+               id="graphiti.main.tab.emfclass"
+               tab="graphiti.main.tab">
+	        </propertySection>
+	        
+	        <!--
+	        Defines a standard (table format) property sheet section using the table property sheet
+	        integration into the Eclipse tabbed property sheet for EReferences.
+	        -->
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationComponentDataHintsSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+           id="graphiti.advanced.tab.dataHints"
+           tab="graphiti.component.data.load.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationNameSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationFilter"
+           id="graphiti.application.tab.name"
+           tab="graphiti.application.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationComponentElasticityRequirementsSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+           id="graphiti.advanced.tab.elasticityRequirements"
+           tab="graphiti.component.elasticity.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.RelationshipGeneralSection"
+           filter="org.eclipse.camf.tosca.editor.property.RelationshipFilter"
+           id="graphiti.connection.tab.Section1"
+           tab="graphiti.connection.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationDataHintsSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationFilter"
+           id="graphiti.application.advanced.tab.DataHints"
+           tab="graphiti.data.load.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationGlobalElasticityReqSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationFilter"
+           id="graphiti.application.advanced.tab.GlobalElasticityRequirements"
+           tab="graphiti.application.advanced.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.CommunicationIntensity"
+           filter="org.eclipse.camf.tosca.editor.property.RelationshipFilter"
+           id="graphiti.connection.advanced.tab.CommunicationIntensity"
+           tab="graphiti.connection.advanced.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationComponentMonitoringSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+           id="graphiti.advanced.tab.monitoring.resizing"
+           tab="graphiti.component.monitoring.resizing.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.CompositeElasticity"
+           filter="org.eclipse.camf.tosca.editor.property.CompositeComponentFilter"
+           id="graphiti.composite.elasticity.section"
+           tab="graphiti.composite.elasticity">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.CompositeMonitoring"
+           filter="org.eclipse.camf.tosca.editor.property.CompositeComponentFilter"
+           id="graphiti.composite.monitoring.section"
+           tab="graphiti.composite.monitoring">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.CompositeDataLoad"
+           filter="org.eclipse.camf.tosca.editor.property.CompositeComponentFilter"
+           id="graphiti.composite.data.load.section"
+           tab="graphiti.composite.data.load">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationComponentParametersSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+           id="graphiti.application.component.Parameters"
+           tab="graphiti.component.parameters.tab">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.CompositeNetwork"
+           filter="org.eclipse.camf.tosca.editor.property.CompositeComponentFilter"
+           id="graphiti.composite.network.section"
+           tab="graphiti.composite.network">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationMonitoringSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationFilter"
+           id="graphiti.application.MonitoringSection"
+           tab="graphiti.application.monitoring">
+     </propertySection>
+     <propertySection
+           class="org.eclipse.camf.tosca.editor.property.ApplicationComponentScriptSection"
+           filter="org.eclipse.camf.tosca.editor.property.ApplicationComponentFilter"
+           id="graphiti.advanced.tab.deployment.script"
+           tab="graphiti.component.deployment.script.tab">
+     </propertySection>
+			    </propertySections>
+	</extension>
+	
+   <extension
+         point="org.eclipse.core.contenttype.contentTypes">
+      <content-type
+            base-type="org.eclipse.core.runtime.xml"
+            file-extensions="tosca"
+            id="org.eclipse.camf.tosca.editor.contenttype"
+            name="Tosca Diagram Editor File"
+            priority="normal">
+      </content-type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="org.eclipse.camf.tosca.editor.ToscaDiagramEditor"
+            default="true"
+            extensions="tosca,deployment"
+            id="org.eclipse.camf.tosca.editor.toscaEditor"
+            matchingStrategy="org.eclipse.camf.tosca.editor.ToscaDiagramMatchingStrategy"
+            name="Tosca DiagramEditor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.camf.tosca.editor.contenttype">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   
+   <!--
+	Registers an Eclipse adapter factory to provide IPropertySource objects for the GraphitiConnectionEditPart
+	that gets selected in the DiagramEditor to provide a standard (table format) property sheet for EReference
+	objects.
+	-->
+	<extension
+       point="org.eclipse.core.runtime.adapters">
+		<factory
+			adaptableType="org.eclipse.graphiti.ui.platform.GraphitiConnectionEditPart"
+			class="org.eclipse.camf.tosca.editor.property.GraphitiEditPartToIPropertySourceAdapterFactory">
+			<adapter
+				type="org.eclipse.ui.views.properties.IPropertySource">
+			</adapter>
+		</factory>
+	</extension>
+
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated elasticity -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated elasticity -->
+      <editor
+            id="org.example.sybl.presentation.SyblEditorID"
+            name="%_UI_SyblEditor_label"
+            icon="icons/full/obj16/SyblModelFile.gif"
+            extensions="sybl"
+            class="org.example.sybl.presentation.SyblEditor"
+            contributorClass="org.example.sybl.presentation.SyblActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated elasticity -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated elasticity -->
+      <editor
+            id="org.eclipse.camf.tosca.elasticity.presentation.Tosca_Elasticity_ExtensionsEditorID"
+            name="%_UI_Tosca_Elasticity_ExtensionsEditor_label"
+            icon="icons/full/obj16/Tosca_Elasticity_ExtensionsModelFile.gif"
+            extensions="tosca_elasticity_extensions"
+            class="org.eclipse.camf.tosca.elasticity.presentation.Tosca_Elasticity_ExtensionsEditor"
+            contributorClass="org.eclipse.camf.tosca.elasticity.presentation.Tosca_Elasticity_ExtensionsActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/org.eclipse.camf.tycho.feature_1.0.0.qualifier.jar" id="org.eclipse.camf.tycho.feature" version="1.0.0.qualifier">
+      <category name="org.eclipse.camf.ceclipse"/>
+   </feature>
+   <category-def name="org.eclipse.camf.ceclipse" label="Cloud Application Management Framework">
+      <description>
+         CAMF provides an extensible framework over the Eclipse Rich Client Platform (RCP) that facilitate key lifecycle management operations for Cloud applications, in a vendor-neutral manner. By employing open-source specifications and toolkits, CAMF supports the following core Cloud operations: (1) Application Description, (2) Application Deployment, (3) Application Monitoring
+      </description>
+   </category-def>
+</site>

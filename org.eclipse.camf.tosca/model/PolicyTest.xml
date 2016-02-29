@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tosca:Definitions id="idvalue0" targetNamespace="http://tempuri.org" xmlns:pol="http://www.example.com/Types/CELARPolicyTypes" xmlns:sybl="http://www.example.org/SYBL" xmlns:tosca="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://docs.oasis-open.org/tosca/ns/2011/12 TOSCA-v1.0.xsd http://www.example.org/SYBL SYBL.xsd ">
+  <tosca:ServiceTemplate id="idvalue1">
+    <tosca:TopologyTemplate>
+      <tosca:NodeTemplate id="idvalue2" type="QName"/>
+    </tosca:TopologyTemplate>
+  </tosca:ServiceTemplate>
+  <tosca:PolicyTemplate type="pol:ElasticityConstraint" id="CPU_Usage_Constraint">
+  	<tosca:Properties>
+  		<sybl:ConstraintProperties>
+  			<ToEnforce>
+  				<BinaryRestrictionsConjunction Type="LessThan">
+  					<LeftHandSide>
+  						<Metric>CPU_Usage</Metric>
+  					</LeftHandSide>
+  					<RightHandSide>
+  						<Number>40</Number>
+  					</RightHandSide>
+  				</BinaryRestrictionsConjunction>
+  				<UnaryRestrictionsConjunction></UnaryRestrictionsConjunction>
+  			</ToEnforce>
+  			<Condition>
+  				<BinaryRestrictionsConjunction>
+  					<LeftHandSide></LeftHandSide>
+  					<RightHandSide></RightHandSide>
+  				</BinaryRestrictionsConjunction>
+  				<UnaryRestrictionsConjunction></UnaryRestrictionsConjunction>
+  			</Condition>
+  		</sybl:ConstraintProperties>
+
+  	</tosca:Properties></tosca:PolicyTemplate>
+  <tosca:PolicyTemplate type="pol:ElasticityStrategy" id="CPU_Usage_Strategy">
+  	<tosca:Properties>
+  		<sybl:StrategyProperties>
+  			<Condition>
+  				<BinaryRestrictionsConjunction Type="LessThan">
+  					<LeftHandSide>
+  						<Metric>CPU_Usage</Metric>
+  					</LeftHandSide>
+  					<RightHandSide>
+  						<Number>40</Number>
+  					</RightHandSide>
+  				</BinaryRestrictionsConjunction>
+  				<UnaryRestrictionsConjunction></UnaryRestrictionsConjunction>
+  			</Condition>
+  			<ToEnforce ActionName="Scale_In" />
+  		</sybl:StrategyProperties>
+
+  	</tosca:Properties></tosca:PolicyTemplate>
+</tosca:Definitions>

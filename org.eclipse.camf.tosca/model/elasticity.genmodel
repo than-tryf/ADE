@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.camf.tosca/src" modelPluginID="org.eclipse.camf.tosca"
+    modelName="ExtendedTosca" importerID="org.eclipse.emf.importer.ecore" featureDelegation="Virtual"
+    complianceLevel="7.0" usedGenPackages="TOSCA-v1.0.genmodel#//tosca platform:/plugin/org.eclipse.emf.ecore/model/XMLNamespace.genmodel#//namespace"
+    interfaceNamePattern="">
+  <foreignModel>sybl.ecore</foreignModel>
+  <foreignModel>extension.ecore</foreignModel>
+  <genPackages prefix="Sybl" basePackage="org.example" resource="XML" disposableProviderFactory="true"
+      ecorePackage="sybl.ecore#/">
+    <genClasses ecoreClass="sybl.ecore#//BinaryRestriction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//BinaryRestriction/leftHandSide"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//BinaryRestriction/rightHandSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//BinaryRestriction/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//ConditionType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ConditionType/binaryRestrictionsConjunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ConditionType/unaryRestrictionsConjunction"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//ConditionType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ConditionType1/binaryRestrictionsConjunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ConditionType1/unaryRestrictionsConjunction"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//Constraint">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//Constraint/toEnforce"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//Constraint/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//Constraint/id"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sybl.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sybl.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//DocumentRoot/constraintProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//DocumentRoot/strategyProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//DocumentRoot/sYBLElasticityRequirementsDescription"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//LeftHandSideType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//LeftHandSideType/metric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//LeftHandSideType/number"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//ReferenceToType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//ReferenceToType/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//ReferenceToType/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//ReferenceToType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//RightHandSideType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//RightHandSideType/metric"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//RightHandSideType/number"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//Strategy">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//Strategy/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//Strategy/toEnforce"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//Strategy/id"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//SyblElasticityRequirementsDescription">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//SyblElasticityRequirementsDescription/sYBLSpecification"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//SYBLSpecificationType">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//SYBLSpecificationType/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//SYBLSpecificationType/strategy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//SYBLSpecificationType/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//SYBLSpecificationType/type"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//ToEnforceType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//ToEnforceType/actionName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//ToEnforceType/parameter"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//ToEnforceType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ToEnforceType1/binaryRestrictionsConjunction"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//ToEnforceType1/unaryRestrictionsConjunction"/>
+    </genClasses>
+    <genClasses ecoreClass="sybl.ecore#//UnaryRestriction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//UnaryRestriction/metric"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sybl.ecore#//UnaryRestriction/referenceTo"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sybl.ecore#//UnaryRestriction/type"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Tosca_Elasticity_Extensions" basePackage="org.eclipse.camf.tosca"
+      resource="XML" disposableProviderFactory="true" ecorePackage="extension.ecore#/">
+    <genClasses ecoreClass="extension.ecore#//DocumentRoot">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//DocumentRoot/mixed"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/xMLNSPrefixMap"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/xSISchemaLocation"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/imageArtifactProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/nodeProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/scriptArtifactProperties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//DocumentRoot/serviceProperties"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//ImageArtifactPropertiesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//ImageArtifactPropertiesType/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//ImageArtifactPropertiesType/id"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//MonitoringProbesType1">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//MonitoringProbesType1/monitoringProbes"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//NodePropertiesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//NodePropertiesType/flavor"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//ScriptArtifactPropertiesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//ScriptArtifactPropertiesType/language"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//ServicePropertiesType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//ServicePropertiesType/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//ServicePropertiesType/hostingEnvironment"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//TBoundaryDefinitionsExtension">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//TBoundaryDefinitionsExtension/monitoringProbes"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//TMonitoringProbe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TMonitoringProbe/name"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//TNodeTemplateExtension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TNodeTemplateExtension/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TNodeTemplateExtension/initInstances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TNodeTemplateExtension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TNodeTemplateExtension/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TNodeTemplateExtension/y"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//TServiceTemplateExtension">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TServiceTemplateExtension/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TServiceTemplateExtension/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TServiceTemplateExtension/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//TServiceTemplateExtension/y"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

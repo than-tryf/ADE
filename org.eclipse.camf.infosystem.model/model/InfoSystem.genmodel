@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.camf.infosystem.model/src" modelPluginID="org.eclipse.camf.infosystem.model"
+    modelName="InfoSystem" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" classNamePattern="">
+  <foreignModel>infosystem.ecore</foreignModel>
+  <genPackages prefix="InfoSystem" basePackage="org.eclipse.camf.infosystem.model"
+      resource="XML" disposableProviderFactory="true" ecorePackage="infosystem.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="infosystem.ecore#//VirtualMachineImageType">
+      <genEnumLiterals ecoreEnumLiteral="infosystem.ecore#//VirtualMachineImageType/BaseImage"/>
+      <genEnumLiterals ecoreEnumLiteral="infosystem.ecore#//VirtualMachineImageType/CustomImage"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="infosystem.ecore#//VirtualMachineImageTypeObject"/>
+    <genClasses ecoreClass="infosystem.ecore#//MonitoringProbe">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//MonitoringProbe/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//MonitoringProbe/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//MonitoringProbe/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//MonitoringProbe/metrics"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//ResizingAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//ResizingAction/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//ResizingAction/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//ResizingAction/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//ResizingAction/uRL"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//SoftwareDependency">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SoftwareDependency/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SoftwareDependency/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SoftwareDependency/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SoftwareDependency/uRL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SoftwareDependency/type"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//VirtualMachineImage">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImage/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImage/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImage/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImage/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImage/uRL"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//UserApplication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//UserApplication/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//UserApplication/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//UserApplication/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//UserApplication/uRL"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//UserApplication/type"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//KeyPair">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//KeyPair/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//KeyPair/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//KeyPair/publicKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//KeyPair/Description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//KeyPair/URL"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//VirtualMachineImageFlavor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImageFlavor/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImageFlavor/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImageFlavor/ram"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImageFlavor/hdd"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualMachineImageFlavor/vCPU"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//VirtualNetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualNetwork/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualNetwork/name"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//VirtualInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualInstance/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualInstance/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualInstance/status"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualInstance/IPs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//VirtualInstance/URI"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//SecurityGroup">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SecurityGroup/uID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SecurityGroup/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//SecurityGroup/description"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//Deployment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Deployment/depID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Deployment/deploymentName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infosystem.ecore#//Deployment/modules"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Deployment/Status"/>
+    </genClasses>
+    <genClasses ecoreClass="infosystem.ecore#//Module">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Module/modID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Module/moduleName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference infosystem.ecore#//Module/instances"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute infosystem.ecore#//Module/initInstances"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

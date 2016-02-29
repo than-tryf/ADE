@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.camf.core.reporting" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.camf.core.reporting" id="problemReporting" name="Problem Reporting"/>
+      </appinfo>
+      <documentation>
+         This extension point is used to define problems, solutions and their interconnections within the problem reporting mechanism. It is the base of the declarative part of the problem reporting.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="problem" minOccurs="0" maxOccurs="unbounded"/>
+            <element ref="solution" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="problem">
+      <annotation>
+         <documentation>
+            Definition of a problem within the problem reporting mechanism. This problem afterwards corresponds to an &lt;code&gt;IProblem&lt;/code&gt;-implementation.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="reference" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of the problem. This should normally consist of the plug-in ID followed by the word &lt;code&gt;problem&lt;/code&gt;, followed by the domain of the problem, followed by a name for the problem. An example would be &lt;code&gt;org.eclipse.camf.core.problem.net.connectionFailed&lt;/code&gt; or &lt;code&gt;org.eclipse.camf.core.problem.auth.authenticationFailed&lt;/code&gt;. This ID is also used in the reference tags of a solution for back-referencing problems.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A descriptive text that gives a short explanation of the problem.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="mailto" type="string">
+            <annotation>
+               <documentation>
+                  An email-address that may be used to send the problem as a report to the developer team.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="solution">
+      <annotation>
+         <documentation>
+            Definition of a solution within the problem reporting mechanism. This problem afterwards corresponds to an &lt;code&gt;ISolution&lt;/code&gt;-implementation. If neither a solver nor a solving tag is present the solution will be passive and will only consist of a descriptive text. If both a solver and a solving tag are present the tag is ignored in favour of the solver.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <choice minOccurs="0" maxOccurs="1">
+               <element ref="cheatsheetTag"/>
+               <element ref="helpTag"/>
+               <element ref="preferenceTag"/>
+               <element ref="urlTag"/>
+               <element ref="viewTag"/>
+               <element ref="wizardTag"/>
+            </choice>
+            <element ref="reference" minOccurs="0" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of the solution. This should normally consist of the plug-in ID followed by the word &lt;code&gt;solution&lt;/code&gt;, followed by the domain of the solution, followed by a name for the solution. An example would be &lt;code&gt;org.eclipse.camf.core.solution.net.checkProxySettings&lt;/code&gt; or &lt;code&gt;org.eclipse.camf.core.solution.auth.checkCertificateLifetime&lt;/code&gt;. This ID is also used in the reference tags of a problem for referencing solutions.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="description" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A descriptive text that gives a short explanation of the solution. This text is both used for passive and active solutions to give the user hints how to solve a problem.
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="solver" type="string">
+            <annotation>
+               <documentation>
+                  An optional field that allows the specification of a &lt;code&gt;ISolver&lt;/code&gt; in order to provide dedicated problem solving strategies. If a solver is specified any existing solving tag will be ignored.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":org.eclipse.camf.core.reporting.ISolver"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="reference">
+      <annotation>
+         <documentation>
+            A reference element that may either be used to reference attached solutions from within a problem or to back-reference problems from within a solution. Therefore it is both possible to provide problems with dedicated solutions and to provide additional solutions for already existing problems, even for third-party plug-ins.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="referenceID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of either a problem (if the reference is used within a solution definition) or a solution (if the reference is used within a problem definition).
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="cheatsheetTag">
+      <annotation>
+         <documentation>
+            Tag denoting a cheatsheet page solution. This tag is used for a solution that should open a specific cheatsheet page.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="cheatsheetID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of a cheatsheet page that should be opened.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="helpTag">
+      <annotation>
+         <documentation>
+            Tag denoting a help page solution. This tag is used for a solution that should open a specific help page.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="pagePath" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The resource path of the help page that should be opened.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="preferenceTag">
+      <annotation>
+         <documentation>
+            Tag denoting a preference page solution. This tag is used for a solution that should open a specific preference page.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="pageID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of a properties page that should be opened.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="urlTag">
+      <annotation>
+         <documentation>
+            Tag denoting an URL solution. This tag is used for a solution that should open a specific web page in the web browser. Multiple URLs can be opened by using several &apos;url&apos; sub-elements.
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence>
+            <element ref="url" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+      </complexType>
+   </element>
+
+   <element name="viewTag">
+      <annotation>
+         <documentation>
+            Tag denoting a view solution. This tag is used for a solution that should open a specific view.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="viewID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of a view that should be opened.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="wizardTag">
+      <annotation>
+         <documentation>
+            Tag denoting a wizard solution. This tag is used for a solution that should open a specific page of an already open wizard.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="pageID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The unique ID of a wizard page that should be opened.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="url">
+      <annotation>
+         <documentation>
+            An element denoting a single webpage to open. Repeat it multiple times to open several URLs at once.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="value" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The URL to open.
+               </documentation>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+
+
+
+
+
+</schema>

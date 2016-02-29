@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Infosystem UI
+Bundle-SymbolicName: org.eclipse.camf.infosystem.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipse.camf.infosystem.ui.internal.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.camf.core,
+ org.eclipse.camf.core.reporting,
+ org.eclipse.ui.workbench,
+ org.eclipse.camf.ui,
+ org.eclipse.core.resources,
+ org.eclipse.camf.infosystem,
+ org.eclipse.emf.edit,
+ org.eclipse.emf.edit.ui,
+ org.eclipse.camf.infosystem.model,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

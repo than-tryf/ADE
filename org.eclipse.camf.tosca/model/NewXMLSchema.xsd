@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.example.org/NewXMLSchema"
+	elementFormDefault="qualified" 
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tosca="http://docs.oasis-open.org/tosca/ns/2011/12" 
+	xmlns:elasticity="http://www.example.org/NewXMLSchema"
+	xmlns:sybl="http://www.example.org/SYBL">
+		<!-- xmlns:hrequirement="http://www.example.org/EnvironmentRequirementProperties" -->
+	
+	<import schemaLocation="SYBL.xsd" namespace="http://www.example.org/SYBL"></import>
+	<import schemaLocation="TOSCA-v1.0.xsd" namespace="http://docs.oasis-open.org/tosca/ns/2011/12"></import>
+	
+	
+	<!--  <import schemaLocation="EnvironmentRequirementProperties.xsd" namespace="http://www.example.org/EnvironmentRequirementProperties"></import>
+	-->
+	
+    
+
+    <complexType name="TBoundaryDefinitionsExtension">
+    	<complexContent>
+    		<extension base="tosca:tBoundaryDefinitions">
+    			<sequence>
+    				<element name="monitoringProbes" type="elasticity:MonitoringProbesType1" maxOccurs="1" minOccurs="0"></element>
+    			</sequence>
+    		</extension>
+    	</complexContent>
+    </complexType>
+    
+
+    
+    
+
+ 
+    <complexType name="TNodeTemplateExtension">
+    	<complexContent>
+    		<extension base="tosca:tNodeTemplate">
+    			<sequence></sequence>
+    			<attribute name="initInstances" type="int"></attribute>
+    			<attribute name="x" type="int"></attribute>
+    			<attribute name="y" type="int"></attribute>
+    			<attribute name="width" type="int"></attribute>
+    			<attribute name="height" type="int"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+
+
+    <attributeGroup name="NewAttributeGroup"></attributeGroup>
+
+
+
+    <complexType name="MonitoringProbesType1">
+    	<sequence>
+    		<element name="monitoringProbes" type="elasticity:TMonitoringProbe" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="TMonitoringProbe">
+    	<complexContent>
+    		<extension base="tosca:tExtensibleElements">
+    			<attribute name="Name" type="string"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+
+    <complexType name="TServiceTemplateExtension">
+    	<complexContent>
+    		<extension base="tosca:tServiceTemplate">
+    			<attribute name="x" type="int"></attribute>
+    			<attribute name="y" type="int"></attribute>
+    			<attribute name="width" type="int"></attribute>
+    			<attribute name="height" type="int"></attribute>
+    		</extension>
+    	</complexContent>
+    </complexType>
+
+
+
+    <complexType name="ImageArtifactPropertiesType">
+    	<sequence>
+    		<element name="Description" type="string"></element>
+    		<element name="Id" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ImageArtifactProperties"
+    	type="elasticity:ImageArtifactPropertiesType">
+    </element>
+
+
+    <complexType name="NodePropertiesType">
+    	<sequence>
+    		<element name="Flavor" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="NodeProperties"
+    	type="elasticity:NodePropertiesType">
+    </element>
+
+    <complexType name="ScriptArtifactPropertiesType">
+    	<sequence>
+    		<element name="Language" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ScriptArtifactProperties"
+    	type="elasticity:ScriptArtifactPropertiesType">
+    </element>
+
+
+    <complexType name="ServicePropertiesType">
+    	<sequence>
+    		<element name="Version" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <element name="ServiceProperties"
+    	type="elasticity:ServicePropertiesType">
+    </element>
+</schema>

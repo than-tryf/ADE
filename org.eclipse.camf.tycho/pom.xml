@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.camf.tycho</groupId>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<prerequisites>
+		<maven>3.0</maven>
+	</prerequisites>
+
+	<properties>
+		<tycho.version>0.20.0</tycho.version>
+		<!-- <kepler-repo.url>http://download.eclipse.org/releases/kepler</kepler-repo.url> -->
+		<manifest-location>META-INF</manifest-location>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<version>${tycho.version}</version>
+				<artifactId>target-platform-configuration</artifactId>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.eclipse.camf.tycho</groupId>
+							<artifactId>target-definition</artifactId>
+							<version>1.0.0.qualifier</version>
+						</artifact>
+					</target>
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.3.1</version>
+					<configuration>
+						<archive>
+							<manifestFile>${manifest-location}/MANIFEST.MF</manifestFile>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.felix</groupId>
+					<artifactId>maven-bundle-plugin</artifactId>
+					<version>2.1.0</version>
+					<configuration>
+						<manifestLocation>${manifest-location}</manifestLocation>
+					</configuration>
+				</plugin>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-clean-plugin
+										</artifactId>
+										<versionRange>
+											[2.5,)
+										</versionRange>
+										<goals>
+											<goal>clean</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.tycho
+										</groupId>
+										<artifactId>
+											tycho-packaging-plugin
+										</artifactId>
+										<versionRange>
+											[0.20.0,)
+										</versionRange>
+										<goals>
+											<goal>
+												build-qualifier-aggregator
+											</goal>
+											<goal>build-qualifier</goal>
+											<goal>validate-id</goal>
+											<goal>
+												validate-version
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.eclipse.tycho
+										</groupId>
+										<artifactId>
+											tycho-compiler-plugin
+										</artifactId>
+										<versionRange>
+											[0.20.0,)
+										</versionRange>
+										<goals>
+											<goal>compile</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+
+	<modules>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<module>../org.eclipse.camf.jclouds</module>
+		
+		<module>../org.eclipse.camf.connectors.aws</module>
+		<module>../org.eclipse.camf.connectors.aws.ui</module>
+		<module>../org.eclipse.camf.connectors.openstack</module>
+		<module>../org.eclipse.camf.connectors.openstack.ui</module>
+		<module>../org.eclipse.camf.core</module>
+		<module>../org.eclipse.camf.core.reporting</module>
+		<module>../org.eclipse.camf.infosystem</module>
+		<module>../org.eclipse.camf.infosystem.mockup</module>
+		<module>../org.eclipse.camf.infosystem.model</module>
+		<module>../org.eclipse.camf.infosystem.ui</module>
+		<module>../org.eclipse.camf.tosca</module>
+		<module>../org.eclipse.camf.tosca.editor</module>
+		<module>../org.eclipse.camf.feature</module>
+		<module>../org.eclipse.camf.tycho.p2.updatesite</module>
+		<module>../org.eclipse.camf.tycho.target</module>
+		<module>../org.eclipse.camf.ui</module>
+		
+		<module>../org.eclipse.camf.connectors.celar</module>
+		<module>../org.eclipse.camf.connectors.celar.ui</module>
+		
+	</modules>
+</project> 

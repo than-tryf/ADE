@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema version="1.0"
+	targetNamespace="http://www.example.org/EnvironmentRequirementProperties" 
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.example.org/EnvironmentRequirementProperties">
+
+    <xs:complexType name="tCPURequirementProperties">
+    	<xs:sequence>
+    		<xs:element name="NumCPUs" type="xs:int"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tStorageRequirementProperties">
+    	<xs:sequence>
+    		<xs:element name="DiskSpace" type="xs:int"></xs:element>
+    		<xs:element name="Unit" type="xs:string"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="tNetworkRequirementProperties">
+    	<xs:sequence>
+    		<xs:element name="Network" type="xs:boolean"></xs:element>
+    		<xs:element name="Unit" type="xs:string"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tMemoryRequirementProperties">
+    	<xs:sequence>
+    		<xs:element name="Memory" type="xs:int"></xs:element>
+    	</xs:sequence>
+    </xs:complexType>
+
+    <xs:element name="CPURequirementProperties"
+    	type="tCPURequirementProperties">
+    </xs:element>
+
+    <xs:element name="MemoryRequirementProperties"
+    	type="tMemoryRequirementProperties">
+    </xs:element>
+
+    <xs:element name="NetworkRequirementProperties"
+    	type="tNetworkRequirementProperties">
+    </xs:element>
+
+    <xs:element name="StorageRequiremetProperties"
+    	type="tStorageRequirementProperties">
+    </xs:element>
+</xs:schema>

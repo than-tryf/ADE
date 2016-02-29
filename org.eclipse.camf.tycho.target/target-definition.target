@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="target-definition" sequenceNumber="43">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.graphiti.sdk.feature.feature.group" version="0.11.2.v20150204-0954"/>
+<repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.sdk" version="4.4.1.M20140925-0400"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.4"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.wst.web_ui.feature.feature.group" version="3.6.1.v201409112028"/>
+<repository location="http://download.eclipse.org/releases/luna"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.json" version="1.0.0.v201011060100"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20150124073747/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="rocoto" version="6.2.0"/>
+<unit id="jclouds-core" version="1.8.0"/>
+<unit id="org.tukaani.xz" version="1.2.0"/>
+<unit id="com.google.inject" version="3.0.0"/>
+<unit id="openstack-cinder" version="1.8.0"/>
+<unit id="com.google.guava" version="17.0.0"/>
+<unit id="sts" version="1.8.0"/>
+<unit id="javax.annotation.jsr250-api" version="1.0.0"/>
+<unit id="javax.inject.javax.inject" version="1.0.0"/>
+<unit id="javax.ws.rs.jsr311-api" version="1.1.1"/>
+<unit id="openstack-keystone" version="1.8.0"/>
+<unit id="openstack-common" version="1.8.0"/>
+<unit id="jclouds-scriptbuilder" version="1.8.0"/>
+<unit id="cloudwatch" version="1.8.0"/>
+<unit id="aopalliance" version="1.0.0"/>
+<unit id="slf4j.api" version="1.7.2"/>
+<unit id="com.google.inject.assistedinject" version="3.0.0"/>
+<unit id="docker" version="1.8.0"/>
+<unit id="jclouds-compute" version="1.8.0"/>
+<unit id="jclouds-blobstore" version="1.8.0"/>
+<unit id="org.apache.commons.compress" version="1.5.0"/>
+<unit id="com.google.gson" version="2.2.4"/>
+<unit id="swift" version="1.8.0"/>
+<unit id="jclouds-slf4j" version="1.8.0"/>
+<unit id="openstack-neutron-custom" version="1.8.0"/>
+<unit id="openstack-nova" version="1.8.0"/>
+<unit id="ec2" version="1.8.0"/>
+<repository location="http://localhost:8080/site"/>
+</location>
+</locations>
+</target>

@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xsd2ecore:XSD2EcoreMappingRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsd2ecore="http://www.eclipse.org/emf/2002/XSD2Ecore" inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#/ http://www.w3.org/2001/xml.xsd#/"
+    outputs="tosca.ecore#/ ../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#/"
+    topToBottom="true">
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//language;XSDSimpleTypeDefinition=30"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Language"/>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangTypeMember1">
+    <nested inputs="http://www.w3.org/2001/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangTypeMember1/_"/>
+  </nested>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//lang;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//LangType"/>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//anyURI;XSDSimpleTypeDefinition=25"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//AnyURI"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDocumentation;XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//TDocumentation">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDocumentation;XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TDocumentation/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDocumentation;XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TDocumentation/lang"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDocumentation;XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//TDocumentation/source"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensibleElements;XSDComplexTypeDefinition=1"
+      outputs="tosca.ecore#//TExtensibleElements">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensibleElements;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TExtensibleElements/documentation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensibleElements;XSDComplexTypeDefinition=1/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TExtensibleElements/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensibleElements;XSDComplexTypeDefinition=1/XSDWildcard"
+        outputs="tosca.ecore#//TExtensibleElements/anyAttribute"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoolean;XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//TBoolean">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoolean;XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="tosca.ecore#//TBoolean/yes"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoolean;XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="tosca.ecore#//TBoolean/no"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtension;XSDComplexTypeDefinition=41"
+      outputs="tosca.ecore#//TExtension">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtension;XSDComplexTypeDefinition=41/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TExtension/mustUnderstand"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtension;XSDComplexTypeDefinition=41/XSDAttributeUse"
+        outputs="tosca.ecore#//TExtension/namespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle/Extensions;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ExtensionsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle/Extensions;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//ExtensionsType/extension"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//importedURI;XSDSimpleTypeDefinition=1"
+      outputs="tosca.ecore#//ImportedURI"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImport;XSDComplexTypeDefinition=2"
+      outputs="tosca.ecore#//TImport">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImport;XSDComplexTypeDefinition=2/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TImport/importType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImport;XSDComplexTypeDefinition=2/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TImport/location"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImport;XSDComplexTypeDefinition=2/XSDAttributeUse"
+        outputs="tosca.ecore#//TImport/namespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=2/Types;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//TypesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=2/Types;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TypesType/any"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//string;XSDSimpleTypeDefinition=9"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//String"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTag;XSDComplexTypeDefinition=6"
+      outputs="tosca.ecore#//TTag">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTag;XSDComplexTypeDefinition=6/XSDAttributeUse"
+        outputs="tosca.ecore#//TTag/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTag;XSDComplexTypeDefinition=6/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TTag/value"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTags;XSDComplexTypeDefinition=5"
+      outputs="tosca.ecore#//TTags">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTags;XSDComplexTypeDefinition=5/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TTags/tag"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//IDREF;XSDSimpleTypeDefinition=38"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//IDREF"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyMapping;XSDComplexTypeDefinition=8"
+      outputs="tosca.ecore#//TPropertyMapping">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyMapping;XSDComplexTypeDefinition=8/XSDAttributeUse"
+        outputs="tosca.ecore#//TPropertyMapping/serviceTemplatePropertyRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyMapping;XSDComplexTypeDefinition=8/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TPropertyMapping/targetObjectRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyMapping;XSDComplexTypeDefinition=8/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TPropertyMapping/targetPropertyRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyMappings;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertyMappingsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyMappings;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PropertyMappingsType/propertyMapping"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertiesType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PropertiesType1/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//PropertiesType1/propertyMappings"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tConstraint;XSDComplexTypeDefinition=38"
+      outputs="tosca.ecore#//TConstraint">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tConstraint;XSDComplexTypeDefinition=38/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TConstraint/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tConstraint;XSDComplexTypeDefinition=38/XSDAttributeUse"
+        outputs="tosca.ecore#//TConstraint/constraintType"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyConstraint;XSDComplexTypeDefinition=39"
+      outputs="tosca.ecore#//TPropertyConstraint">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPropertyConstraint;XSDComplexTypeDefinition=39/XSDAttributeUse"
+        outputs="tosca.ecore#//TPropertyConstraint/property"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyConstraints;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertyConstraintsType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PropertyConstraintsType1/propertyConstraint"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementRef;XSDComplexTypeDefinition=9"
+      outputs="tosca.ecore#//TRequirementRef">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementRef;XSDComplexTypeDefinition=9/XSDAttributeUse"
+        outputs="tosca.ecore#//TRequirementRef/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementRef;XSDComplexTypeDefinition=9/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TRequirementRef/ref"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=2/Requirements;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RequirementsType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=2/Requirements;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//RequirementsType1/requirement"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityRef;XSDComplexTypeDefinition=10"
+      outputs="tosca.ecore#//TCapabilityRef">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityRef;XSDComplexTypeDefinition=10/XSDAttributeUse"
+        outputs="tosca.ecore#//TCapabilityRef/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityRef;XSDComplexTypeDefinition=10/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TCapabilityRef/ref"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=3/Capabilities;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//CapabilitiesType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=3/Capabilities;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//CapabilitiesType1/capability"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//QName;XSDSimpleTypeDefinition=26"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//QName"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicy;XSDComplexTypeDefinition=37"
+      outputs="tosca.ecore#//TPolicy">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicy;XSDComplexTypeDefinition=37/XSDAttributeUse"
+        outputs="tosca.ecore#//TPolicy/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicy;XSDComplexTypeDefinition=37/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TPolicy/policyRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicy;XSDComplexTypeDefinition=37/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TPolicy/policyType"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=4/Policies;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PoliciesType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=4/Policies;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PoliciesType1/policy"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//NCName;XSDSimpleTypeDefinition=36"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//NCName"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle/NodeOperation;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//NodeOperationType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle/NodeOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="tosca.ecore#//NodeOperationType/interfaceName"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle/NodeOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//NodeOperationType/nodeRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle/NodeOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="tosca.ecore#//NodeOperationType/operationName"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=1/RelationshipOperation;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RelationshipOperationType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=1/RelationshipOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="tosca.ecore#//RelationshipOperationType/interfaceName"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=1/RelationshipOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=2"
+        outputs="tosca.ecore#//RelationshipOperationType/operationName"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=1/RelationshipOperation;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//RelationshipOperationType/relationshipRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=2/Plan;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PlanType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=2/Plan;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//PlanType/planRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46"
+      outputs="tosca.ecore#//TExportedOperation">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TExportedOperation/nodeOperation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TExportedOperation/relationshipOperation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TExportedOperation/plan"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedOperation;XSDComplexTypeDefinition=46/XSDAttributeUse"
+        outputs="tosca.ecore#//TExportedOperation/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedInterface;XSDComplexTypeDefinition=44"
+      outputs="tosca.ecore#//TExportedInterface">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedInterface;XSDComplexTypeDefinition=44/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TExportedInterface/operation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExportedInterface;XSDComplexTypeDefinition=44/XSDAttributeUse"
+        outputs="tosca.ecore#//TExportedInterface/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=5/Interfaces;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//InterfacesType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=5/Interfaces;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//InterfacesType1/interface"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7"
+      outputs="tosca.ecore#//TBoundaryDefinitions">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TBoundaryDefinitions/properties"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TBoundaryDefinitions/propertyConstraints"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TBoundaryDefinitions/requirements"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TBoundaryDefinitions/capabilities"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="tosca.ecore#//TBoundaryDefinitions/policies"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tBoundaryDefinitions;XSDComplexTypeDefinition=7/XSDParticle/XSDModelGroup/XSDParticle=5"
+        outputs="tosca.ecore#//TBoundaryDefinitions/interfaces"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertiesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle/Properties;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PropertiesType/any"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyConstraints;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertyConstraintsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1/PropertyConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PropertyConstraintsType/propertyConstraint"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//ID;XSDSimpleTypeDefinition=37"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//ID"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12"
+      outputs="tosca.ecore#//TEntityTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TEntityTemplate/properties"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TEntityTemplate/propertyConstraints"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDAttributeUse"
+        outputs="tosca.ecore#//TEntityTemplate/id"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityTemplate;XSDComplexTypeDefinition=12/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TEntityTemplate/type"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirement;XSDComplexTypeDefinition=22"
+      outputs="tosca.ecore#//TRequirement">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirement;XSDComplexTypeDefinition=22/XSDAttributeUse"
+        outputs="tosca.ecore#//TRequirement/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/Requirements;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RequirementsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle/Requirements;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//RequirementsType/requirement"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapability;XSDComplexTypeDefinition=25"
+      outputs="tosca.ecore#//TCapability">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapability;XSDComplexTypeDefinition=25/XSDAttributeUse"
+        outputs="tosca.ecore#//TCapability/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/Capabilities;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//CapabilitiesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1/Capabilities;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//CapabilitiesType/capability"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/Policies;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PoliciesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2/Policies;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PoliciesType/policy"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifact;XSDComplexTypeDefinition=29"
+      outputs="tosca.ecore#//TDeploymentArtifact">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifact;XSDComplexTypeDefinition=29/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TDeploymentArtifact/artifactRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifact;XSDComplexTypeDefinition=29/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TDeploymentArtifact/artifactType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifact;XSDComplexTypeDefinition=29/XSDAttributeUse"
+        outputs="tosca.ecore#//TDeploymentArtifact/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifacts;XSDComplexTypeDefinition=28"
+      outputs="tosca.ecore#//TDeploymentArtifacts">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDeploymentArtifacts;XSDComplexTypeDefinition=28/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TDeploymentArtifacts/deploymentArtifact"/>
+  </nested>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//nonNegativeInteger;XSDSimpleTypeDefinition=47"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//NonNegativeInteger"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=2/maxInstances;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//MaxInstancesTypeMember0"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=2/maxInstances;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1"
+      outputs="tosca.ecore#//MaxInstancesTypeMember1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=2/maxInstances;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="tosca.ecore#//MaxInstancesTypeMember1/unbounded"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=2/maxInstances;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//MaxInstancesType"/>
+  <nested inputs="bundleentry://843.fwk1128590881/cache/www.w3.org/2001/XMLSchema.xsd#//int;XSDSimpleTypeDefinition=44"
+      outputs="http://www.eclipse.org/emf/2003/XMLType#//Int"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13"
+      outputs="tosca.ecore#//TNodeTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TNodeTemplate/requirements"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TNodeTemplate/capabilities"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TNodeTemplate/policies"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TNodeTemplate/deploymentArtifacts"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TNodeTemplate/maxInstances"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TNodeTemplate/minInstances"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTemplate;XSDComplexTypeDefinition=13/XSDAttributeUse"
+        outputs="tosca.ecore#//TNodeTemplate/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle/SourceElement;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//SourceElementType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle/SourceElement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//SourceElementType/ref"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=1/TargetElement;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//TargetElementType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=1/TargetElement;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//TargetElementType/ref"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2/RelationshipConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/RelationshipConstraint;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RelationshipConstraintType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2/RelationshipConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/RelationshipConstraint;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//RelationshipConstraintType/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2/RelationshipConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle/RelationshipConstraint;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//RelationshipConstraintType/constraintType"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2/RelationshipConstraints;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RelationshipConstraintsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2/RelationshipConstraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//RelationshipConstraintsType/relationshipConstraint"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17"
+      outputs="tosca.ecore#//TRelationshipTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TRelationshipTemplate/sourceElement"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TRelationshipTemplate/targetElement"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TRelationshipTemplate/relationshipConstraints"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTemplate;XSDComplexTypeDefinition=17/XSDAttributeUse"
+        outputs="tosca.ecore#//TRelationshipTemplate/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyTemplate;XSDComplexTypeDefinition=14"
+      outputs="tosca.ecore#//TTopologyTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyTemplate;XSDComplexTypeDefinition=14/XSDParticle"
+        outputs="tosca.ecore#//TTopologyTemplate/group"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyTemplate;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TTopologyTemplate/nodeTemplate"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyTemplate;XSDComplexTypeDefinition=14/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TTopologyTemplate/relationshipTemplate"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCondition;XSDComplexTypeDefinition=47"
+      outputs="tosca.ecore#//TCondition">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCondition;XSDComplexTypeDefinition=47/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TCondition/any"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCondition;XSDComplexTypeDefinition=47/XSDAttributeUse"
+        outputs="tosca.ecore#//TCondition/expressionLanguage"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tParameter;XSDComplexTypeDefinition=42"
+      outputs="tosca.ecore#//TParameter">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tParameter;XSDComplexTypeDefinition=42/XSDAttributeUse"
+        outputs="tosca.ecore#//TParameter/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tParameter;XSDComplexTypeDefinition=42/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TParameter/required"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tParameter;XSDComplexTypeDefinition=42/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TParameter/type"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=1/InputParameters;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//InputParametersType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=1/InputParameters;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//InputParametersType1/inputParameter"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=2/OutputParameters;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//OutputParametersType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=2/OutputParameters;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//OutputParametersType1/outputParameter"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle/PlanModel;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PlanModelType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle/PlanModel;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//PlanModelType/any"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1/PlanModelReference;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PlanModelReferenceType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1/PlanModelReference;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//PlanModelReferenceType/reference"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33"
+      outputs="tosca.ecore#//TPlan">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TPlan/precondition"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TPlan/inputParameters"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TPlan/outputParameters"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TPlan/planModel"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TPlan/planModelReference"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDAttributeUse"
+        outputs="tosca.ecore#//TPlan/id"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TPlan/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TPlan/planLanguage"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlan;XSDComplexTypeDefinition=33/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TPlan/planType"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlans;XSDComplexTypeDefinition=32"
+      outputs="tosca.ecore#//TPlans">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlans;XSDComplexTypeDefinition=32/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TPlans/plan"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPlans;XSDComplexTypeDefinition=32/XSDAttributeUse"
+        outputs="tosca.ecore#//TPlans/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4"
+      outputs="tosca.ecore#//TServiceTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TServiceTemplate/tags"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TServiceTemplate/boundaryDefinitions"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TServiceTemplate/topologyTemplate"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TServiceTemplate/plans"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDAttributeUse"
+        outputs="tosca.ecore#//TServiceTemplate/id"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TServiceTemplate/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TServiceTemplate/substitutableNodeType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tServiceTemplate;XSDComplexTypeDefinition=4/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TServiceTemplate/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//DerivedFromType2">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//DerivedFromType2/typeRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=2/PropertiesDefinition;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//PropertiesDefinitionType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=2/PropertiesDefinition;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//PropertiesDefinitionType/element"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=2/PropertiesDefinition;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse=1"
+        outputs="tosca.ecore#//PropertiesDefinitionType/type"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11"
+      outputs="tosca.ecore#//TEntityType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TEntityType/tags"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TEntityType/derivedFrom"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TEntityType/propertiesDefinition"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TEntityType/abstract"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TEntityType/final"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDAttributeUse"
+        outputs="tosca.ecore#//TEntityType/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tEntityType;XSDComplexTypeDefinition=11/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TEntityType/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDParticle/XSDModelGroup/XSDParticle/Constraints;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ConstraintsType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDParticle/XSDModelGroup/XSDParticle/Constraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//ConstraintsType1/constraint"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//UpperBoundTypeMember01"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1"
+      outputs="tosca.ecore#//UpperBoundTypeMember11">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="tosca.ecore#//UpperBoundTypeMember11/unbounded"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//UpperBoundType1"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21"
+      outputs="tosca.ecore#//TRequirementDefinition">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TRequirementDefinition/constraints"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TRequirementDefinition/lowerBound"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse"
+        outputs="tosca.ecore#//TRequirementDefinition/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TRequirementDefinition/requirementType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementDefinition;XSDComplexTypeDefinition=21/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TRequirementDefinition/upperBound"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle/RequirementDefinitions;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//RequirementDefinitionsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle/RequirementDefinitions;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//RequirementDefinitionsType/requirementDefinition"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDParticle/XSDModelGroup/XSDParticle/Constraints;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ConstraintsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDParticle/XSDModelGroup/XSDParticle/Constraints;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//ConstraintsType/constraint"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//UpperBoundTypeMember0"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1"
+      outputs="tosca.ecore#//UpperBoundTypeMember1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition/XSDSimpleTypeDefinition=1/XSDEnumerationFacet"
+        outputs="tosca.ecore#//UpperBoundTypeMember1/unbounded"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=3/upperBound;XSDAttributeDeclaration/XSDSimpleTypeDefinition"
+      outputs="tosca.ecore#//UpperBoundType"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24"
+      outputs="tosca.ecore#//TCapabilityDefinition">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TCapabilityDefinition/constraints"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TCapabilityDefinition/capabilityType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TCapabilityDefinition/lowerBound"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse"
+        outputs="tosca.ecore#//TCapabilityDefinition/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityDefinition;XSDComplexTypeDefinition=24/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TCapabilityDefinition/upperBound"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=1/CapabilityDefinitions;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//CapabilityDefinitionsType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=1/CapabilityDefinitions;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//CapabilityDefinitionsType/capabilityDefinition"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyElementInstanceStates;XSDComplexTypeDefinition=48/XSDParticle/XSDModelGroup/XSDParticle/InstanceState;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//InstanceStateType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyElementInstanceStates;XSDComplexTypeDefinition=48/XSDParticle/XSDModelGroup/XSDParticle/InstanceState;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//InstanceStateType/state"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyElementInstanceStates;XSDComplexTypeDefinition=48"
+      outputs="tosca.ecore#//TTopologyElementInstanceStates">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tTopologyElementInstanceStates;XSDComplexTypeDefinition=48/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TTopologyElementInstanceStates/instanceState"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle/InputParameters;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//InputParametersType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle/InputParameters;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//InputParametersType/inputParameter"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle=1/OutputParameters;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//OutputParametersType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle=1/OutputParameters;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//OutputParametersType/outputParameter"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45"
+      outputs="tosca.ecore#//TOperation">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TOperation/inputParameters"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TOperation/outputParameters"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tOperation;XSDComplexTypeDefinition=45/XSDAttributeUse"
+        outputs="tosca.ecore#//TOperation/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tInterface;XSDComplexTypeDefinition=43"
+      outputs="tosca.ecore#//TInterface">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tInterface;XSDComplexTypeDefinition=43/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TInterface/operation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tInterface;XSDComplexTypeDefinition=43/XSDAttributeUse"
+        outputs="tosca.ecore#//TInterface/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=3/Interfaces;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//InterfacesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=3/Interfaces;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//InterfacesType/interface"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18"
+      outputs="tosca.ecore#//TNodeType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TNodeType/requirementDefinitions"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TNodeType/capabilityDefinitions"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TNodeType/instanceStates"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeType;XSDComplexTypeDefinition=18/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TNodeType/interfaces"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//DerivedFromType1">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//DerivedFromType1/nodeTypeImplementationRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequiredContainerFeature;XSDComplexTypeDefinition=51"
+      outputs="tosca.ecore#//TRequiredContainerFeature">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequiredContainerFeature;XSDComplexTypeDefinition=51/XSDAttributeUse"
+        outputs="tosca.ecore#//TRequiredContainerFeature/feature"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequiredContainerFeatures;XSDComplexTypeDefinition=50"
+      outputs="tosca.ecore#//TRequiredContainerFeatures">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequiredContainerFeatures;XSDComplexTypeDefinition=50/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TRequiredContainerFeatures/requiredContainerFeature"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifact;XSDComplexTypeDefinition=31"
+      outputs="tosca.ecore#//TImplementationArtifact">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifact;XSDComplexTypeDefinition=31/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TImplementationArtifact/artifactRef"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifact;XSDComplexTypeDefinition=31/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TImplementationArtifact/artifactType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifact;XSDComplexTypeDefinition=31/XSDAttributeUse"
+        outputs="tosca.ecore#//TImplementationArtifact/interfaceName"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifact;XSDComplexTypeDefinition=31/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TImplementationArtifact/operationName"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifacts;XSDComplexTypeDefinition=30/XSDParticle/XSDModelGroup/XSDParticle/ImplementationArtifact;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ImplementationArtifactType"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifacts;XSDComplexTypeDefinition=30"
+      outputs="tosca.ecore#//TImplementationArtifacts">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tImplementationArtifacts;XSDComplexTypeDefinition=30/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TImplementationArtifacts/implementationArtifact"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19"
+      outputs="tosca.ecore#//TNodeTypeImplementation">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TNodeTypeImplementation/tags"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TNodeTypeImplementation/derivedFrom"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TNodeTypeImplementation/requiredContainerFeatures"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TNodeTypeImplementation/implementationArtifacts"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="tosca.ecore#//TNodeTypeImplementation/deploymentArtifacts"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TNodeTypeImplementation/abstract"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDAttributeUse=4"
+        outputs="tosca.ecore#//TNodeTypeImplementation/final"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDAttributeUse"
+        outputs="tosca.ecore#//TNodeTypeImplementation/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TNodeTypeImplementation/nodeType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tNodeTypeImplementation;XSDComplexTypeDefinition=19/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TNodeTypeImplementation/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=1/SourceInterfaces;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//SourceInterfacesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=1/SourceInterfaces;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//SourceInterfacesType/interface"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=2/TargetInterfaces;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//TargetInterfacesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=2/TargetInterfaces;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TargetInterfacesType/interface"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=3/ValidSource;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ValidSourceType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=3/ValidSource;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//ValidSourceType/typeRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=4/ValidTarget;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ValidTargetType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=4/ValidTarget;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//ValidTargetType/typeRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15"
+      outputs="tosca.ecore#//TRelationshipType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TRelationshipType/instanceStates"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TRelationshipType/sourceInterfaces"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TRelationshipType/targetInterfaces"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TRelationshipType/validSource"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipType;XSDComplexTypeDefinition=15/XSDParticle/XSDModelGroup/XSDParticle=4"
+        outputs="tosca.ecore#//TRelationshipType/validTarget"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//DerivedFromType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle=1/DerivedFrom;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//DerivedFromType/relationshipTypeImplementationRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16"
+      outputs="tosca.ecore#//TRelationshipTypeImplementation">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/tags"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/derivedFrom"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/requiredContainerFeatures"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/implementationArtifacts"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDAttributeUse=3"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/abstract"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDAttributeUse=4"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/final"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDAttributeUse"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/relationshipType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRelationshipTypeImplementation;XSDComplexTypeDefinition=16/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TRelationshipTypeImplementation/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementType;XSDComplexTypeDefinition=20"
+      outputs="tosca.ecore#//TRequirementType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tRequirementType;XSDComplexTypeDefinition=20/XSDAttributeUse"
+        outputs="tosca.ecore#//TRequirementType/requiredCapabilityType"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tCapabilityType;XSDComplexTypeDefinition=23"
+      outputs="tosca.ecore#//TCapabilityType"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactType;XSDComplexTypeDefinition=26"
+      outputs="tosca.ecore#//TArtifactType"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle/Include;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//IncludeType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle/Include;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//IncludeType/pattern"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle=1/Exclude;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ExcludeType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle=1/Exclude;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//ExcludeType/pattern"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49"
+      outputs="tosca.ecore#//TArtifactReference">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle"
+        outputs="tosca.ecore#//TArtifactReference/group"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TArtifactReference/include"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TArtifactReference/exclude"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactReference;XSDComplexTypeDefinition=49/XSDAttributeUse"
+        outputs="tosca.ecore#//TArtifactReference/reference"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactTemplate;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle/ArtifactReferences;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//ArtifactReferencesType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactTemplate;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle/ArtifactReferences;XSDElementDeclaration/XSDComplexTypeDefinition/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//ArtifactReferencesType/artifactReference"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactTemplate;XSDComplexTypeDefinition=27"
+      outputs="tosca.ecore#//TArtifactTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactTemplate;XSDComplexTypeDefinition=27/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TArtifactTemplate/artifactReferences"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tArtifactTemplate;XSDComplexTypeDefinition=27/XSDAttributeUse"
+        outputs="tosca.ecore#//TArtifactTemplate/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tAppliesTo;XSDComplexTypeDefinition=36/XSDParticle/XSDModelGroup/XSDParticle/NodeTypeReference;XSDElementDeclaration/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//NodeTypeReferenceType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tAppliesTo;XSDComplexTypeDefinition=36/XSDParticle/XSDModelGroup/XSDParticle/NodeTypeReference;XSDElementDeclaration/XSDComplexTypeDefinition/XSDAttributeUse"
+        outputs="tosca.ecore#//NodeTypeReferenceType/typeRef"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tAppliesTo;XSDComplexTypeDefinition=36"
+      outputs="tosca.ecore#//TAppliesTo">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tAppliesTo;XSDComplexTypeDefinition=36/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TAppliesTo/nodeTypeReference"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicyType;XSDComplexTypeDefinition=34"
+      outputs="tosca.ecore#//TPolicyType">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicyType;XSDComplexTypeDefinition=34/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TPolicyType/appliesTo"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicyType;XSDComplexTypeDefinition=34/XSDAttributeUse"
+        outputs="tosca.ecore#//TPolicyType/policyLanguage"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicyTemplate;XSDComplexTypeDefinition=35"
+      outputs="tosca.ecore#//TPolicyTemplate">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tPolicyTemplate;XSDComplexTypeDefinition=35/XSDAttributeUse"
+        outputs="tosca.ecore#//TPolicyTemplate/name"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3"
+      outputs="tosca.ecore#//TDefinitions">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TDefinitions/extensions"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TDefinitions/import"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TDefinitions/types"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TDefinitions/group"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TDefinitions/serviceTemplate"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=1"
+        outputs="tosca.ecore#//TDefinitions/nodeType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=2"
+        outputs="tosca.ecore#//TDefinitions/nodeTypeImplementation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=3"
+        outputs="tosca.ecore#//TDefinitions/relationshipType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=4"
+        outputs="tosca.ecore#//TDefinitions/relationshipTypeImplementation"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=5"
+        outputs="tosca.ecore#//TDefinitions/requirementType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=6"
+        outputs="tosca.ecore#//TDefinitions/capabilityType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=7"
+        outputs="tosca.ecore#//TDefinitions/artifactType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=8"
+        outputs="tosca.ecore#//TDefinitions/artifactTemplate"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=9"
+        outputs="tosca.ecore#//TDefinitions/policyType"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDParticle/XSDModelGroup/XSDParticle=3/XSDModelGroup/XSDParticle=10"
+        outputs="tosca.ecore#//TDefinitions/policyTemplate"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDAttributeUse"
+        outputs="tosca.ecore#//TDefinitions/id"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDAttributeUse=1"
+        outputs="tosca.ecore#//TDefinitions/name"/>
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tDefinitions;XSDComplexTypeDefinition=3/XSDAttributeUse=2"
+        outputs="tosca.ecore#//TDefinitions/targetNamespace"/>
+  </nested>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//Definitions;XSDElementDeclaration=1/XSDComplexTypeDefinition"
+      outputs="tosca.ecore#//DefinitionsType"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//Definitions;XSDElementDeclaration=1"
+      outputs="tosca.ecore#//DocumentRoot/definitions"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//documentation;XSDElementDeclaration"
+      outputs="tosca.ecore#//DocumentRoot/documentation"/>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//base;XSDAttributeDeclaration=2"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/base"/>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//id;XSDAttributeDeclaration=3" outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/id"/>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//lang;XSDAttributeDeclaration" outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/lang"/>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType">
+    <nested inputs="http://www.w3.org/2001/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition/XSDEnumerationFacet"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType/default"/>
+    <nested inputs="http://www.w3.org/2001/xml.xsd#//space;XSDAttributeDeclaration=1/XSDSimpleTypeDefinition/XSDEnumerationFacet=1"
+        outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//SpaceType/preserve"/>
+  </nested>
+  <nested inputs="http://www.w3.org/2001/xml.xsd#//space;XSDAttributeDeclaration=1"
+      outputs="../../../plugin/org.eclipse.emf.ecore/model/XMLNamespace.ecore#//DocumentRoot/space"/>
+  <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensions;XSDComplexTypeDefinition=40"
+      outputs="tosca.ecore#//TExtensions">
+    <nested inputs="file:/C:/Users/stalo.cs8526/Desktop/TOSCA/schemas/TOSCA-v1.0.xsd#//tExtensions;XSDComplexTypeDefinition=40/XSDParticle/XSDModelGroup/XSDParticle"
+        outputs="tosca.ecore#//TExtensions/extension"/>
+  </nested>
+</xsd2ecore:XSD2EcoreMappingRoot>

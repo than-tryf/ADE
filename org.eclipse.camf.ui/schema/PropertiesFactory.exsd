@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Schema file written by PDE -->
+<schema targetNamespace="org.eclipse.camf.ui" xmlns="http://www.w3.org/2001/XMLSchema">
+<annotation>
+      <appinfo>
+         <meta.schema plugin="org.eclipse.camf.ui" id="PropertiesFactory" name="PropertiesFactory"/>
+      </appinfo>
+      <documentation>
+         Defines factories, which can produce property-sources for different java classes.
+If many sources support properties for the same class, then properties from all these sources will be joined.
+      </documentation>
+   </annotation>
+
+   <element name="extension">
+      <annotation>
+         <appinfo>
+            <meta.element />
+         </appinfo>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="PropertiesFactory" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="point" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="id" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+               <appinfo>
+                  <meta.attribute translatable="true"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="PropertiesFactory">
+      <annotation>
+         <documentation>
+            Factory, which produces property-sources for many kind of objects
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Unique id of the factory
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class, which implements factory
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="IPropertiesFactory"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+         <attribute name="sourceObjectClass" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Class or it&apos;s inherited classes, for which factory support properties.
+Used for plugin lazy-loading. If you put here Object, then your plugin will be loaded during showing properties for first selected object (not recomended!)
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn="java.lang.Object"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="since"/>
+      </appinfo>
+      <documentation>
+         0.5
+      </documentation>
+   </annotation>
+
+
+   <annotation>
+      <appinfo>
+         <meta.section type="apiInfo"/>
+      </appinfo>
+      <documentation>
+         See org.eclipse.camf.ui.properties.IPropertiesFactory interface.
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="implementation"/>
+      </appinfo>
+      <documentation>
+         org.eclipse.camf.jsdl.ui.properties.PropertiesFactory
+org.eclipse.camf.ui.properties.PropertiesFactory
+      </documentation>
+   </annotation>
+
+   <annotation>
+      <appinfo>
+         <meta.section type="copyright"/>
+      </appinfo>
+      <documentation>
+         Copyright (c) 2006, 2007 g-Eclipse Consortium
+&lt;br&gt;&lt;br&gt;
+All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at &lt;a href=&quot;http://www.eclipse.org/legal/epl-v10.html&quot;&gt;http://www.eclipse.org/legal/epl-v10.html&lt;/a&gt;.
+&lt;br&gt;&lt;br&gt;
+Initial development of the original code was made for the g-Eclipse project founded by European Union project number: FP6-IST-034327 &lt;a href=&quot;http://www.geclipse.eu&quot;&gt;http://www.geclipse.eu&lt;/a&gt;.
+      </documentation>
+   </annotation>
+
+</schema>
