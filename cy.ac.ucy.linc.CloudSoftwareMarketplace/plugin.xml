@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="CloudSoftwareMarketplace Category"
+            id="cy.ac.ucy.linc.CloudSoftwareMarketplace">
+      </category>
+      <view
+            name="CloudSoftwareMarketplaceView"
+            icon="icons/market.png"
+            category="cy.ac.ucy.linc.CloudSoftwareMarketplace"
+            class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView"
+            id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.camf.ui.cloudMarketplace">
+   </extension>
+
+</plugin>
