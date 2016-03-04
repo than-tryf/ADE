@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.wb.swt.ResourceManager;
 
 
 /**
@@ -173,10 +174,11 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				showMessage("Action 1 executed");
 			}
 		};
-		action1.setText("Action 1");
-		action1.setToolTipText("Action 1 tooltip");
-		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
-			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+		action1.setText("Repository Settings");
+		action1.setToolTipText("Configure repository");
+//		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages().
+//			getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+		action1.setImageDescriptor(ResourceManager.getPluginImageDescriptor("cy.ac.ucy.linc.CloudSoftwareMarketplace", "icons/settings.png"));
 		
 		action2 = new Action() {
 			public void run() {
