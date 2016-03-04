@@ -114,6 +114,7 @@
     <complexType name="ServicePropertiesType">
     	<sequence>
     		<element name="Version" type="string"></element>
+    		<element name="HostingEnvironment" type="string" maxOccurs="unbounded" minOccurs="1"></element>
     	</sequence>
     </complexType>
 

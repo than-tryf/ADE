@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:tosca="http://docs.oasis-open.org/tosca/ns/2011/12" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://docs.oasis-open.org/tosca/ns/2011/12">
+  <xsd:annotation>
+    <xsd:documentation>
+   <div xmlns="http://www.w3.org/1999/xhtml">
+    <h1>About the XML namespace</h1>
+
+    <div class="bodytext">
+     <p>
+      This schema document describes the XML namespace, in a form
+      suitable for import by other schema documents.
+     </p>
+     <p>
+      See <a href="http://www.w3.org/XML/1998/namespace.html">
+      http://www.w3.org/XML/1998/namespace.html</a> and
+      <a href="http://www.w3.org/TR/REC-xml">
+      http://www.w3.org/TR/REC-xml</a> for information 
+      about this namespace.
+     </p>
+     <p>
+      Note that local names in this namespace are intended to be
+      defined only by the World Wide Web Consortium or its subgroups.
+      The names currently defined in this namespace are listed below.
+      They should not be used with conflicting semantics by any Working
+      Group, specification, or document instance.
+     </p>
+     <p>   
+      See further below in this document for more information about <a href="#usage">how to refer to this schema document from your own
+      XSD schema documents</a> and about <a href="#nsversioning">the
+      namespace-versioning policy governing this schema document</a>.
+     </p>
+    </div>
+   </div>
+  
+
+   <div xmlns="http://www.w3.org/1999/xhtml">
+   
+    <h3>Father (in any context at all)</h3> 
+
+    <div class="bodytext">
+     <p>
+      denotes Jon Bosak, the chair of 
+      the original XML Working Group.  This name is reserved by 
+      the following decision of the W3C XML Plenary and 
+      XML Coordination groups:
+     </p>
+     <blockquote>
+       <p>
+	In appreciation for his vision, leadership and
+	dedication the W3C XML Plenary on this 10th day of
+	February, 2000, reserves for Jon Bosak in perpetuity
+	the XML name "xml:Father".
+       </p>
+     </blockquote>
+    </div>
+   </div>
+  
+
+   <div xmlns="http://www.w3.org/1999/xhtml" id="usage" xml:id="usage">
+    <h2>
+      <a name="usage">About this schema document</a>
+    </h2>
+
+    <div class="bodytext">
+     <p>
+      This schema defines attributes and an attribute group suitable
+      for use by schemas wishing to allow <code>xml:base</code>,
+      <code>xml:lang</code>, <code>xml:space</code> or
+      <code>xml:id</code> attributes on elements they define.
+     </p>
+     <p>
+      To enable this, such a schema must import this schema for
+      the XML namespace, e.g. as follows:
+     </p>
+     <pre>
+          &lt;schema . . .&gt;
+           . . .
+           &lt;import namespace="http://www.w3.org/XML/1998/namespace"
+                      schemaLocation="http://www.w3.org/2001/xml.xsd"/&gt;
+     </pre>
+     <p>
+      or
+     </p>
+     <pre>
+           &lt;import namespace="http://www.w3.org/XML/1998/namespace"
+                      schemaLocation="http://www.w3.org/2009/01/xml.xsd"/&gt;
+     </pre>
+     <p>
+      Subsequently, qualified reference to any of the attributes or the
+      group defined below will have the desired effect, e.g.
+     </p>
+     <pre>
+          &lt;type . . .&gt;
+           . . .
+           &lt;attributeGroup ref="xml:specialAttrs"/&gt;
+     </pre>
+     <p>
+      will define a type which will schema-validate an instance element
+      with any of those attributes.
+     </p>
+    </div>
+   </div>
+  
+
+   <div xmlns="http://www.w3.org/1999/xhtml" id="nsversioning" xml:id="nsversioning">
+    <h2>
+      <a name="nsversioning">Versioning policy for this schema document</a>
+    </h2>
+    <div class="bodytext">
+     <p>
+      In keeping with the XML Schema WG's standard versioning
+      policy, this schema document will persist at
+      <a href="http://www.w3.org/2009/01/xml.xsd">
+       http://www.w3.org/2009/01/xml.xsd</a>.
+     </p>
+     <p>
+      At the date of issue it can also be found at
+      <a href="http://www.w3.org/2001/xml.xsd">
+       http://www.w3.org/2001/xml.xsd</a>.
+     </p>
+     <p>
+      The schema document at that URI may however change in the future,
+      in order to remain compatible with the latest version of XML
+      Schema itself, or with the XML namespace itself.  In other words,
+      if the XML Schema or XML namespaces change, the version of this
+      document at <a href="http://www.w3.org/2001/xml.xsd">
+       http://www.w3.org/2001/xml.xsd 
+      </a> 
+      will change accordingly; the version at 
+      <a href="http://www.w3.org/2009/01/xml.xsd">
+       http://www.w3.org/2009/01/xml.xsd 
+      </a> 
+      will not change.
+     </p>
+     <p>
+      Previous dated (and unchanging) versions of this schema 
+      document are at:
+     </p>
+     <ul>
+      <li>
+          <a href="http://www.w3.org/2009/01/xml.xsd">
+	http://www.w3.org/2009/01/xml.xsd</a>
+        </li>
+      <li>
+          <a href="http://www.w3.org/2007/08/xml.xsd">
+	http://www.w3.org/2007/08/xml.xsd</a>
+        </li>
+      <li>
+          <a href="http://www.w3.org/2004/10/xml.xsd">
+	http://www.w3.org/2004/10/xml.xsd</a>
+        </li>
+      <li>
+          <a href="http://www.w3.org/2001/03/xml.xsd">
+	http://www.w3.org/2001/03/xml.xsd</a>
+        </li>
+     </ul>
+    </div>
+   </div>
+  </xsd:documentation>
+  </xsd:annotation>
+  <xsd:simpleType name="MaxInstancesTypeMember1">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="unbounded"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="TBoolean">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="yes"/>
+      <xsd:enumeration value="no"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="UpperBoundTypeMember1">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="unbounded"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="UpperBoundTypeMember11">
+    <xsd:restriction base="xsd:NCName">
+      <xsd:enumeration value="unbounded"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="ArtifactReferencesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="artifactReference" type="tosca:TArtifactReference"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ArtifactReferencesType" type="tosca:ArtifactReferencesType"/>
+  <xsd:complexType name="CapabilitiesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="capability" type="tosca:TCapability"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CapabilitiesType" type="tosca:CapabilitiesType"/>
+  <xsd:complexType name="CapabilitiesType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="capability" type="tosca:TCapabilityRef"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CapabilitiesType1" type="tosca:CapabilitiesType1"/>
+  <xsd:complexType name="CapabilityDefinitionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="capabilityDefinition" type="tosca:TCapabilityDefinition"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="CapabilityDefinitionsType" type="tosca:CapabilityDefinitionsType"/>
+  <xsd:complexType name="ConstraintsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="constraint" type="tosca:TConstraint"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ConstraintsType" type="tosca:ConstraintsType"/>
+  <xsd:complexType name="ConstraintsType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="constraint" type="tosca:TConstraint"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ConstraintsType1" type="tosca:ConstraintsType1"/>
+  <xsd:complexType name="DefinitionsType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TDefinitions"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="DefinitionsType" type="tosca:DefinitionsType"/>
+  <xsd:complexType name="DerivedFromType">
+    <xsd:attribute name="relationshipTypeImplementationRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="DerivedFromType" type="tosca:DerivedFromType"/>
+  <xsd:complexType name="DerivedFromType1">
+    <xsd:attribute name="nodeTypeImplementationRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="DerivedFromType1" type="tosca:DerivedFromType1"/>
+  <xsd:complexType name="DerivedFromType2">
+    <xsd:attribute name="typeRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="DerivedFromType2" type="tosca:DerivedFromType2"/>
+  <xsd:complexType name="DocumentRoot"/>
+  <xsd:element name="DocumentRoot" type="tosca:DocumentRoot"/>
+  <xsd:complexType name="ExcludeType">
+    <xsd:attribute name="pattern" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="ExcludeType" type="tosca:ExcludeType"/>
+  <xsd:complexType name="ExtensionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="extension" type="tosca:TExtension"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="ExtensionsType" type="tosca:ExtensionsType"/>
+  <xsd:complexType name="ImplementationArtifactType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TImplementationArtifact"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="ImplementationArtifactType" type="tosca:ImplementationArtifactType"/>
+  <xsd:complexType name="IncludeType">
+    <xsd:attribute name="pattern" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="IncludeType" type="tosca:IncludeType"/>
+  <xsd:complexType name="InputParametersType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="inputParameter" type="tosca:TParameter"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="InputParametersType" type="tosca:InputParametersType"/>
+  <xsd:complexType name="InputParametersType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="inputParameter" type="tosca:TParameter"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="InputParametersType1" type="tosca:InputParametersType1"/>
+  <xsd:complexType name="InstanceStateType">
+    <xsd:attribute name="state" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="InstanceStateType" type="tosca:InstanceStateType"/>
+  <xsd:complexType name="InterfacesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="interface" type="tosca:TInterface"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="InterfacesType" type="tosca:InterfacesType"/>
+  <xsd:complexType name="InterfacesType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="interface" type="tosca:TExportedInterface"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="InterfacesType1" type="tosca:InterfacesType1"/>
+  <xsd:complexType name="NodeOperationType">
+    <xsd:attribute name="interfaceName" type="xsd:string" use="required"/>
+    <xsd:attribute name="nodeRef" type="xsd:string" use="required"/>
+    <xsd:attribute name="operationName" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="NodeOperationType" type="tosca:NodeOperationType"/>
+  <xsd:complexType name="NodeTypeReferenceType">
+    <xsd:attribute name="typeRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="NodeTypeReferenceType" type="tosca:NodeTypeReferenceType"/>
+  <xsd:complexType name="OutputParametersType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="outputParameter" type="tosca:TParameter"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OutputParametersType" type="tosca:OutputParametersType"/>
+  <xsd:complexType name="OutputParametersType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="outputParameter" type="tosca:TParameter"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="OutputParametersType1" type="tosca:OutputParametersType1"/>
+  <xsd:complexType name="PlanModelReferenceType">
+    <xsd:attribute name="reference" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="PlanModelReferenceType" type="tosca:PlanModelReferenceType"/>
+  <xsd:complexType name="PlanModelType"/>
+  <xsd:element name="PlanModelType" type="tosca:PlanModelType"/>
+  <xsd:complexType name="PlanType">
+    <xsd:attribute name="planRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="PlanType" type="tosca:PlanType"/>
+  <xsd:complexType name="PoliciesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="policy" type="tosca:TPolicy"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PoliciesType" type="tosca:PoliciesType"/>
+  <xsd:complexType name="PoliciesType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="policy" type="tosca:TPolicy"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PoliciesType1" type="tosca:PoliciesType1"/>
+  <xsd:complexType name="PropertiesDefinitionType">
+    <xsd:attribute name="element" type="xsd:string"/>
+    <xsd:attribute name="type" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="PropertiesDefinitionType" type="tosca:PropertiesDefinitionType"/>
+  <xsd:complexType name="PropertiesType"/>
+  <xsd:element name="PropertiesType" type="tosca:PropertiesType"/>
+  <xsd:complexType name="PropertiesType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="propertyMappings" type="tosca:PropertyMappingsType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PropertiesType1" type="tosca:PropertiesType1"/>
+  <xsd:complexType name="PropertyConstraintsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="propertyConstraint" type="tosca:TPropertyConstraint"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PropertyConstraintsType" type="tosca:PropertyConstraintsType"/>
+  <xsd:complexType name="PropertyConstraintsType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="propertyConstraint" type="tosca:TPropertyConstraint"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PropertyConstraintsType1" type="tosca:PropertyConstraintsType1"/>
+  <xsd:complexType name="PropertyMappingsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="propertyMapping" type="tosca:TPropertyMapping"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PropertyMappingsType" type="tosca:PropertyMappingsType"/>
+  <xsd:complexType name="RelationshipConstraintsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="relationshipConstraint" type="tosca:RelationshipConstraintType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RelationshipConstraintsType" type="tosca:RelationshipConstraintsType"/>
+  <xsd:complexType name="RelationshipConstraintType">
+    <xsd:attribute name="constraintType" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="RelationshipConstraintType" type="tosca:RelationshipConstraintType"/>
+  <xsd:complexType name="RelationshipOperationType">
+    <xsd:attribute name="interfaceName" type="xsd:string" use="required"/>
+    <xsd:attribute name="operationName" type="xsd:string" use="required"/>
+    <xsd:attribute name="relationshipRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="RelationshipOperationType" type="tosca:RelationshipOperationType"/>
+  <xsd:complexType name="RequirementDefinitionsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="requirementDefinition" type="tosca:TRequirementDefinition"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RequirementDefinitionsType" type="tosca:RequirementDefinitionsType"/>
+  <xsd:complexType name="RequirementsType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="requirement" type="tosca:TRequirement"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RequirementsType" type="tosca:RequirementsType"/>
+  <xsd:complexType name="RequirementsType1">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="requirement" type="tosca:TRequirementRef"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="RequirementsType1" type="tosca:RequirementsType1"/>
+  <xsd:complexType name="SourceElementType">
+    <xsd:attribute name="ref" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="SourceElementType" type="tosca:SourceElementType"/>
+  <xsd:complexType name="SourceInterfacesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="interface" type="tosca:TInterface"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="SourceInterfacesType" type="tosca:SourceInterfacesType"/>
+  <xsd:complexType name="TAppliesTo">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="nodeTypeReference" type="tosca:NodeTypeReferenceType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TAppliesTo" type="tosca:TAppliesTo"/>
+  <xsd:complexType name="TargetElementType">
+    <xsd:attribute name="ref" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TargetElementType" type="tosca:TargetElementType"/>
+  <xsd:complexType name="TargetInterfacesType">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="interface" type="tosca:TInterface"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TargetInterfacesType" type="tosca:TargetInterfacesType"/>
+  <xsd:complexType name="TArtifactReference">
+    <xsd:attribute name="reference" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TArtifactReference" type="tosca:TArtifactReference"/>
+  <xsd:complexType name="TArtifactTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="artifactReferences" type="tosca:ArtifactReferencesType"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TArtifactTemplate" type="tosca:TArtifactTemplate"/>
+  <xsd:complexType name="TArtifactType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TArtifactType" type="tosca:TArtifactType"/>
+  <xsd:complexType name="TBoundaryDefinitions">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="properties" type="tosca:PropertiesType1"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="propertyConstraints" type="tosca:PropertyConstraintsType1"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="requirements" type="tosca:RequirementsType1"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="capabilities" type="tosca:CapabilitiesType1"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="policies" type="tosca:PoliciesType1"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="interfaces" type="tosca:InterfacesType1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TBoundaryDefinitions" type="tosca:TBoundaryDefinitions"/>
+  <xsd:complexType name="TCapability">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TCapability" type="tosca:TCapability"/>
+  <xsd:complexType name="TCapabilityDefinition">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="constraints" type="tosca:ConstraintsType"/>
+        </xsd:sequence>
+        <xsd:attribute name="capabilityType" type="xsd:string" use="required"/>
+        <xsd:attribute default="1" name="lowerBound" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute default="1" name="upperBound" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TCapabilityDefinition" type="tosca:TCapabilityDefinition"/>
+  <xsd:complexType name="TCapabilityRef">
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="ref" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TCapabilityRef" type="tosca:TCapabilityRef"/>
+  <xsd:complexType name="TCapabilityType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TCapabilityType" type="tosca:TCapabilityType"/>
+  <xsd:complexType name="TCondition">
+    <xsd:attribute name="expressionLanguage" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TCondition" type="tosca:TCondition"/>
+  <xsd:complexType name="TConstraint">
+    <xsd:attribute name="constraintType" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TConstraint" type="tosca:TConstraint"/>
+  <xsd:complexType name="TDefinitions">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="extensions" type="tosca:ExtensionsType"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="import" type="tosca:TImport"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="types" type="tosca:TypesType"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="targetNamespace" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TDefinitions" type="tosca:TDefinitions"/>
+  <xsd:complexType name="TDeploymentArtifact">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:attribute name="artifactRef" type="xsd:string"/>
+        <xsd:attribute name="artifactType" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TDeploymentArtifact" type="tosca:TDeploymentArtifact"/>
+  <xsd:complexType name="TDeploymentArtifacts">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="deploymentArtifact" type="tosca:TDeploymentArtifact"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TDeploymentArtifacts" type="tosca:TDeploymentArtifacts"/>
+  <xsd:complexType name="TDocumentation">
+    <xsd:attribute name="lang" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     
+      <h3>lang (as an attribute name)</h3>
+      <p>
+       denotes an attribute whose value
+       is a language code for the natural language of the content of
+       any element; its value is inherited.  This name is reserved
+       by virtue of its definition in the XML specification.</p>
+     
+    </div>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+     <h4>Notes</h4>
+     <p>
+      Attempting to install the relevant ISO 2- and 3-letter
+      codes as the enumerated possible values is probably never
+      going to be a realistic possibility.  
+     </p>
+     <p>
+      See BCP 47 at <a href="http://www.rfc-editor.org/rfc/bcp/bcp47.txt">
+       http://www.rfc-editor.org/rfc/bcp/bcp47.txt</a>
+      and the IANA language subtag registry at
+      <a href="http://www.iana.org/assignments/language-subtag-registry">
+       http://www.iana.org/assignments/language-subtag-registry</a>
+      for further information.
+     </p>
+     <p>
+      The union allows for the 'un-declaration' of xml:lang with
+      the empty string.
+     </p>
+    </div>
+   </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="source" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TDocumentation" type="tosca:TDocumentation"/>
+  <xsd:complexType abstract="true" name="TEntityTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="properties" type="tosca:PropertiesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="propertyConstraints" type="tosca:PropertyConstraintsType"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="type" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType abstract="true" name="TEntityType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tags" type="tosca:TTags"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="derivedFrom" type="tosca:DerivedFromType2"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="propertiesDefinition" type="tosca:PropertiesDefinitionType"/>
+        </xsd:sequence>
+        <xsd:attribute default="no" name="abstract" type="tosca:TBoolean"/>
+        <xsd:attribute default="no" name="final" type="tosca:TBoolean"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="targetNamespace" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:complexType name="TExportedInterface">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="operation" type="tosca:TExportedOperation"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TExportedInterface" type="tosca:TExportedInterface"/>
+  <xsd:complexType name="TExportedOperation">
+    <xsd:sequence>
+      <xsd:element maxOccurs="1" minOccurs="0" name="nodeOperation" type="tosca:NodeOperationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="relationshipOperation" type="tosca:RelationshipOperationType"/>
+      <xsd:element maxOccurs="1" minOccurs="0" name="plan" type="tosca:PlanType"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TExportedOperation" type="tosca:TExportedOperation"/>
+  <xsd:complexType name="TExtensibleElements">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="0" name="documentation" type="tosca:TDocumentation"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TExtensibleElements" type="tosca:TExtensibleElements"/>
+  <xsd:complexType name="TExtension">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:attribute default="yes" name="mustUnderstand" type="tosca:TBoolean"/>
+        <xsd:attribute name="namespace" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TExtension" type="tosca:TExtension"/>
+  <xsd:complexType name="TExtensions">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="extension" type="tosca:TExtension"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TExtensions" type="tosca:TExtensions"/>
+  <xsd:complexType name="TImplementationArtifact">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:attribute name="artifactRef" type="xsd:string"/>
+        <xsd:attribute name="artifactType" type="xsd:string" use="required"/>
+        <xsd:attribute name="interfaceName" type="xsd:string"/>
+        <xsd:attribute name="operationName" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TImplementationArtifact" type="tosca:TImplementationArtifact"/>
+  <xsd:complexType name="TImplementationArtifacts">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="implementationArtifact" type="tosca:ImplementationArtifactType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TImplementationArtifacts" type="tosca:TImplementationArtifacts"/>
+  <xsd:complexType name="TImport">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:attribute name="importType" type="xsd:string" use="required"/>
+        <xsd:attribute name="location" type="xsd:string"/>
+        <xsd:attribute name="namespace" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TImport" type="tosca:TImport"/>
+  <xsd:complexType name="TInterface">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="operation" type="tosca:TOperation"/>
+    </xsd:sequence>
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TInterface" type="tosca:TInterface"/>
+  <xsd:complexType name="TNodeTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="requirements" type="tosca:RequirementsType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="capabilities" type="tosca:CapabilitiesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="policies" type="tosca:PoliciesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deploymentArtifacts" type="tosca:TDeploymentArtifacts"/>
+        </xsd:sequence>
+        <xsd:attribute default="1" name="maxInstances" type="xsd:string"/>
+        <xsd:attribute default="1" name="minInstances" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TNodeTemplate" type="tosca:TNodeTemplate"/>
+  <xsd:complexType name="TNodeType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="requirementDefinitions" type="tosca:RequirementDefinitionsType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="capabilityDefinitions" type="tosca:CapabilityDefinitionsType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="instanceStates" type="tosca:TTopologyElementInstanceStates"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="interfaces" type="tosca:InterfacesType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TNodeType" type="tosca:TNodeType"/>
+  <xsd:complexType name="TNodeTypeImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tags" type="tosca:TTags"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="derivedFrom" type="tosca:DerivedFromType1"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="requiredContainerFeatures" type="tosca:TRequiredContainerFeatures"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="implementationArtifacts" type="tosca:TImplementationArtifacts"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="deploymentArtifacts" type="tosca:TDeploymentArtifacts"/>
+        </xsd:sequence>
+        <xsd:attribute default="no" name="abstract" type="tosca:TBoolean"/>
+        <xsd:attribute default="no" name="final" type="tosca:TBoolean"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="nodeType" type="xsd:string" use="required"/>
+        <xsd:attribute name="targetNamespace" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TNodeTypeImplementation" type="tosca:TNodeTypeImplementation"/>
+  <xsd:complexType name="TOperation">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="inputParameters" type="tosca:InputParametersType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="outputParameters" type="tosca:OutputParametersType"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TOperation" type="tosca:TOperation"/>
+  <xsd:complexType name="TParameter">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute default="yes" name="required" type="tosca:TBoolean"/>
+    <xsd:attribute name="type" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TParameter" type="tosca:TParameter"/>
+  <xsd:complexType name="TPlan">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="precondition" type="tosca:TCondition"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="inputParameters" type="tosca:InputParametersType1"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="outputParameters" type="tosca:OutputParametersType1"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="planModel" type="tosca:PlanModelType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="planModelReference" type="tosca:PlanModelReferenceType"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="planLanguage" type="xsd:string" use="required"/>
+        <xsd:attribute name="planType" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TPlan" type="tosca:TPlan"/>
+  <xsd:complexType name="TPlans">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="plan" type="tosca:TPlan"/>
+    </xsd:sequence>
+    <xsd:attribute name="targetNamespace" type="xsd:string"/>
+  </xsd:complexType>
+  <xsd:element name="TPlans" type="tosca:TPlans"/>
+  <xsd:complexType name="TPolicy">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="policyRef" type="xsd:string"/>
+        <xsd:attribute name="policyType" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TPolicy" type="tosca:TPolicy"/>
+  <xsd:complexType name="TPolicyTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TPolicyTemplate" type="tosca:TPolicyTemplate"/>
+  <xsd:complexType name="TPolicyType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="appliesTo" type="tosca:TAppliesTo"/>
+        </xsd:sequence>
+        <xsd:attribute name="policyLanguage" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TPolicyType" type="tosca:TPolicyType"/>
+  <xsd:complexType name="TPropertyConstraint">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TConstraint">
+        <xsd:attribute name="property" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TPropertyConstraint" type="tosca:TPropertyConstraint"/>
+  <xsd:complexType name="TPropertyMapping">
+    <xsd:attribute name="serviceTemplatePropertyRef" type="xsd:string" use="required"/>
+    <xsd:attribute name="targetObjectRef" type="xsd:string" use="required"/>
+    <xsd:attribute name="targetPropertyRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TPropertyMapping" type="tosca:TPropertyMapping"/>
+  <xsd:complexType name="TRelationshipTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="sourceElement" type="tosca:SourceElementType"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="targetElement" type="tosca:TargetElementType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="relationshipConstraints" type="tosca:RelationshipConstraintsType"/>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRelationshipTemplate" type="tosca:TRelationshipTemplate"/>
+  <xsd:complexType name="TRelationshipType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="instanceStates" type="tosca:TTopologyElementInstanceStates"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="sourceInterfaces" type="tosca:SourceInterfacesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="targetInterfaces" type="tosca:TargetInterfacesType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="validSource" type="tosca:ValidSourceType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="validTarget" type="tosca:ValidTargetType"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRelationshipType" type="tosca:TRelationshipType"/>
+  <xsd:complexType name="TRelationshipTypeImplementation">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tags" type="tosca:TTags"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="derivedFrom" type="tosca:DerivedFromType"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="requiredContainerFeatures" type="tosca:TRequiredContainerFeatures"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="implementationArtifacts" type="tosca:TImplementationArtifacts"/>
+        </xsd:sequence>
+        <xsd:attribute default="no" name="abstract" type="tosca:TBoolean"/>
+        <xsd:attribute default="no" name="final" type="tosca:TBoolean"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="relationshipType" type="xsd:string" use="required"/>
+        <xsd:attribute name="targetNamespace" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRelationshipTypeImplementation" type="tosca:TRelationshipTypeImplementation"/>
+  <xsd:complexType name="TRequiredContainerFeature">
+    <xsd:attribute name="feature" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TRequiredContainerFeature" type="tosca:TRequiredContainerFeature"/>
+  <xsd:complexType name="TRequiredContainerFeatures">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="requiredContainerFeature" type="tosca:TRequiredContainerFeature"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TRequiredContainerFeatures" type="tosca:TRequiredContainerFeatures"/>
+  <xsd:complexType name="TRequirement">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityTemplate">
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRequirement" type="tosca:TRequirement"/>
+  <xsd:complexType name="TRequirementDefinition">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="constraints" type="tosca:ConstraintsType1"/>
+        </xsd:sequence>
+        <xsd:attribute default="1" name="lowerBound" type="xsd:string"/>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="requirementType" type="xsd:string" use="required"/>
+        <xsd:attribute default="1" name="upperBound" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRequirementDefinition" type="tosca:TRequirementDefinition"/>
+  <xsd:complexType name="TRequirementRef">
+    <xsd:attribute name="name" type="xsd:string"/>
+    <xsd:attribute name="ref" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TRequirementRef" type="tosca:TRequirementRef"/>
+  <xsd:complexType name="TRequirementType">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TEntityType">
+        <xsd:attribute name="requiredCapabilityType" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TRequirementType" type="tosca:TRequirementType"/>
+  <xsd:complexType name="TServiceTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="tags" type="tosca:TTags"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="boundaryDefinitions" type="tosca:TBoundaryDefinitions"/>
+          <xsd:element maxOccurs="1" minOccurs="1" name="topologyTemplate" type="tosca:TTopologyTemplate"/>
+          <xsd:element maxOccurs="1" minOccurs="0" name="plans" type="tosca:TPlans"/>
+        </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+        <xsd:attribute name="name" type="xsd:string"/>
+        <xsd:attribute name="substitutableNodeType" type="xsd:string"/>
+        <xsd:attribute name="targetNamespace" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TServiceTemplate" type="tosca:TServiceTemplate"/>
+  <xsd:complexType name="TTag">
+    <xsd:attribute name="name" type="xsd:string" use="required"/>
+    <xsd:attribute name="value" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="TTag" type="tosca:TTag"/>
+  <xsd:complexType name="TTags">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="tag" type="tosca:TTag"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TTags" type="tosca:TTags"/>
+  <xsd:complexType name="TTopologyElementInstanceStates">
+    <xsd:sequence>
+      <xsd:element maxOccurs="unbounded" minOccurs="1" name="instanceState" type="tosca:InstanceStateType"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="TTopologyElementInstanceStates" type="tosca:TTopologyElementInstanceStates"/>
+  <xsd:complexType name="TTopologyTemplate">
+    <xsd:complexContent>
+      <xsd:extension base="tosca:TExtensibleElements"/>
+    </xsd:complexContent>
+  </xsd:complexType>
+  <xsd:element name="TTopologyTemplate" type="tosca:TTopologyTemplate"/>
+  <xsd:complexType name="TypesType"/>
+  <xsd:element name="TypesType" type="tosca:TypesType"/>
+  <xsd:complexType name="ValidSourceType">
+    <xsd:attribute name="typeRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="ValidSourceType" type="tosca:ValidSourceType"/>
+  <xsd:complexType name="ValidTargetType">
+    <xsd:attribute name="typeRef" type="xsd:string" use="required"/>
+  </xsd:complexType>
+  <xsd:element name="ValidTargetType" type="tosca:ValidTargetType"/>
+</xsd:schema>
