@@ -9,7 +9,7 @@
             id="cy.ac.ucy.linc.CloudSoftwareMarketplace">
       </category>
       <view
-            name="CloudSoftwareMarketplaceView"
+            name="Cloud Software Marketplace"
             icon="icons/market.png"
             category="cy.ac.ucy.linc.CloudSoftwareMarketplace"
             class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView"
