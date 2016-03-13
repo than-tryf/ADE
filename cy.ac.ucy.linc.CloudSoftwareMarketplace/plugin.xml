@@ -10,7 +10,7 @@
       </category>
       <view
             name="Cloud Software Marketplace"
-            icon="icons/market.png"
+            icon="src/icons/market.png"
             category="cy.ac.ucy.linc.CloudSoftwareMarketplace"
             class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView"
             id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView">

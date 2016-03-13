@@ -16,6 +16,9 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.wb.swt.ResourceManager;
 
+import cy.ac.ucy.linc.*;
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
+
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
  * shows data obtained from the model. The sample creates a dummy model on the
@@ -43,6 +46,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Action action2;
 	private Action doubleClickAction;
 	private Text txtSearchArtifact;
+	public CloudSoftwareRepo csr;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -92,6 +96,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	 * The constructor.
 	 */
 	public CloudSoftwareMarketplaceView() {
+		csr = new CloudSoftwareRepo();
 	}
 
 	/**
@@ -182,9 +187,9 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				
-				
-				showMessage("Action 1 executed");
+				CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
+				csmc.main(null);
+				//showMessage("Action 1 executed");
 			}
 		};
 		action1.setText("Repository Settings");
