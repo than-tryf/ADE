@@ -202,11 +202,4 @@ Nicholas Loulloudes - API and implementation extensions
          version="0.0.0"
          unpack="false"/>
 
-   <plugin
-         id="cy.ac.ucy.linc.CloudSoftwareMarketplace"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
 </feature>

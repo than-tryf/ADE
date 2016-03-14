@@ -16,7 +16,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.wb.swt.ResourceManager;
 
-import cy.ac.ucy.linc.*;
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 
 /**
@@ -97,6 +96,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	 */
 	public CloudSoftwareMarketplaceView() {
 		csr = new CloudSoftwareRepo();
+		csr.setNEXUS_URL("Hello World!");
 	}
 
 	/**

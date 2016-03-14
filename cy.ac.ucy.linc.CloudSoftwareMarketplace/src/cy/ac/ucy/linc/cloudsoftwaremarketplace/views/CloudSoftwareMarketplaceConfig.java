@@ -5,6 +5,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Label;
+
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 
 public class CloudSoftwareMarketplaceConfig {
 
@@ -45,6 +48,10 @@ public class CloudSoftwareMarketplaceConfig {
 		shell = new Shell();
 		shell.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfig.class, "/icons/settings.png"));
 		shell.setSize(450, 300);
+		
+		Composite composite = new Composite(shell, SWT.BORDER);
+		composite.setBounds(10, 10, 414, 64);
+		CloudSoftwareRepo csr = new CloudSoftwareRepo();
 
 	}
 }
