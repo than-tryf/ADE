@@ -56,7 +56,7 @@ public class CloudHttp {
 			System.out.println(response);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RepoExceptions("Malformed repository url. Repository url must have the following format: http(s)://host:port");
 		} catch (HttpHostConnectException e) {
 			throw new RepoExceptions("Repository unreachable at the moment");
 			// System.out.println("Repository unreachable at the moment");
@@ -85,7 +85,7 @@ public class CloudHttp {
 			httpResponse = httpClient.execute(httpPost);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			throw new RepoExceptions("Malformed repository url. Repository url must have the following format: http(s)://host:port");
 		}catch (HttpHostConnectException e) {
 			throw new RepoExceptions("Repository unreachable at the moment");
 			// System.out.println("Repository unreachable at the moment");

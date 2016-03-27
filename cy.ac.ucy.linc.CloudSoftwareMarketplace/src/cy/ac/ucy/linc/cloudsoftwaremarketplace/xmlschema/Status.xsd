@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="status">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="data">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element type="xs:string" name="appName" />
+							<xs:element type="xs:string" name="formattedAppName" />
+							<xs:element type="xs:string" name="version" />
+							<xs:element type="xs:string" name="apiVersion" />
+							<xs:element type="xs:string" name="editionLong" />
+							<xs:element type="xs:string" name="editionShort" />
+							<xs:element type="xs:string" name="attributionsURL" />
+							<xs:element type="xs:anyURI" name="purchaseURL" />
+							<xs:element type="xs:anyURI" name="userLicenseURL" />
+							<xs:element type="xs:string" name="state" />
+							<xs:element type="xs:string" name="initializedAt" />
+							<xs:element type="xs:string" name="startedAt" />
+							<xs:element type="xs:string" name="lastConfigChange" />
+							<xs:element type="xs:string" name="firstStart" />
+							<xs:element type="xs:string" name="instanceUpgraded" />
+							<xs:element type="xs:string" name="configurationUpgraded" />
+							<xs:element type="xs:anyURI" name="baseUrl" />
+							<xs:element type="xs:string" name="licenseInstalled" />
+							<xs:element type="xs:string" name="licenseExpired" />
+							<xs:element type="xs:string" name="trialLicense" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

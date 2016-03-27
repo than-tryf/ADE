@@ -3,8 +3,9 @@ package cy.ac.ucy.linc.CloudSoftwareRepo;
 public class CloudSoftwareRepoConstants {
 	
 	public static final String NEXUS_URL = "http://localhost:8082/nexus/";
+	public static final String NEXUS_PORT="8081";
 	public static final String NEXUS_SERVER_DOWN = "nexus_server_down";
-
+	public static final String NEXUS = "nexus/";
 	public static final String NEXUS_STATUS = "service/local/status";
 
 	// NEXUS_KEYWORD_SEARCH: Append at the end the full name or part of the name

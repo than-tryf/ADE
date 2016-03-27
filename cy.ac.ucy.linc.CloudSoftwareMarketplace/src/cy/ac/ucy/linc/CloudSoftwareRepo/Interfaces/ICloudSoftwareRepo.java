@@ -63,5 +63,12 @@ public interface ICloudSoftwareRepo {
 	
 	
 	public void deleteArtifact(Artifacts artifact);
+	
+	/**
+	 * Pings the repository server to check if the repository is online.
+	 * @param url
+	 * @throws RepoExceptions 
+	 */
+	public String pingRepository(String url) throws RepoExceptions;
 
 }

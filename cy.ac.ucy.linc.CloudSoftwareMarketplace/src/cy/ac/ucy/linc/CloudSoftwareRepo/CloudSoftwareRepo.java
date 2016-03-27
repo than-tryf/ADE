@@ -3,14 +3,19 @@ package cy.ac.ucy.linc.CloudSoftwareRepo;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Map;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 import cy.ac.ucy.linc.CloudSoftwareRepo.Communication.CloudHttp;
@@ -18,6 +23,7 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.Entities.Artifacts;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Exceptions.RepoExceptions;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Interfaces.ICloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Parser.CloudXMLParser;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Status;
 
 public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
@@ -211,6 +217,28 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 		String deleteReq = cHttp.CloudHttpDeleteRequest(url);
 		
 		System.out.println(deleteReq);
+
+	}
+
+	
+	public String pingRepository(String url) throws RepoExceptions {
+		// TODO Auto-generated method stub
+		String response = null;
+		String rUrl = url+"/"+CloudSoftwareRepoConstants.NEXUS+CloudSoftwareRepoConstants.NEXUS_STATUS;
+		String pingResponse = cHttp.CloudHttpGetRequest(rUrl);
+		System.out.println(pingResponse);
+		try {
+			JAXBContext jc = JAXBContext.newInstance(Status.class);
+			Unmarshaller unmarshaller = jc.createUnmarshaller();
+			Status status = (Status) unmarshaller.unmarshal(new InputSource(new StringReader(pingResponse)));
+			response = status.getData().getState();
+			System.out.println(status.getData().getState());
+			return response;
+		} catch (JAXBException e) {
+			// TODO Auto-generated catch block
+			throw new RepoExceptions("The url you provided does not contain a valid Software Repository. Please Try again.");
+		}
+		
 
 	}
 
