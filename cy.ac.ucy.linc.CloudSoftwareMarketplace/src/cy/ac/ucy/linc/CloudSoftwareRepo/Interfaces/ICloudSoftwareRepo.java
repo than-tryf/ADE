@@ -62,6 +62,10 @@ public interface ICloudSoftwareRepo {
 	public ArrayList<Artifacts> indexRepository() throws RepoExceptions;
 	
 	
+	/**
+	 * Delete the selected artifact from the repository
+	 * @param artifact
+	 */
 	public void deleteArtifact(Artifacts artifact);
 	
 	/**

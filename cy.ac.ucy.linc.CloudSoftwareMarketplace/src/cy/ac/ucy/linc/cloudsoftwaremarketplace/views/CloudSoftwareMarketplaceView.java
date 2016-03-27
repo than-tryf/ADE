@@ -43,6 +43,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private TableViewer viewer;
 	private Action action1;
 	private Action action2;
+	private Action action3;
 	private Action doubleClickAction;
 	private Text txtSearchArtifact;
 	public CloudSoftwareRepo csr;
@@ -63,12 +64,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		}
 
 		public Object[] getElements(Object parent) {
-			return new String[] { "One", "Two", "Three", "Four", "Four",
-					"Four", "Four", "Four", "Four", "Four", "Four", "Four",
-					"Four", "Four", "Four", "Four", "Four", "Four", "Four",
-					"Four", "Four", "Four", "Four", "Four", "Four", "Four",
-					"Four", "Four", "Four", "Four", "Four", "Four", "Four",
-					"Four", "Four", "Four", "Four", "Four", "Four", "Four" };
+			return new String[] { "One", "Two", "Three", "Four",  };
 		}
 	}
 
@@ -85,6 +81,9 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		public Image getImage(Object obj) {
 			return PlatformUI.getWorkbench().getSharedImages()
 					.getImage(ISharedImages.IMG_OBJ_ELEMENT);
+			//return PlatformUI.getWorkbench().getSharedImages()
+//			return ResourceManager.getPluginImage("cy.ac.ucy.linc.CloudSoftwareMarketplace",
+//						"icons/artifact.png");
 		}
 	}
 
@@ -96,7 +95,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	 */
 	public CloudSoftwareMarketplaceView() {
 		csr = new CloudSoftwareRepo();
-		csr.setNEXUS_URL("Hello World!");
+		
 	}
 
 	/**
@@ -117,23 +116,13 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		txtSearchArtifact = new Text(parent, SWT.BORDER);
 		txtSearchArtifact.setBounds(104, 17, 381, 21);
 
-		Button btnNewButton = new Button(parent, SWT.NONE);
-		btnNewButton.setBounds(509, 15, 75, 25);
-		btnNewButton.setText("Search");
-
-		ListViewer listViewer = new ListViewer(parent, SWT.BORDER
-				| SWT.V_SCROLL);
-		List list = listViewer.getList();
-		list.setBounds(239, 46, 154, 361);
+		Button btnSearch = new Button(parent, SWT.NONE);
+		btnSearch.setBounds(509, 15, 75, 25);
+		btnSearch.setText("Search");
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
-
-		listViewer.setContentProvider(new ViewContentProvider());
-		listViewer.setLabelProvider(new ViewLabelProvider());
-		listViewer.setSorter(new NameSorter());
-		listViewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
 		PlatformUI
@@ -182,6 +171,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private void fillLocalToolBar(IToolBarManager manager) {
 		manager.add(action1);
 		manager.add(action2);
+		manager.add(action3);
 	}
 
 	private void makeActions() {
@@ -217,6 +207,22 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				showMessage("Double-click detected on " + obj.toString());
 			}
 		};
+		
+		action3 = new Action() {
+			public void run() {
+				CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
+				csmc.main(null);
+				//showMessage("Action 1 executed");
+			}
+		};
+		action3.setImageDescriptor(ResourceManager.getImageDescriptor(CloudSoftwareMarketplaceView.class, "/icons/admin.png"));
+		action3.setText("Repository Management");
+		action3.setToolTipText("Repository Management");
+
+		action3.setImageDescriptor(ResourceManager
+				.getPluginImageDescriptor(
+						"cy.ac.ucy.linc.CloudSoftwareMarketplace",
+						"icons/admin.png"));
 	}
 
 	private void hookDoubleClickAction() {
