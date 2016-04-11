@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/Artifact"
+	xmlns:tns="http://www.example.org/Artifact" elementFormDefault="qualified">
+
+
+
+	<element name="Artifact">
+		<complexType>
+			<sequence>
+				<element name="groupId" type="string"></element>
+				<element name="artifactId" type="string"></element>
+				<element name="version" type="string"></element>
+				<element name="uploadDate" type="date"></element>
+				<element name="os" type="string"></element>
+				<element name="installer" type="string"></element>
+				<element name="config" type="string"></element>
+				<element name="binaries" type="int"></element>
+				<element name="sources" type="int"></element>
+			</sequence>
+		</complexType>
+
+
+	</element>
+</schema>
