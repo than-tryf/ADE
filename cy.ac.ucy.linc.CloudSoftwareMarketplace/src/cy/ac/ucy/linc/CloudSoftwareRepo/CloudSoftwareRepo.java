@@ -24,6 +24,7 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.Exceptions.RepoExceptions;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Interfaces.ICloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Parser.CloudXMLParser;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Status;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.StatusFactory;
 
 public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
@@ -215,30 +216,33 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 				+ CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId
 				+ "/" + artifact.artifactId + "/" + artifact.version;
 		String deleteReq = cHttp.CloudHttpDeleteRequest(url);
-		
+
 		System.out.println(deleteReq);
 
 	}
 
-	
 	public String pingRepository(String url) throws RepoExceptions {
 		// TODO Auto-generated method stub
 		String response = null;
-		String rUrl = url+"/"+CloudSoftwareRepoConstants.NEXUS+CloudSoftwareRepoConstants.NEXUS_STATUS;
+		String rUrl = url + "/" + CloudSoftwareRepoConstants.NEXUS
+				+ CloudSoftwareRepoConstants.NEXUS_STATUS;
 		String pingResponse = cHttp.CloudHttpGetRequest(rUrl);
 		System.out.println(pingResponse);
 		try {
-			JAXBContext jc = JAXBContext.newInstance(Status.class);
+			JAXBContext jc = JAXBContext.newInstance(StatusFactory.class);
+
 			Unmarshaller unmarshaller = jc.createUnmarshaller();
-			Status status = (Status) unmarshaller.unmarshal(new InputSource(new StringReader(pingResponse)));
+
+			Status status = (Status) unmarshaller.unmarshal(new InputSource(
+					new StringReader(pingResponse)));
 			response = status.getData().getState();
 			System.out.println(status.getData().getState());
 			return response;
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
-			throw new RepoExceptions("The url you provided does not contain a valid Software Repository. Please Try again.");
+			throw new RepoExceptions(
+					"The url you provided does not contain a valid Software Repository. Please Try again.");
 		}
-		
 
 	}
 
