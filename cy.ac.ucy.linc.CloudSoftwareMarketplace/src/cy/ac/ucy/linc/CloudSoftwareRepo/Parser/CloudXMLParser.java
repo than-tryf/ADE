@@ -15,6 +15,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepoConstants;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Communication.CloudHttp;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Entities.Artifacts;
@@ -90,13 +91,13 @@ public class CloudXMLParser {
 
 				}
 
-				String repositoryURL = CloudSoftwareRepoConstants.NEXUS_URL
+				String repositoryURL = CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS/*CloudSoftwareRepoConstants.NEXUS_URL*/
 						+ CloudSoftwareRepoConstants.NEXUS_ARTIFACT_CONTENT
 						+ repositoryId + "/" + tkGroupId + "/" + artifactId
 						+ "/" + version + "/" + artifactId + "-" + version
 						+ "." + extension;
 
-				String zipURL = CloudSoftwareRepoConstants.NEXUS_URL
+				String zipURL = CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS/*CloudSoftwareRepoConstants.NEXUS_URL*/
 						+ CloudSoftwareRepoConstants.NEXUS_ARTIFACT_CONTENT
 						+ CloudSoftwareRepoConstants.NEXUS_SHADOW_ZIP + "/"
 						+ tkGroupId + "/" + artifactId + "/" + version + "/"

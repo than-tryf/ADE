@@ -1,5 +1,7 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.util.ArrayList;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.resource.ImageDescriptor;
@@ -15,6 +17,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 //import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
@@ -22,10 +25,17 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.ResourceManager;
 
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepoConstants;
+import cy.ac.ucy.linc.CloudSoftwareRepo.Entities.Artifacts;
+import cy.ac.ucy.linc.CloudSoftwareRepo.Exceptions.RepoExceptions;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
 
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+
+import com.sun.jna.platform.win32.ShlObj;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -56,6 +66,9 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Action doubleClickAction;
 	private Text txtSearchArtifact;
 	public CloudSoftwareRepo csr;
+	
+	public ArrayList<Artifacts> srchResults;
+	public ArrayList<String> result=new ArrayList<String>();
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -73,7 +86,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		}
 
 		public Object[] getElements(Object parent) {
-			return new String[] { "One", "Two", "Three", "Four",  };
+			//return new String[] { "One", "Two", "Three", "Four",  };
+			return result.toArray();
 		}
 	}
 
@@ -119,8 +133,6 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				| SWT.V_SCROLL);
 		Table table = viewer.getTable();
 		table.setBounds(10, 46, 186, 361);
-		
-		DragSource dragSource = new DragSource(table, DND.DROP_MOVE);
 
 		Label lblSearchArtifact = new Label(parent, SWT.NONE);
 		lblSearchArtifact.setBounds(10, 20, 88, 15);
@@ -130,6 +142,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		txtSearchArtifact.setBounds(104, 17, 381, 21);
 
 		Button btnSearch = new Button(parent, SWT.NONE);
+		
+		
 		btnSearch.setBounds(509, 15, 75, 25);
 		btnSearch.setText("Search");
 		viewer.setContentProvider(new ViewContentProvider());
@@ -147,6 +161,42 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
+		
+		btnSearch.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				CloudSoftwareRepo csr = new CloudSoftwareRepo();
+				
+				try {
+					srchResults = csr.keywordSearch(CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
+					System.out.println("Number of results returned: " + srchResults.size());
+					System.out.println("Search url: "+CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
+					result = new ArrayList<String>();
+					for(int i=0;i<srchResults.size();i++){
+						result.add(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
+						//System.out.println(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
+					}
+					
+					//Print-DEBUG
+					
+					for(int i=0;i<result.size();i++){
+						System.out.println("In List: "+result.get(i));
+					}
+					
+					viewer.setContentProvider(new ViewContentProvider());
+					viewer.setLabelProvider(new ViewLabelProvider());
+					viewer.setSorter(new NameSorter());
+					viewer.setInput(getViewSite());
+				} catch (RepoExceptions e1) {
+					// TODO Auto-generated catch block
+					System.out.println(e1.getMessage());
+					/*MessageBox msBox = new MessageBox(ShlObj.getShell(), SWT.ICON_ERROR | SWT.OK);
+					msBox.setText("Error");
+					msBox.setMessage(e1.getMessage());
+					msBox.open();*/
+				}
+			}
+		});
 	}
 
 	private void hookContextMenu() {
