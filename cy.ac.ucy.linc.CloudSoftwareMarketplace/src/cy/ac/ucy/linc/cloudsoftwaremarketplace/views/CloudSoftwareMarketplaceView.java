@@ -36,6 +36,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import com.sun.jna.platform.win32.ShlObj;
+import org.eclipse.swt.widgets.Group;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -146,6 +147,14 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		
 		btnSearch.setBounds(509, 15, 75, 25);
 		btnSearch.setText("Search");
+		
+		Group grpGav = new Group(parent, SWT.NONE);
+		grpGav.setText("GAV");
+		grpGav.setBounds(202, 46, 151, 134);
+		
+		Label lblGroupId = new Label(grpGav, SWT.NONE);
+		lblGroupId.setBounds(10, 22, 55, 15);
+		lblGroupId.setText("Group ID:");
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
