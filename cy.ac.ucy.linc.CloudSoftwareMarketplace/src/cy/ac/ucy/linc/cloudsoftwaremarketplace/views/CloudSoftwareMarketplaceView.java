@@ -2,21 +2,30 @@ package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
+/*import org.eclipse.swt.graphics.Device;
+import org.eclipse.swt.graphics.GC;
+import org.eclipse.swt.graphics.GCData;*/
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
+//import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.List;
+//import org.eclipse.swt.widgets.List;
 import org.eclipse.wb.swt.ResourceManager;
 
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
+import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
+
+import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DND;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -79,11 +88,13 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		}
 
 		public Image getImage(Object obj) {
-			return PlatformUI.getWorkbench().getSharedImages()
-					.getImage(ISharedImages.IMG_OBJ_ELEMENT);
+			
 			//return PlatformUI.getWorkbench().getSharedImages()
-//			return ResourceManager.getPluginImage("cy.ac.ucy.linc.CloudSoftwareMarketplace",
-//						"icons/artifact.png");
+			//		.getImage(ISharedImages.IMG_OBJ_ELEMENT);
+			
+			final Image image = Activator.getImageDescriptor("icons/artifact.png").createImage();
+			return image;
+			
 		}
 	}
 
@@ -108,6 +119,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				| SWT.V_SCROLL);
 		Table table = viewer.getTable();
 		table.setBounds(10, 46, 186, 361);
+		
+		DragSource dragSource = new DragSource(table, DND.DROP_MOVE);
 
 		Label lblSearchArtifact = new Label(parent, SWT.NONE);
 		lblSearchArtifact.setBounds(10, 20, 88, 15);
@@ -177,8 +190,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
-				csmc.main(null);
+				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
+				CloudSoftwareMarketplaceConfig.main(null);
 				//showMessage("Action 1 executed");
 			}
 		};
@@ -210,8 +223,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		
 		action3 = new Action() {
 			public void run() {
-				CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
-				csmc.main(null);
+				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
+				CloudSoftwareMarketplaceConfig.main(null);
 				//showMessage("Action 1 executed");
 			}
 		};
@@ -237,11 +250,11 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
 				"CloudSoftwareMarketplaceView", message);
 	}
-	
+	/*
 	private void openConfigWizard(){
 		
 	}
-
+*/
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */

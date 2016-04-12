@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.URISyntaxException;
 import java.util.Map;
 
 import org.apache.commons.codec.binary.Base64;
@@ -56,11 +57,15 @@ public class CloudHttp {
 			System.out.println(response);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
-			throw new RepoExceptions("Malformed repository url. Repository url must have the following format: http(s)://host:port");
+			throw new RepoExceptions(
+					"Malformed repository url. Repository url must have the following format: http(s)://host:port");
 		} catch (HttpHostConnectException e) {
 			throw new RepoExceptions("Repository unreachable at the moment");
 			// System.out.println("Repository unreachable at the moment");
 
+		} catch (IllegalArgumentException e) {
+			throw new RepoExceptions(
+					"Malformed repository url. Repository url must have the following format: http(s)://host:port");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,16 +90,17 @@ public class CloudHttp {
 			httpResponse = httpClient.execute(httpPost);
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
-			throw new RepoExceptions("Malformed repository url. Repository url must have the following format: http(s)://host:port");
-		}catch (HttpHostConnectException e) {
+			throw new RepoExceptions(
+					"Malformed repository url. Repository url must have the following format: http(s)://host:port");
+		} catch (HttpHostConnectException e) {
 			throw new RepoExceptions("Repository unreachable at the moment");
 			// System.out.println("Repository unreachable at the moment");
 
-		}catch (FileNotFoundException e) {
+		} catch (FileNotFoundException e) {
 			throw new RepoExceptions("No such file");
 			// System.out.println("Repository unreachable at the moment");
 
-		}		catch (IOException e) {
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -115,11 +121,11 @@ public class CloudHttp {
 		return response;
 	}
 
-	public String CloudHttpDeleteRequest(String url){
-		
+	public String CloudHttpDeleteRequest(String url) {
+
 		httpDelete = new HttpDelete(url);
 		httpDelete.addHeader("Authorization", "Basic " + authenticate());
-		
+
 		try {
 			httpResponse = httpClient.execute(httpDelete);
 		} catch (ClientProtocolException e) {
@@ -130,11 +136,12 @@ public class CloudHttp {
 			e.printStackTrace();
 		}
 		response = httpResponse.getStatusLine().toString();
-		
+
 		System.out.println(response);
 		return response;
-		
+
 	}
+
 	private String authenticate() {
 		// TODO Auto-generated method stub
 		String encoding = new String(Base64.encodeBase64(("admin:admin123")
@@ -151,15 +158,14 @@ public class CloudHttp {
 					+ entry.getValue());
 			if (entry.getKey().equals("file")) {
 
-				
 				meBuilder.addPart("file",
 						new FileBody(new File(entry.getValue()),
 								ContentType.DEFAULT_BINARY));
 			} else {
-			
-				
+
 				meBuilder.addPart(entry.getKey(),
-						new StringBody(entry.getValue(), ContentType.DEFAULT_TEXT));
+						new StringBody(entry.getValue(),
+								ContentType.DEFAULT_TEXT));
 
 			}
 		}
