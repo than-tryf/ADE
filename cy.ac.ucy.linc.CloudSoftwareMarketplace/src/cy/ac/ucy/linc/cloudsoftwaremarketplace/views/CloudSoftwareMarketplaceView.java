@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
+import org.eclipse.camf.core.internal.model.CloudProject;
+import org.eclipse.camf.core.model.ICloudProject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
 /*import org.eclipse.swt.graphics.Device;
@@ -33,6 +35,10 @@ import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
 
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DragSourceEvent;
+import org.eclipse.swt.dnd.DragSourceListener;
+import org.eclipse.swt.dnd.TextTransfer;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -81,6 +87,12 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	
 	public ArrayList<Artifacts> srchResults;
 	public ArrayList<String> result=new ArrayList<String>();
+	private Text txtInstaller;
+	private Text txtConfig;
+	private Text txtBin;
+	private Text txtSource;
+	
+	private CloudProject icp;
 
 	/*
 	 * The content provider class is responsible for providing objects to the
@@ -145,7 +157,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				| SWT.V_SCROLL);
 		Table table = viewer.getTable();
 		table.setBounds(10, 46, 186, 361);
-
+		
 		Label lblSearchArtifact = new Label(parent, SWT.NONE);
 		lblSearchArtifact.setBounds(10, 20, 88, 15);
 		lblSearchArtifact.setText("Search Artifact:");
@@ -161,7 +173,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		
 		Group grpGav = new Group(parent, SWT.NONE);
 		grpGav.setText("GAV");
-		grpGav.setBounds(202, 46, 151, 163);
+		grpGav.setBounds(202, 46, 151, 182);
 		
 		Label lblGroupId = new Label(grpGav, SWT.NONE);
 		lblGroupId.setBounds(10, 22, 55, 15);
@@ -169,23 +181,63 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		
 		lblGroup = new Label(grpGav, SWT.BORDER);
 		lblGroup.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		lblGroup.setBounds(20, 43, 121, 15);
+		lblGroup.setBounds(20, 43, 121, 23);
 		
 		Label lblArtifactId = new Label(grpGav, SWT.NONE);
 		lblArtifactId.setText("Artifact ID:");
-		lblArtifactId.setBounds(10, 64, 55, 15);
+		lblArtifactId.setBounds(10, 72, 55, 15);
 		
 		lblArtifact = new Label(grpGav, SWT.BORDER);
 		lblArtifact.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		lblArtifact.setBounds(20, 85, 121, 15);
+		lblArtifact.setBounds(20, 93, 121, 26);
 		
 		lblVersion = new Label(grpGav, SWT.BORDER);
 		lblVersion.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
-		lblVersion.setBounds(20, 127, 121, 15);
+		lblVersion.setBounds(20, 146, 121, 26);
 		
 		Label lblV = new Label(grpGav, SWT.NONE);
 		lblV.setText("Version");
-		lblV.setBounds(10, 106, 55, 15);
+		lblV.setBounds(10, 125, 55, 15);
+		
+		Group grpAdditionalMetadata = new Group(parent, SWT.NONE);
+		grpAdditionalMetadata.setText("Additional Metadata");
+		grpAdditionalMetadata.setBounds(370, 50, 214, 178);
+		
+		Label lblin = new Label(grpAdditionalMetadata, SWT.NONE);
+		lblin.setBounds(10, 21, 55, 15);
+		lblin.setText("Installer");
+		
+		txtInstaller = new Text(grpAdditionalMetadata, SWT.BORDER);
+		txtInstaller.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		txtInstaller.setEditable(false);
+		txtInstaller.setBounds(35, 42, 169, 21);
+		
+		Label lblConfiguration = new Label(grpAdditionalMetadata, SWT.NONE);
+		lblConfiguration.setText("Configuration");
+		lblConfiguration.setBounds(10, 69, 85, 15);
+		
+		txtConfig = new Text(grpAdditionalMetadata, SWT.BORDER);
+		txtConfig.setEditable(false);
+		txtConfig.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		txtConfig.setBounds(35, 90, 169, 21);
+		
+		Label lblBinFolder = new Label(grpAdditionalMetadata, SWT.NONE);
+		lblBinFolder.setBounds(10, 129, 55, 15);
+		lblBinFolder.setText("bin folder ?");
+		
+		txtBin = new Text(grpAdditionalMetadata, SWT.BORDER);
+		txtBin.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		txtBin.setEditable(false);
+		txtBin.setBounds(128, 126, 76, 21);
+		
+		txtSource = new Text(grpAdditionalMetadata, SWT.BORDER);
+		txtSource.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		txtSource.setEditable(false);
+		txtSource.setBounds(128, 153, 76, 21);
+		
+		Label lblSourceFolder = new Label(grpAdditionalMetadata, SWT.NONE);
+		lblSourceFolder.setBounds(10, 156, 95, 15);
+		lblSourceFolder.setText("source folder ?");
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
@@ -241,12 +293,45 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				}
 			}
 		});
+		
+		/*******************************/
+		DragSource dragSource = new DragSource(lblV, DND.DROP_MOVE | DND.DROP_COPY);
+		Transfer[] types = new Transfer[] {TextTransfer.getInstance()};
+		dragSource.setTransfer(types);
+		
+		dragSource.addDragListener(new DragSourceListener() {
+			
+			@Override
+			public void dragStart(DragSourceEvent event) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void dragSetData(DragSourceEvent event) {
+				// TODO Auto-generated method stub
+				 if (TextTransfer.getInstance().isSupportedType(event.dataType)) {
+					 	          event.data = lblV.getText();
+				}
+			}
+			
+			@Override
+			public void dragFinished(DragSourceEvent event) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		/*****************************************/
 	}
 
 	private void clearResults(){
 		lblGroup.setText("");
 		lblArtifact.setText("");
 		lblVersion.setText("");
+		txtBin.setText("");
+		txtConfig.setText("");
+		txtInstaller.setText("");
+		txtSource.setText("");
 	}
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
@@ -304,7 +389,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 
 		action2 = new Action() {
 			public void run() {
-				showMessage("Action 2 executed");
+				showMessage(CloudProject.PROJECT_FOLDER_NODE);
 			}
 		};
 		action2.setText("Repository Information");
@@ -326,6 +411,12 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				//Object obj =  ((IStructuredSelection) selection).
 				int index = viewer.getTable().getSelectionIndex();
 				lblGroup.setText(srchResults.get(index).groupId);
+				lblArtifact.setText(srchResults.get(index).artifactId);
+				lblVersion.setText(srchResults.get(index).version);
+				txtBin.setText(srchResults.get(index).hasBin);
+				txtConfig.setText(srchResults.get(index).config);
+				txtInstaller.setText(srchResults.get(index).installScript);
+				txtSource.setText(srchResults.get(index).hasSrc);
 			}
 		};
 		
