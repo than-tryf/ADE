@@ -18,6 +18,7 @@ import org.eclipse.swt.SWT;
 //import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
@@ -34,9 +35,12 @@ import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 
 import com.sun.jna.platform.win32.ShlObj;
+
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -65,8 +69,15 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Action action2;
 	private Action action3;
 	private Action doubleClickAction;
+	private Action clickAction;
 	private Text txtSearchArtifact;
 	public CloudSoftwareRepo csr;
+	
+	private Label lblGroup;
+	private Label lblArtifact;
+	private Label lblVersion;
+	
+	protected Shell wShell;
 	
 	public ArrayList<Artifacts> srchResults;
 	public ArrayList<String> result=new ArrayList<String>();
@@ -150,11 +161,31 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		
 		Group grpGav = new Group(parent, SWT.NONE);
 		grpGav.setText("GAV");
-		grpGav.setBounds(202, 46, 151, 134);
+		grpGav.setBounds(202, 46, 151, 163);
 		
 		Label lblGroupId = new Label(grpGav, SWT.NONE);
 		lblGroupId.setBounds(10, 22, 55, 15);
 		lblGroupId.setText("Group ID:");
+		
+		lblGroup = new Label(grpGav, SWT.BORDER);
+		lblGroup.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblGroup.setBounds(20, 43, 121, 15);
+		
+		Label lblArtifactId = new Label(grpGav, SWT.NONE);
+		lblArtifactId.setText("Artifact ID:");
+		lblArtifactId.setBounds(10, 64, 55, 15);
+		
+		lblArtifact = new Label(grpGav, SWT.BORDER);
+		lblArtifact.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblArtifact.setBounds(20, 85, 121, 15);
+		
+		lblVersion = new Label(grpGav, SWT.BORDER);
+		lblVersion.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		lblVersion.setBounds(20, 127, 121, 15);
+		
+		Label lblV = new Label(grpGav, SWT.NONE);
+		lblV.setText("Version");
+		lblV.setBounds(10, 106, 55, 15);
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
 		viewer.setSorter(new NameSorter());
@@ -177,6 +208,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				CloudSoftwareRepo csr = new CloudSoftwareRepo();
 				
 				try {
+					clearResults();
 					srchResults = csr.keywordSearch(CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
 					System.out.println("Number of results returned: " + srchResults.size());
 					System.out.println("Search url: "+CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
@@ -199,15 +231,23 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				} catch (RepoExceptions e1) {
 					// TODO Auto-generated catch block
 					System.out.println(e1.getMessage());
-					/*MessageBox msBox = new MessageBox(ShlObj.getShell(), SWT.ICON_ERROR | SWT.OK);
+					
+					wShell = new Shell();
+					MessageBox msBox = new MessageBox(wShell.getShell(), SWT.ICON_ERROR | SWT.OK);
 					msBox.setText("Error");
 					msBox.setMessage(e1.getMessage());
-					msBox.open();*/
+					msBox.open();
+					
 				}
 			}
 		});
 	}
 
+	private void clearResults(){
+		lblGroup.setText("");
+		lblArtifact.setText("");
+		lblVersion.setText("");
+	}
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -280,6 +320,15 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 			}
 		};
 		
+		clickAction = new Action() {
+			public void run(){
+				//ISelection selection = viewer.getSelection();
+				//Object obj =  ((IStructuredSelection) selection).
+				int index = viewer.getTable().getSelectionIndex();
+				lblGroup.setText(srchResults.get(index).groupId);
+			}
+		};
+		
 		action3 = new Action() {
 			public void run() {
 				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
@@ -300,10 +349,14 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
-				doubleClickAction.run();
+				//doubleClickAction.run();
+				clearResults();
+				clickAction.run();
 			}
 		});
 	}
+	
+
 
 	private void showMessage(String message) {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
