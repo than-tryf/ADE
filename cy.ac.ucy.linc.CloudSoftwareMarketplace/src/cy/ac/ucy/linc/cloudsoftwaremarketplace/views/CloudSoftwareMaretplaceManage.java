@@ -191,9 +191,27 @@ public class CloudSoftwareMaretplaceManage extends Shell {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				artIndex = tableViewer.getTable().getSelectionIndex();
-				System.out.println("You have selected artifact: "+artIndex+" which is: "+artNames.get(artIndex));
-				for(int i=0;i<inArt.size();i++){
-					System.out.println("INART "+i+" : "+inArt.get(i).artifactId);
+				System.out.println("You have selected to delete artifact: "+artIndex+" which is: "+artNames.get(artIndex));
+				CloudSoftwareRepo csr = new CloudSoftwareRepo();
+				csr.deleteArtifact(inArt.get(artIndex));
+				
+				try {
+					inArt = csr.indexRepository();
+					artNames = new ArrayList<String>();
+					for (int i = 0; i < inArt.size(); i++) {
+						artNames.add(inArt.get(i).artifactId + "-"
+								+ inArt.get(i).version);
+						// System.out.println(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
+					}
+
+					tableViewer.setContentProvider(new ViewContentProvider());
+					tableViewer.setLabelProvider(new ViewLabelProvider());
+					//tableViewer.setSorter(new NameSorter());
+					tableViewer.setInput(artNames);
+					
+				} catch (RepoExceptions e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 			}
 		});

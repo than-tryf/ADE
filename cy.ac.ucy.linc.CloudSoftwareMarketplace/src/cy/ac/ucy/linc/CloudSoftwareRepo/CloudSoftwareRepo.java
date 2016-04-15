@@ -30,8 +30,8 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
 	public CloudHttp cHttp;
 	private static String NEXUS_URL = "http://52.31.76.210:8081";
-	private static String username = "admin";
-	private static String password="admin123";
+	private static String username ;//= "admin";
+	private static String password;//="admin123";
 	private static String NEXUS_DOWNLOAD_FOLDER;
 	
 	public static String getNEXUS_DOWNLOAD_FOLDER() {
@@ -226,7 +226,13 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
 	public void deleteArtifact(Artifacts artifact) {
 		// TODO Auto-generated method stub
-		String url = CloudSoftwareRepoConstants.NEXUS_URL
+		/*String url = CloudSoftwareRepoConstants.NEXUS_URL
+				+ CloudSoftwareRepoConstants.NEXUS_REPOSITORIES
+				+ artifact.repositoryId + "/"
+				+ CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId
+				+ "/" + artifact.artifactId + "/" + artifact.version;
+		*/
+		String url = NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
 				+ CloudSoftwareRepoConstants.NEXUS_REPOSITORIES
 				+ artifact.repositoryId + "/"
 				+ CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId
