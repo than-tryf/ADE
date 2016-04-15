@@ -459,7 +459,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		action3 = new Action() {
 			public void run() {
 				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
-				CloudSoftwareMarketplaceConfig.main(null);
+				//CloudSoftwareMarketplaceConfig.main(null);
+				CloudSoftwareMaretplaceManage.main(null);
 				//showMessage("Action 1 executed");
 			}
 		};
