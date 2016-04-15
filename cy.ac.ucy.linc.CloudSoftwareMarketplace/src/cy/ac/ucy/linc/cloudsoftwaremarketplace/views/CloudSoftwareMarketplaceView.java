@@ -251,7 +251,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		lblSourceFolder.setText("source folder ?");
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
-		viewer.setSorter(new NameSorter());
+		//viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
@@ -289,7 +289,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 					
 					viewer.setContentProvider(new ViewContentProvider());
 					viewer.setLabelProvider(new ViewLabelProvider());
-					viewer.setSorter(new NameSorter());
+					//viewer.setSorter(new NameSorter());
 					viewer.setInput(getViewSite());
 				} catch (RepoExceptions e1) {
 					// TODO Auto-generated catch block
