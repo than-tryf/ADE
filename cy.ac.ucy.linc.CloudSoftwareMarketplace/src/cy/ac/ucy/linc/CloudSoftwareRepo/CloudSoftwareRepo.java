@@ -29,9 +29,18 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.XML.StatusFactory;
 public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
 	public CloudHttp cHttp;
-	private static String NEXUS_URL;
-	private static String username;
-	private static String password;
+	private static String NEXUS_URL = "http://52.31.76.210:8081";
+	private static String username = "admin";
+	private static String password="admin123";
+	private static String NEXUS_DOWNLOAD_FOLDER;
+	
+	public static String getNEXUS_DOWNLOAD_FOLDER() {
+		return NEXUS_DOWNLOAD_FOLDER;
+	}
+
+	public static void setNEXUS_DOWNLOAD_FOLDER(String nEXUS_DOWNLOAD_FOLDER) {
+		NEXUS_DOWNLOAD_FOLDER = nEXUS_DOWNLOAD_FOLDER;
+	}
 
 	public static String getNEXUS_URL() {
 		return NEXUS_URL;
@@ -245,5 +254,7 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 		}
 
 	}
+
+	
 
 }

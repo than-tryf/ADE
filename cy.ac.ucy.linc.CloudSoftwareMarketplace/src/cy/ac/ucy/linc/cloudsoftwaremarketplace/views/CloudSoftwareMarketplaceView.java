@@ -3,9 +3,20 @@ package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 import java.util.ArrayList;
 
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.actions.ImportResourcesAction;
 import org.eclipse.ui.part.*;
 import org.eclipse.camf.core.internal.model.CloudProject;
+import org.eclipse.camf.core.model.CloudModel;
+import org.eclipse.camf.core.model.ICloudElement;
 import org.eclipse.camf.core.model.ICloudProject;
+import org.eclipse.camf.core.project.CloudProjectNature;
+import org.eclipse.camf.core.project.CloudProjectProperties;
+import org.eclipse.camf.tosca.editor.ToscaDiagramEditorInput;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
 /*import org.eclipse.swt.graphics.Device;
@@ -92,8 +103,8 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Text txtBin;
 	private Text txtSource;
 	
-	private CloudProject icp;
-
+	private ICloudProject icp;
+	private IProject project;
 	/*
 	 * The content provider class is responsible for providing objects to the
 	 * view. It can wrap existing objects in adapters or simply return objects
@@ -388,8 +399,29 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 						"icons/settings.png"));
 
 		action2 = new Action() {
+			IProject project;
 			public void run() {
-				showMessage(CloudProject.PROJECT_FOLDER_NODE);
+				/*CODE TO GET PROJECT INFORMATION!!!*/
+				IEditorPart  editorPart =
+						getSite().getWorkbenchWindow().getActivePage().getActiveEditor();
+				if(editorPart  != null)
+				{
+					ToscaDiagramEditorInput inp = (ToscaDiagramEditorInput) editorPart.getEditorInput();
+					
+				    //IFileEditorInput input = (IFileEditorInput)editorPart.getEditorInput() ;
+				    IFile file = inp.getDiagramFile();
+				    IProject activeProject = file.getProject();
+				    String activeProjectName = activeProject.getLocation().toString();
+				    IWorkbenchPart workbenchPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart(); 
+				    IFile file2 = (IFile) workbenchPart.getSite().getPage().getActiveEditor().getEditorInput().getAdapter(IFile.class);
+				    String path = file2.getRawLocation().toOSString();
+				    //... use activeProjectName 
+				    showMessage(activeProjectName);
+				}
+				/* END CODE*/
+				
+				
+				
 			}
 		};
 		action2.setText("Repository Information");
