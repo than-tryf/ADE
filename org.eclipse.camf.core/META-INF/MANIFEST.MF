@@ -17,6 +17,7 @@ Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.eclipse.camf.core,
  org.eclipse.camf.core.auth,
+ org.eclipse.camf.core.internal.model,
  org.eclipse.camf.core.model,
  org.eclipse.camf.core.model.impl,
  org.eclipse.camf.core.project,

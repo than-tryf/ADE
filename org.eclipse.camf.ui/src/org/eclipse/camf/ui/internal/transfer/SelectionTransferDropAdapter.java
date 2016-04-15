@@ -237,7 +237,9 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    */
   protected int computeDropOperations( final DropTargetEvent event ) {
     int ops = DND.DROP_NONE;
+
     if ( this.lastTarget != null ) {
+    	
       ICloudElement[] elements = getElements();
       if ( ( elements != null ) && ( elements.length > 0 ) ) {
         ops = event.operations;

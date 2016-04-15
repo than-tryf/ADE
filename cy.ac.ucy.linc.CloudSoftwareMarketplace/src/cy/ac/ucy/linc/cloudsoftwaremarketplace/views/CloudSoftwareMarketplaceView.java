@@ -233,7 +233,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		txtConfig.setBounds(35, 90, 169, 21);
 		
 		Label lblBinFolder = new Label(grpAdditionalMetadata, SWT.NONE);
-		lblBinFolder.setBounds(10, 129, 55, 15);
+		lblBinFolder.setBounds(10, 129, 76, 15);
 		lblBinFolder.setText("bin folder ?");
 		
 		txtBin = new Text(grpAdditionalMetadata, SWT.BORDER);
@@ -309,6 +309,10 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		DragSource dragSource = new DragSource(lblV, DND.DROP_MOVE | DND.DROP_COPY);
 		Transfer[] types = new Transfer[] {TextTransfer.getInstance()};
 		dragSource.setTransfer(types);
+		
+		Button btnDownloadArtifact = new Button(parent, SWT.NONE);
+		btnDownloadArtifact.setBounds(263, 271, 261, 25);
+		btnDownloadArtifact.setText("Download Artifact");
 		
 		dragSource.addDragListener(new DragSourceListener() {
 			
