@@ -179,8 +179,12 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 		try {
 			String XMLIndex;
 
-			XMLIndex = cHttp
+			/*XMLIndex = cHttp
 					.CloudHttpGetRequest(CloudSoftwareRepoConstants.NEXUS_URL
+							+ CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);*/
+			
+			XMLIndex = cHttp
+					.CloudHttpGetRequest(NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
 							+ CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);
 
 			System.out.println("INDEX: " + XMLIndex);
@@ -188,7 +192,10 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 			ArrayList<String> arts = parser.xmlParseIndex(XMLIndex);
 			for (int i = 0; i < arts.size(); i++) {
 				// System.out.println("Art: "+arts.get(i));
-				ArrayList<Artifacts> tmp = keywordSearch(CloudSoftwareRepoConstants.NEXUS_URL
+				/*ArrayList<Artifacts> tmp = keywordSearch(CloudSoftwareRepoConstants.NEXUS_URL
+						+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
+						+ arts.get(i));*/
+				ArrayList<Artifacts> tmp = keywordSearch(NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
 						+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
 						+ arts.get(i));
 				index.addAll(tmp);
