@@ -12,12 +12,14 @@ public class CELARPerspectiveFactory implements IPerspectiveFactory{
 	    layout.setEditorAreaVisible(true);
 	   
 	    layout.addView( "eu.celar.ui.views.CloudProjectView", IPageLayout.LEFT,0.18f,layout.getEditorArea() );
+	   // layout.addView("cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView", IPageLayout.LEFT,0.18f,layout.getEditorArea());
 	    
 	    IFolderLayout bottomFolder=layout.createFolder("bottomFolder",IPageLayout.BOTTOM,0.69f,layout.getEditorArea());
 	    bottomFolder.addView("org.eclipse.ui.views.PropertySheet");
 	    bottomFolder.addView( "eu.celar.ui.views.deploymentview" );
 	    bottomFolder.addView( "org.eclipse.ui.console.ConsoleView" );
 	    bottomFolder.addView( "eu.celar.ui.views.authenticationTokenView" );
+	    
 
 	  }
 	}

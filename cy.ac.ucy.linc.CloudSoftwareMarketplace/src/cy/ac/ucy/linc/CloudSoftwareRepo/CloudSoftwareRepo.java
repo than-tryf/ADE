@@ -30,10 +30,19 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
 	public CloudHttp cHttp;
 	private static String NEXUS_URL = "http://52.31.76.210:8081";
-	private static String username ;//= "admin";
-	private static String password;//="admin123";
+	private static String username;// = "admin";
+	private static String password;// ="admin123";
 	private static String NEXUS_DOWNLOAD_FOLDER;
-	
+	private static String ARTIFACTS_FOLDER;
+
+	public static String getARTIFACTS_FOLDER() {
+		return ARTIFACTS_FOLDER;
+	}
+
+	public static void setARTIFACTS_FOLDER(String aRTIFACTS_FOLDER) {
+		ARTIFACTS_FOLDER = aRTIFACTS_FOLDER;
+	}
+
 	public static String getNEXUS_DOWNLOAD_FOLDER() {
 		return NEXUS_DOWNLOAD_FOLDER;
 	}
@@ -179,23 +188,29 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 		try {
 			String XMLIndex;
 
-			/*XMLIndex = cHttp
-					.CloudHttpGetRequest(CloudSoftwareRepoConstants.NEXUS_URL
-							+ CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);*/
-			
-			XMLIndex = cHttp
-					.CloudHttpGetRequest(NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
-							+ CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);
+			/*
+			 * XMLIndex = cHttp
+			 * .CloudHttpGetRequest(CloudSoftwareRepoConstants.NEXUS_URL +
+			 * CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);
+			 */
+
+			XMLIndex = cHttp.CloudHttpGetRequest(NEXUS_URL + "/"
+					+ CloudSoftwareRepoConstants.NEXUS
+					+ CloudSoftwareRepoConstants.NEXUS_INDEX_BROWSER);
 
 			System.out.println("INDEX: " + XMLIndex);
 			ArrayList<Artifacts> index = new ArrayList<Artifacts>();
 			ArrayList<String> arts = parser.xmlParseIndex(XMLIndex);
 			for (int i = 0; i < arts.size(); i++) {
 				// System.out.println("Art: "+arts.get(i));
-				/*ArrayList<Artifacts> tmp = keywordSearch(CloudSoftwareRepoConstants.NEXUS_URL
-						+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
-						+ arts.get(i));*/
-				ArrayList<Artifacts> tmp = keywordSearch(NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
+				/*
+				 * ArrayList<Artifacts> tmp =
+				 * keywordSearch(CloudSoftwareRepoConstants.NEXUS_URL +
+				 * CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH +
+				 * arts.get(i));
+				 */
+				ArrayList<Artifacts> tmp = keywordSearch(NEXUS_URL + "/"
+						+ CloudSoftwareRepoConstants.NEXUS
 						+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
 						+ arts.get(i));
 				index.addAll(tmp);
@@ -226,13 +241,13 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 
 	public void deleteArtifact(Artifacts artifact) {
 		// TODO Auto-generated method stub
-		/*String url = CloudSoftwareRepoConstants.NEXUS_URL
-				+ CloudSoftwareRepoConstants.NEXUS_REPOSITORIES
-				+ artifact.repositoryId + "/"
-				+ CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId
-				+ "/" + artifact.artifactId + "/" + artifact.version;
-		*/
-		String url = NEXUS_URL+"/"+CloudSoftwareRepoConstants.NEXUS
+		/*
+		 * String url = CloudSoftwareRepoConstants.NEXUS_URL +
+		 * CloudSoftwareRepoConstants.NEXUS_REPOSITORIES + artifact.repositoryId
+		 * + "/" + CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId +
+		 * "/" + artifact.artifactId + "/" + artifact.version;
+		 */
+		String url = NEXUS_URL + "/" + CloudSoftwareRepoConstants.NEXUS
 				+ CloudSoftwareRepoConstants.NEXUS_REPOSITORIES
 				+ artifact.repositoryId + "/"
 				+ CloudSoftwareRepoConstants.NEXUS_CONTENT + artifact.groupId
@@ -267,7 +282,5 @@ public class CloudSoftwareRepo implements ICloudSoftwareRepo {
 		}
 
 	}
-
-	
 
 }

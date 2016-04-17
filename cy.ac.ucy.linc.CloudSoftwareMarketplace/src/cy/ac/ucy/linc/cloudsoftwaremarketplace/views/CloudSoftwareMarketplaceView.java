@@ -1,5 +1,6 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.eclipse.swt.widgets.Composite;
@@ -20,8 +21,8 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
 /*import org.eclipse.swt.graphics.Device;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.GCData;*/
+ import org.eclipse.swt.graphics.GC;
+ import org.eclipse.swt.graphics.GCData;*/
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -89,22 +90,23 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Action clickAction;
 	private Text txtSearchArtifact;
 	public CloudSoftwareRepo csr;
-	
+
 	private Label lblGroup;
 	private Label lblArtifact;
 	private Label lblVersion;
-	
+
 	protected Shell wShell;
-	
+
 	public ArrayList<Artifacts> srchResults;
-	public ArrayList<String> result=new ArrayList<String>();
+	public ArrayList<String> result = new ArrayList<String>();
 	private Text txtInstaller;
 	private Text txtConfig;
 	private Text txtBin;
 	private Text txtSource;
-	
+
 	private ICloudProject icp;
 	private IProject project;
+
 	/*
 	 * The content provider class is responsible for providing objects to the
 	 * view. It can wrap existing objects in adapters or simply return objects
@@ -121,7 +123,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		}
 
 		public Object[] getElements(Object parent) {
-			//return new String[] { "One", "Two", "Three", "Four",  };
+			// return new String[] { "One", "Two", "Three", "Four", };
 			return result.toArray();
 		}
 	}
@@ -137,13 +139,14 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		}
 
 		public Image getImage(Object obj) {
-			
-			//return PlatformUI.getWorkbench().getSharedImages()
-			//		.getImage(ISharedImages.IMG_OBJ_ELEMENT);
-			
-			final Image image = Activator.getImageDescriptor("icons/artifact.png").createImage();
+
+			// return PlatformUI.getWorkbench().getSharedImages()
+			// .getImage(ISharedImages.IMG_OBJ_ELEMENT);
+
+			final Image image = Activator.getImageDescriptor(
+					"icons/artifact.png").createImage();
 			return image;
-			
+
 		}
 	}
 
@@ -154,8 +157,19 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	 * The constructor.
 	 */
 	public CloudSoftwareMarketplaceView() {
+		String fileSystemRoot = File.listRoots()[0].getAbsolutePath();
+		// Create hidden artifacts folder
+		File artifactsFolder = new File(fileSystemRoot + ".repoartifacts");
+		if (!artifactsFolder.exists()) {
+			artifactsFolder.mkdir();
+		} else {
+			System.out.println("Folder " + artifactsFolder.getPath()
+					+ " exists!");
+		}
+
 		csr = new CloudSoftwareRepo();
-		
+		CloudSoftwareRepo.setARTIFACTS_FOLDER(artifactsFolder.getPath());
+
 	}
 
 	/**
@@ -168,7 +182,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				| SWT.V_SCROLL);
 		Table table = viewer.getTable();
 		table.setBounds(10, 46, 186, 361);
-		
+
 		Label lblSearchArtifact = new Label(parent, SWT.NONE);
 		lblSearchArtifact.setBounds(10, 20, 88, 15);
 		lblSearchArtifact.setText("Search Artifact:");
@@ -177,81 +191,81 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		txtSearchArtifact.setBounds(104, 17, 381, 21);
 
 		Button btnSearch = new Button(parent, SWT.NONE);
-		
-		
+
 		btnSearch.setBounds(509, 15, 75, 25);
 		btnSearch.setText("Search");
-		
+
 		Group grpGav = new Group(parent, SWT.NONE);
 		grpGav.setText("GAV");
 		grpGav.setBounds(202, 46, 151, 182);
-		
+
 		Label lblGroupId = new Label(grpGav, SWT.NONE);
 		lblGroupId.setBounds(10, 22, 55, 15);
 		lblGroupId.setText("Group ID:");
-		
+
 		lblGroup = new Label(grpGav, SWT.BORDER);
 		lblGroup.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblGroup.setBounds(20, 43, 121, 23);
-		
+
 		Label lblArtifactId = new Label(grpGav, SWT.NONE);
 		lblArtifactId.setText("Artifact ID:");
 		lblArtifactId.setBounds(10, 72, 55, 15);
-		
+
 		lblArtifact = new Label(grpGav, SWT.BORDER);
 		lblArtifact.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblArtifact.setBounds(20, 93, 121, 26);
-		
+
 		lblVersion = new Label(grpGav, SWT.BORDER);
 		lblVersion.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		lblVersion.setBounds(20, 146, 121, 26);
-		
+
 		Label lblV = new Label(grpGav, SWT.NONE);
 		lblV.setText("Version");
 		lblV.setBounds(10, 125, 55, 15);
-		
+
 		Group grpAdditionalMetadata = new Group(parent, SWT.NONE);
 		grpAdditionalMetadata.setText("Additional Metadata");
 		grpAdditionalMetadata.setBounds(370, 50, 214, 178);
-		
+
 		Label lblin = new Label(grpAdditionalMetadata, SWT.NONE);
 		lblin.setBounds(10, 21, 55, 15);
 		lblin.setText("Installer");
-		
+
 		txtInstaller = new Text(grpAdditionalMetadata, SWT.BORDER);
-		txtInstaller.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
+		txtInstaller
+				.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		txtInstaller.setEditable(false);
 		txtInstaller.setBounds(35, 42, 169, 21);
-		
+
 		Label lblConfiguration = new Label(grpAdditionalMetadata, SWT.NONE);
 		lblConfiguration.setText("Configuration");
 		lblConfiguration.setBounds(10, 69, 85, 15);
-		
+
 		txtConfig = new Text(grpAdditionalMetadata, SWT.BORDER);
 		txtConfig.setEditable(false);
 		txtConfig.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		txtConfig.setBounds(35, 90, 169, 21);
-		
+
 		Label lblBinFolder = new Label(grpAdditionalMetadata, SWT.NONE);
 		lblBinFolder.setBounds(10, 129, 76, 15);
 		lblBinFolder.setText("bin folder ?");
-		
+
 		txtBin = new Text(grpAdditionalMetadata, SWT.BORDER);
 		txtBin.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		txtBin.setEditable(false);
 		txtBin.setBounds(128, 126, 76, 21);
-		
+
 		txtSource = new Text(grpAdditionalMetadata, SWT.BORDER);
 		txtSource.setBackground(SWTResourceManager.getColor(SWT.COLOR_WHITE));
 		txtSource.setEditable(false);
 		txtSource.setBounds(128, 153, 76, 21);
-		
+
 		Label lblSourceFolder = new Label(grpAdditionalMetadata, SWT.NONE);
 		lblSourceFolder.setBounds(10, 156, 95, 15);
 		lblSourceFolder.setText("source folder ?");
 		viewer.setContentProvider(new ViewContentProvider());
 		viewer.setLabelProvider(new ViewLabelProvider());
-		//viewer.setSorter(new NameSorter());
+		// viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
 		// Create the help context id for the viewer's control
@@ -264,82 +278,95 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		hookContextMenu();
 		hookDoubleClickAction();
 		contributeToActionBars();
-		
+
 		btnSearch.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				CloudSoftwareRepo csr = new CloudSoftwareRepo();
-				
+
 				try {
 					clearResults();
-					srchResults = csr.keywordSearch(CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
-					System.out.println("Number of results returned: " + srchResults.size());
-					System.out.println("Search url: "+CloudSoftwareRepo.getNEXUS_URL()+"/"+CloudSoftwareRepoConstants.NEXUS	+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH + txtSearchArtifact.getText() + "*");
+					srchResults = csr.keywordSearch(CloudSoftwareRepo
+							.getNEXUS_URL()
+							+ "/"
+							+ CloudSoftwareRepoConstants.NEXUS
+							+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
+							+ txtSearchArtifact.getText() + "*");
+					System.out.println("Number of results returned: "
+							+ srchResults.size());
+					System.out.println("Search url: "
+							+ CloudSoftwareRepo.getNEXUS_URL() + "/"
+							+ CloudSoftwareRepoConstants.NEXUS
+							+ CloudSoftwareRepoConstants.NEXUS_KEYWORD_SEARCH
+							+ txtSearchArtifact.getText() + "*");
 					result = new ArrayList<String>();
-					for(int i=0;i<srchResults.size();i++){
-						result.add(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
-						//System.out.println(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
+					for (int i = 0; i < srchResults.size(); i++) {
+						result.add(srchResults.get(i).artifactId + "-"
+								+ srchResults.get(i).version);
+						// System.out.println(srchResults.get(i).artifactId+"-"+srchResults.get(i).version);
 					}
-					
-					//Print-DEBUG
-					
-					for(int i=0;i<result.size();i++){
-						System.out.println("In List: "+result.get(i));
+
+					// Print-DEBUG
+
+					for (int i = 0; i < result.size(); i++) {
+						System.out.println("In List: " + result.get(i));
 					}
-					
+
 					viewer.setContentProvider(new ViewContentProvider());
 					viewer.setLabelProvider(new ViewLabelProvider());
-					//viewer.setSorter(new NameSorter());
+					// viewer.setSorter(new NameSorter());
 					viewer.setInput(getViewSite());
 				} catch (RepoExceptions e1) {
 					// TODO Auto-generated catch block
 					System.out.println(e1.getMessage());
-					
+
 					wShell = new Shell();
-					MessageBox msBox = new MessageBox(wShell.getShell(), SWT.ICON_ERROR | SWT.OK);
+					MessageBox msBox = new MessageBox(wShell.getShell(),
+							SWT.ICON_ERROR | SWT.OK);
 					msBox.setText("Error");
 					msBox.setMessage(e1.getMessage());
 					msBox.open();
-					
+
 				}
 			}
 		});
-		
+
 		/*******************************/
-		DragSource dragSource = new DragSource(lblV, DND.DROP_MOVE | DND.DROP_COPY);
-		Transfer[] types = new Transfer[] {TextTransfer.getInstance()};
+		DragSource dragSource = new DragSource(lblV, DND.DROP_MOVE
+				| DND.DROP_COPY);
+		Transfer[] types = new Transfer[] { TextTransfer.getInstance() };
 		dragSource.setTransfer(types);
-		
+
 		Button btnDownloadArtifact = new Button(parent, SWT.NONE);
 		btnDownloadArtifact.setBounds(263, 271, 261, 25);
 		btnDownloadArtifact.setText("Download Artifact");
-		
+
 		dragSource.addDragListener(new DragSourceListener() {
-			
+
 			@Override
 			public void dragStart(DragSourceEvent event) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 			@Override
 			public void dragSetData(DragSourceEvent event) {
 				// TODO Auto-generated method stub
-				 if (TextTransfer.getInstance().isSupportedType(event.dataType)) {
-					 	          event.data = lblV.getText();
+				if (TextTransfer.getInstance().isSupportedType(event.dataType)) {
+					event.data = lblV.getText();
 				}
 			}
-			
+
 			@Override
 			public void dragFinished(DragSourceEvent event) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		/*****************************************/
 	}
 
-	private void clearResults(){
+	private void clearResults() {
 		lblGroup.setText("");
 		lblArtifact.setText("");
 		lblVersion.setText("");
@@ -348,6 +375,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		txtInstaller.setText("");
 		txtSource.setText("");
 	}
+
 	private void hookContextMenu() {
 		MenuManager menuMgr = new MenuManager("#PopupMenu");
 		menuMgr.setRemoveAllWhenShown(true);
@@ -389,9 +417,10 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private void makeActions() {
 		action1 = new Action() {
 			public void run() {
-				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
+				// CloudSoftwareMarketplaceConfig csmc = new
+				// CloudSoftwareMarketplaceConfig();
 				CloudSoftwareMarketplaceConfig.main(null);
-				//showMessage("Action 1 executed");
+				// showMessage("Action 1 executed");
 			}
 		};
 		action1.setText("Repository Settings");
@@ -404,28 +433,33 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 
 		action2 = new Action() {
 			IProject project;
+
 			public void run() {
-				/*CODE TO GET PROJECT INFORMATION!!!*/
-				IEditorPart  editorPart =
-						getSite().getWorkbenchWindow().getActivePage().getActiveEditor();
-				if(editorPart  != null)
-				{
-					ToscaDiagramEditorInput inp = (ToscaDiagramEditorInput) editorPart.getEditorInput();
-					
-				    //IFileEditorInput input = (IFileEditorInput)editorPart.getEditorInput() ;
-				    IFile file = inp.getDiagramFile();
-				    IProject activeProject = file.getProject();
-				    String activeProjectName = activeProject.getLocation().toString();
-				    IWorkbenchPart workbenchPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActivePart(); 
-				    IFile file2 = (IFile) workbenchPart.getSite().getPage().getActiveEditor().getEditorInput().getAdapter(IFile.class);
-				    String path = file2.getRawLocation().toOSString();
-				    //... use activeProjectName 
-				    showMessage(activeProjectName);
+				/* CODE TO GET PROJECT INFORMATION!!! */
+				IEditorPart editorPart = getSite().getWorkbenchWindow()
+						.getActivePage().getActiveEditor();
+				if (editorPart != null) {
+					ToscaDiagramEditorInput inp = (ToscaDiagramEditorInput) editorPart
+							.getEditorInput();
+
+					// IFileEditorInput input =
+					// (IFileEditorInput)editorPart.getEditorInput() ;
+					IFile file = inp.getDiagramFile();
+					IProject activeProject = file.getProject();
+					String activeProjectName = activeProject.getLocation()
+							.toString();
+					IWorkbenchPart workbenchPart = PlatformUI.getWorkbench()
+							.getActiveWorkbenchWindow().getActivePage()
+							.getActivePart();
+					IFile file2 = (IFile) workbenchPart.getSite().getPage()
+							.getActiveEditor().getEditorInput()
+							.getAdapter(IFile.class);
+					String path = file2.getRawLocation().toOSString();
+					// ... use activeProjectName
+					showMessage(activeProjectName);
 				}
-				/* END CODE*/
-				
-				
-				
+				/* END CODE */
+
 			}
 		};
 		action2.setText("Repository Information");
@@ -440,11 +474,11 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				showMessage("Double-click detected on " + obj.toString());
 			}
 		};
-		
+
 		clickAction = new Action() {
-			public void run(){
-				//ISelection selection = viewer.getSelection();
-				//Object obj =  ((IStructuredSelection) selection).
+			public void run() {
+				// ISelection selection = viewer.getSelection();
+				// Object obj = ((IStructuredSelection) selection).
 				int index = viewer.getTable().getSelectionIndex();
 				lblGroup.setText(srchResults.get(index).groupId);
 				lblArtifact.setText(srchResults.get(index).artifactId);
@@ -455,46 +489,45 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				txtSource.setText(srchResults.get(index).hasSrc);
 			}
 		};
-		
+
 		action3 = new Action() {
 			public void run() {
-				//CloudSoftwareMarketplaceConfig csmc = new CloudSoftwareMarketplaceConfig();
-				//CloudSoftwareMarketplaceConfig.main(null);
+				// CloudSoftwareMarketplaceConfig csmc = new
+				// CloudSoftwareMarketplaceConfig();
+				// CloudSoftwareMarketplaceConfig.main(null);
 				CloudSoftwareMaretplaceManage.main(null);
-				//showMessage("Action 1 executed");
+				// showMessage("Action 1 executed");
 			}
 		};
-		action3.setImageDescriptor(ResourceManager.getImageDescriptor(CloudSoftwareMarketplaceView.class, "/icons/admin.png"));
+		action3.setImageDescriptor(ResourceManager.getImageDescriptor(
+				CloudSoftwareMarketplaceView.class, "/icons/admin.png"));
 		action3.setText("Repository Management");
 		action3.setToolTipText("Repository Management");
 
-		action3.setImageDescriptor(ResourceManager
-				.getPluginImageDescriptor(
-						"cy.ac.ucy.linc.CloudSoftwareMarketplace",
-						"icons/admin.png"));
+		action3.setImageDescriptor(ResourceManager.getPluginImageDescriptor(
+				"cy.ac.ucy.linc.CloudSoftwareMarketplace", "icons/admin.png"));
 	}
 
 	private void hookDoubleClickAction() {
 		viewer.addDoubleClickListener(new IDoubleClickListener() {
 			public void doubleClick(DoubleClickEvent event) {
-				//doubleClickAction.run();
+				// doubleClickAction.run();
 				clearResults();
 				clickAction.run();
 			}
 		});
 	}
-	
-
 
 	private void showMessage(String message) {
 		MessageDialog.openInformation(viewer.getControl().getShell(),
 				"CloudSoftwareMarketplaceView", message);
 	}
+
 	/*
-	private void openConfigWizard(){
-		
-	}
-*/
+	 * private void openConfigWizard(){
+	 * 
+	 * }
+	 */
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */

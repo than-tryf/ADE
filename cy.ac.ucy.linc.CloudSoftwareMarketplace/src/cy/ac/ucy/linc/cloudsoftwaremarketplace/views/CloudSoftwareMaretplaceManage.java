@@ -1,5 +1,6 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import org.eclipse.swt.SWT;
@@ -127,6 +128,15 @@ public class CloudSoftwareMaretplaceManage extends Shell {
 
 		Composite composite = new Composite(tabFolder, SWT.NONE);
 		tbtmCreateAndUpload.setControl(composite);
+		Button btnDummy = new Button(composite, SWT.NONE);
+		btnDummy.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				System.out.println(File.listRoots()[0].getAbsolutePath());
+			}
+		});
+		btnDummy.setBounds(342, 43, 75, 25);
+		btnDummy.setText("Dummy");
 
 		TabItem tbtmDeleteArtifact = new TabItem(tabFolder, SWT.NONE);
 		tbtmDeleteArtifact.setImage(SWTResourceManager.getImage(
