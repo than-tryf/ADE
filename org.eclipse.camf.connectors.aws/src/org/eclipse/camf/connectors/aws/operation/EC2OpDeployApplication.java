@@ -131,7 +131,8 @@ public class EC2OpDeployApplication extends AbstractEC2OpDeployApplication {
              Optional<? extends InstanceApi> instanceApi =
              this.ec2.getEC2Api().getInstanceApiForRegion(
              this.ec2.getRegion() );             
-             RunInstancesOptions options = RunInstancesOptions.Builder.asType(InstanceType.M1_SMALL).withKeyName(keypair).withSecurityGroup( "sg-16bd5e72" ).withUserData( script.getBytes() );             
+             //RunInstancesOptions options = RunInstancesOptions.Builder.asType(InstanceType.M1_SMALL).withKeyName(keypair).withSecurityGroup( "sg-16bd5e72" ).withUserData( script.getBytes() );             
+             RunInstancesOptions options = RunInstancesOptions.Builder.asType(InstanceType.T1_MICRO).withKeyName(keypair).withSecurityGroup( "default" ).withUserData( script.getBytes() );             
              instanceApi.get().runInstancesInRegion( this.ec2.getRegion(),
              null, amiID, minCount, maxCount, options );
                
