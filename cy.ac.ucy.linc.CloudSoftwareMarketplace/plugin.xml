@@ -16,9 +16,11 @@
             id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView">
       </view>
       <view
+            category="cy.ac.ucy.linc.CloudSoftwareMarketplace"
             class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"
+            icon="src/icons/drive.png"
             id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"
-            name="CloudSoftwareMarketplaceLocal">
+            name="Cloud Software Marketplace Local Artifacts">
       </view>
    </extension>
    <extension

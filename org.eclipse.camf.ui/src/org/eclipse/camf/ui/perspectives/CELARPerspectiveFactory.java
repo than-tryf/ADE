@@ -21,6 +21,9 @@ public class CELARPerspectiveFactory implements IPerspectiveFactory{
 	    bottomFolder.addView( "org.eclipse.ui.console.ConsoleView" );
 	    bottomFolder.addView( "eu.celar.ui.views.authenticationTokenView" );
 	    
+	    /**************************************/
+	    bottomFolder.addView("cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal");
+	    /*************************************/
 
 	  }
 	}
