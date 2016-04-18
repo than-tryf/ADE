@@ -16,7 +16,8 @@ public class CELARPerspectiveFactory implements IPerspectiveFactory{
 	    
 	    IFolderLayout bottomFolder=layout.createFolder("bottomFolder",IPageLayout.BOTTOM,0.69f,layout.getEditorArea());
 	    bottomFolder.addView("org.eclipse.ui.views.PropertySheet");
-	    bottomFolder.addView( "eu.celar.ui.views.deploymentview" );
+	    bottomFolder.addView( "org.eclipse.camf.ui.views.deploymentview" );
+	    //bottomFolder.addView( "eu.celar.ui.views.deploymentview" );
 	    bottomFolder.addView( "org.eclipse.ui.console.ConsoleView" );
 	    bottomFolder.addView( "eu.celar.ui.views.authenticationTokenView" );
 	    

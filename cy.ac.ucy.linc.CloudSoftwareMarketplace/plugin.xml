@@ -15,6 +15,11 @@
             class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView"
             id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView">
       </view>
+      <view
+            class="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"
+            id="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"
+            name="CloudSoftwareMarketplaceLocal">
+      </view>
    </extension>
    <extension
          point="org.eclipse.help.contexts">
