@@ -9,7 +9,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.camf.ui,
  org.eclipse.camf.core,
  org.eclipse.ui.ide,
- org.eclipse.camf.tosca.editor,
  org.eclipse.graphiti;bundle-version="0.11.2",
  org.eclipse.graphiti.ui;bundle-version="0.11.2"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
@@ -94,9 +93,11 @@ Import-Package: com.sun.el;version="2.2.0",
  org.apache.http.util;version="4.3.3",
  org.eclipse.camf.tosca,
  org.eclipse.camf.tosca.core,
+ org.eclipse.camf.tosca.editor,
  org.eclipse.camf.tosca.elasticity,
  org.eclipse.camf.tosca.elasticity.impl,
  org.eclipse.camf.tosca.elasticity.util,
  org.eclipse.camf.tosca.impl,
  org.eclipse.camf.tosca.util,
  org.eclipse.core.resources
+Export-Package: cy.ac.ucy.linc.CloudSoftwareRepo

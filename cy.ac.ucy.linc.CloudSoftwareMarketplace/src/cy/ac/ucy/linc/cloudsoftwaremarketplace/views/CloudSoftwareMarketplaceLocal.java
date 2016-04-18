@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
+
+import org.eclipse.camf.core.model.ICloudElement;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -14,6 +17,7 @@ import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
@@ -37,6 +41,9 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.DragSourceAdapter;
+import org.eclipse.swt.dnd.DragSourceEvent;
+import org.eclipse.swt.dnd.Transfer;
 
 public class CloudSoftwareMarketplaceLocal extends ViewPart {
 
@@ -45,6 +52,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 	private Table table;
 	private TableViewer tableViewer;
 	private Action action1;
+	//private ;
 
 	class ViewContentProvider implements IStructuredContentProvider {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
@@ -105,8 +113,18 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 			tblclmnArtifactName.setText("Artifact Name");
 		}
 		{
-			DragSource dragSource = new DragSource(table, DND.DROP_MOVE);
+			//DragSource dragSource = new DragSource(table, DND.DROP_MOVE);
 		}
+		int operations = DND.DROP_COPY | DND.DROP_MOVE;
+		
+		tableViewer.addDragSupport(operations, new Transfer[]{
+				LocalSelectionTransfer.getTransfer()
+		}, new DragSourceAdapter(){
+			 @Override
+		      public void dragStart(DragSourceEvent event) {
+		          LocalSelectionTransfer.getTransfer().setSelection(CloudSoftwareMarketplaceLocal.this.tableViewer.getSelection());
+		      }
+		});
 		createActions();
 		initializeToolBar();
 		initializeMenu();
@@ -118,6 +136,8 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		tableViewer.setContentProvider(new ViewContentProvider());
 		tableViewer.setLabelProvider(new ViewLabelProvider());
 		tableViewer.setInput(result);
+		
+		
 	}
 	
 

@@ -19,6 +19,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.graphiti.platform.IDiagramEditor;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.viewers.*;
 /*import org.eclipse.swt.graphics.Device;
@@ -470,9 +471,10 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 					ToscaDiagramEditorInput inp = (ToscaDiagramEditorInput) editorPart
 							.getEditorInput();
 
-					// IFileEditorInput input =
+					//IFileEditorInput input =
 					// (IFileEditorInput)editorPart.getEditorInput() ;
 					IFile file = inp.getDiagramFile();
+					//IFile file = input.
 					IProject activeProject = file.getProject();
 					String activeProjectName = activeProject.getLocation()
 							.toString();
@@ -487,6 +489,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 					showMessage(activeProjectName);
 				}
 				/* END CODE */
+
 
 			}
 		};

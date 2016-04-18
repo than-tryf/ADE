@@ -22,7 +22,6 @@ import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.xml.namespace.QName;
 
@@ -63,10 +62,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.graphiti.dt.IDiagramTypeProvider;
 import org.eclipse.graphiti.features.ICreateConnectionFeature;
@@ -84,7 +79,6 @@ import org.eclipse.graphiti.mm.pictograms.ContainerShape;
 import org.eclipse.graphiti.mm.pictograms.PictogramElement;
 import org.eclipse.graphiti.palette.IPaletteCompartmentEntry;
 import org.eclipse.graphiti.palette.IToolEntry;
-import org.eclipse.graphiti.palette.impl.ConnectionCreationToolEntry;
 import org.eclipse.graphiti.palette.impl.ObjectCreationToolEntry;
 import org.eclipse.graphiti.palette.impl.PaletteCompartmentEntry;
 import org.eclipse.graphiti.palette.impl.StackEntry;
@@ -100,6 +94,8 @@ import org.eclipse.graphiti.tb.ImageDecorator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+//import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 
 public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 
@@ -389,6 +385,7 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
     IProject activeProject = ToscaDiagramEditor.getActiveProject();
     if( activeProject != null ) {
       IFolder artifactsFolder = activeProject.getFolder( "/Artifacts/Deployment Scripts" );
+      //IFolder artifactsFolder = activeProject.getFolder( CloudSoftwareRepo.getARTIFACTS_FOLDER() );
       IResource[] artifactsResource = null;
       try {
         artifactsResource = artifactsFolder.members();
