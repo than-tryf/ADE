@@ -46,6 +46,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 
 
 public class ApplicationDeploymentMockupView extends ViewPart {
+	public ApplicationDeploymentMockupView() {
+	}
 
   private TreeViewer viewer;
 
