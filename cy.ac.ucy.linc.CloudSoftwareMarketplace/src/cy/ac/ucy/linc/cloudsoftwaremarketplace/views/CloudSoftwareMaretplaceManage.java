@@ -109,6 +109,7 @@ public class CloudSoftwareMaretplaceManage extends Shell {
 	 */
 	public CloudSoftwareMaretplaceManage(Display display) {
 		super(display, SWT.CLOSE | SWT.TITLE);
+		setSize(765, 493);
 		setBackground(SWTResourceManager
 				.getColor(SWT.COLOR_WIDGET_LIGHT_SHADOW));
 		setImage(SWTResourceManager.getImage(
