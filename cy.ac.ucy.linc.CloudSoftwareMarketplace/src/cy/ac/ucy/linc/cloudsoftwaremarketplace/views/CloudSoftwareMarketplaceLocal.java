@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
+import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Tree;
@@ -42,6 +44,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 	public ArrayList<String> result = new ArrayList<String>();
 	private Table table;
 	private TableViewer tableViewer;
+	private Action action1;
 
 	class ViewContentProvider implements IStructuredContentProvider {
 		public void inputChanged(Viewer v, Object oldInput, Object newInput) {
@@ -116,12 +119,28 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		tableViewer.setLabelProvider(new ViewLabelProvider());
 		tableViewer.setInput(result);
 	}
+	
 
 	/**
 	 * Create the actions.
 	 */
 	private void createActions() {
 		// Create the actions
+		action1 = new Action() {
+			public void run() {
+				File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
+				ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
+				result = new ArrayList<String>();
+				result=names;
+				tableViewer.setContentProvider(new ViewContentProvider());
+				tableViewer.setLabelProvider(new ViewLabelProvider());
+				tableViewer.setInput(result);
+			}
+		};
+		action1.setText("Refresh");
+		action1.setToolTipText("Refresh");
+
+		action1.setImageDescriptor(ResourceManager.getPluginImageDescriptor("cy.ac.ucy.linc.CloudSoftwareMarketplace", "icons/refresh.png"));
 	}
 
 	/**
@@ -130,6 +149,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 	private void initializeToolBar() {
 		IToolBarManager toolbarManager = getViewSite().getActionBars()
 				.getToolBarManager();
+		toolbarManager.add(action1);
 	}
 
 	/**

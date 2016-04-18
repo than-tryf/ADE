@@ -40,6 +40,7 @@ import org.eclipse.swt.widgets.Button;
 //import org.eclipse.swt.widgets.List;
 import org.eclipse.wb.swt.ResourceManager;
 
+import cy.ac.ucy.linc.CloudSoftwareRepo.ArtifactZipUtils;
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepoConstants;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Entities.Artifacts;
@@ -378,9 +379,15 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 				try {
 					csr.downloadArtifact(srchResults.get(index).repositoryURL,
 							CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/" + token[token.length - 1]);
+					ArtifactZipUtils unzipper = new ArtifactZipUtils();
+					unzipper.unzip(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+token[token.length - 1], CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+srchResults.get(index).artifactId+"-"+srchResults.get(index).version);
+					File fd = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+srchResults.get(index).artifactId+"-"+srchResults.get(index).version+".zip");
+					fd.delete();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (IndexOutOfBoundsException ex){
+					System.out.println("No Artifact selected for download");
 				}
 
 			}
