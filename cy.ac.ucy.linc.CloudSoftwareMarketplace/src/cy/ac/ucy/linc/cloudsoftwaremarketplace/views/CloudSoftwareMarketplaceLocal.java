@@ -1,6 +1,8 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -22,6 +24,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.jface.viewers.TreeViewerColumn;
 
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewContentProvider;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewLabelProvider;
@@ -104,7 +107,11 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		createActions();
 		initializeToolBar();
 		initializeMenu();
-		result.add("MySQL");
+		//result.add("MySQL");
+		File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
+		ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
+		result = new ArrayList<String>();
+		result=names;
 		tableViewer.setContentProvider(new ViewContentProvider());
 		tableViewer.setLabelProvider(new ViewLabelProvider());
 		tableViewer.setInput(result);
