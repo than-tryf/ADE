@@ -1,6 +1,7 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.eclipse.swt.widgets.Composite;
@@ -338,6 +339,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 		dragSource.setTransfer(types);
 
 		Button btnDownloadArtifact = new Button(parent, SWT.NONE);
+
 		btnDownloadArtifact.setBounds(263, 271, 261, 25);
 		btnDownloadArtifact.setText("Download Artifact");
 
@@ -364,6 +366,25 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 			}
 		});
 		/*****************************************/
+
+		btnDownloadArtifact.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				CloudSoftwareRepo csr = new CloudSoftwareRepo();
+				int index = viewer.getTable().getSelectionIndex();
+				System.out.println("Download Link: "
+						+ srchResults.get(index).repositoryURL);
+				String[] token = srchResults.get(index).repositoryURL.split("/");
+				try {
+					csr.downloadArtifact(srchResults.get(index).repositoryURL,
+							CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/" + token[token.length - 1]);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
+		});
 	}
 
 	private void clearResults() {
