@@ -27,7 +27,7 @@ public class PerspectiveFactory implements IPerspectiveFactory {
 	private static final String CLOUD_INFORMATION = "org.eclipse.camf.infosystem.ui.InfoSystemView";
 	
 	private static final String CLOUD_MARKETPLACE ="cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView";
-
+	private static final String CLOUD_MARKETPLACE_LOCAL = "cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal";
 	private static final String TOPLEFT = "topleft";
 	private static final String RIGHT = "right";
 	private static final String BOTTOM = "bottom";
@@ -47,6 +47,7 @@ public class PerspectiveFactory implements IPerspectiveFactory {
 		bottomFolder.addView(IPageLayout.ID_PROP_SHEET);
 		bottomFolder.addView(CLOUD_AUTH_ID);
 		bottomFolder.addView(CLOUD_DEPLOY_ID);
+		bottomFolder.addView(CLOUD_MARKETPLACE_LOCAL);
 
 		IFolderLayout rightFolder = layout.createFolder(RIGHT, IPageLayout.RIGHT,
 				0.33f, editorArea);
