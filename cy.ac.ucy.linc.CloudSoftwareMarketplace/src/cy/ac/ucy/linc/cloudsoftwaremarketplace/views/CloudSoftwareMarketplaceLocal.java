@@ -133,7 +133,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		});*/
 		
 	    Transfer[] transferTypes = new Transfer[]{TextTransfer.getInstance()};
-	    tableViewer.addDragSupport(operations, transferTypes, new CloudSoftwareMarketplaceTransferDnDListener());
+	    tableViewer.addDragSupport(operations, transferTypes, new CloudSoftwareMarketplaceTransferDnDListener(tableViewer));
 	    
 		createActions();
 		initializeToolBar();
