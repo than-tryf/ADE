@@ -44,5 +44,6 @@ Import-Package: org.apache.http;version="4.3.3",
 Export-Package: org.eclipse.camf.ui,
  org.eclipse.camf.ui.dialogs,
  org.eclipse.camf.ui.providers,
+ org.eclipse.camf.ui.views,
  org.eclipse.camf.ui.wizards,
  org.eclipse.camf.ui.wizards.wizardselection

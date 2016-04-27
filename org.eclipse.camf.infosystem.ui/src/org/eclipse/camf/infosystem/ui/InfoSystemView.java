@@ -115,6 +115,7 @@ public class InfoSystemView extends ViewPart implements ISelectionProvider, IClo
 
       @Override
       public void dragStart(DragSourceEvent event) {
+    	 System.out.println("Dragging from CAMF Tree");
           LocalSelectionTransfer.getTransfer().setSelection(InfoSystemView.this.treeViewer.getSelection());
       }
 

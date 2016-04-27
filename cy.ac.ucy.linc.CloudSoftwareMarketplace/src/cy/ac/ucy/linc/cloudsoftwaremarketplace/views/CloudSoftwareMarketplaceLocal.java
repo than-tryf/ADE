@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 
 
+
 import org.eclipse.camf.core.model.ICloudElement;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
@@ -35,6 +36,7 @@ import org.eclipse.jface.viewers.TreeViewerColumn;
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd.CloudSoftwareMarketplaceDnDListener;
+import cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd.CloudSoftwareMarketplaceTransferDnDListener;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewContentProvider;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewLabelProvider;
 
@@ -119,7 +121,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		{
 			//DragSource dragSource = new DragSource(table, DND.DROP_MOVE);
 		}
-		int operations = DND.DROP_COPY | DND.DROP_MOVE;
+		int operations = DND.DROP_MOVE | DND.DROP_COPY | DND.DROP_DEFAULT;
 		/*
 		tableViewer.addDragSupport(operations, new Transfer[]{
 				LocalSelectionTransfer.getTransfer()
@@ -131,7 +133,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		});*/
 		
 	    Transfer[] transferTypes = new Transfer[]{TextTransfer.getInstance()};
-	    tableViewer.addDragSupport(operations, transferTypes, new CloudSoftwareMarketplaceDnDListener(tableViewer));
+	    tableViewer.addDragSupport(operations, transferTypes, new CloudSoftwareMarketplaceTransferDnDListener());
 	    
 		createActions();
 		initializeToolBar();

@@ -55,6 +55,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragFinished(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragFinished( final DragSourceEvent event ) {
+	  System.out.println("Dragging from CAMF Tree Finished");
     LocalSelectionTransfer.getTransfer().setSelection(null);
     LocalSelectionTransfer.getTransfer().setSelectionSetTime(0);
   }
@@ -63,6 +64,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragSetData(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragSetData( final DragSourceEvent event ) {
+	  System.out.println("Drag Set Data");
     event.data = LocalSelectionTransfer.getTransfer().getSelection();
   }
 
@@ -70,6 +72,8 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragStart(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragStart( final DragSourceEvent event ) {
+	  System.out.println("Starting Drag!");
+	 
     ISelection selection = this.view.getViewer().getSelection();
     event.doit = isDragable( selection );
     if ( event.doit ) {

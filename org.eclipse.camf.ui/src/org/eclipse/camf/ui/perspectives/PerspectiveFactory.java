@@ -55,6 +55,8 @@ public class PerspectiveFactory implements IPerspectiveFactory {
 		rightFolder.addView(CLOUD_INFORMATION);
 		
 		rightFolder.addView(CLOUD_MARKETPLACE);
+		
+
 	}
 
 }

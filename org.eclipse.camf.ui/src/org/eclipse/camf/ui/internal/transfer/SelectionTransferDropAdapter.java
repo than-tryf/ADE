@@ -53,6 +53,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.jface.util.TransferDropTargetListener#getTransfer()
    */
   public Transfer getTransfer() {
+	  System.out.println("IN drop -> getTransfer");
     return LocalSelectionTransfer.getTransfer();
   }
 
@@ -60,6 +61,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.jface.util.TransferDropTargetListener#isEnabled(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public boolean isEnabled( final DropTargetEvent event ) {
+	  System.out.println("IN drop -> isenabled");
     ICloudContainer target = getTarget( event );
     return target != null;
   }
@@ -68,6 +70,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.swt.dnd.DropTargetListener#dragEnter(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public void dragEnter( final DropTargetEvent event ) {
+	  System.out.println("Drag has entered the area!");
     this.lastTarget = getTarget( event );
     this.lastDetail = event.detail;
     validateDrop( event );
@@ -77,6 +80,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.swt.dnd.DropTargetListener#dragLeave(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public void dragLeave( final DropTargetEvent event ) {
+	  System.out.println("IN drop -> DragLeave");
     this.lastTarget = null;
     this.lastDetail = DND.DROP_NONE;
   }
@@ -85,6 +89,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.swt.dnd.DropTargetListener#dragOperationChanged(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public void dragOperationChanged( final DropTargetEvent event ) {
+	  System.out.println("IN drop -> Dragoperation changed");
     this.lastDetail = event.detail;
     validateDrop( event );
     computeFeedback( event );
@@ -94,6 +99,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.swt.dnd.DropTargetListener#dragOver(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public void dragOver( final DropTargetEvent event ) {
+	  System.out.println("IN drop -> DragOver");
     ICloudContainer newTarget = getTarget( event );
     if ( newTarget != this.lastTarget ) {
       this.lastTarget = newTarget;
@@ -135,6 +141,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.swt.dnd.DropTargetListener#dropAccept(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public void dropAccept( final DropTargetEvent event ) {
+	System.out.println("I am at drop Accept");
     this.lastTarget = getTarget( event );
     validateDrop( event );
     this.lastDetail = event.detail;
@@ -212,6 +219,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @param event The event to be modified.
    */
   protected void validateDrop( final DropTargetEvent event ) {
+	  System.out.println("I am at Validate Drop!");
     int ops = computeDropOperations( event );
     //if ( ( ops & event.detail ) == 0 ) {
     if ( ( ops & this.lastDetail ) != 0 ) {
@@ -238,6 +246,8 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
   protected int computeDropOperations( final DropTargetEvent event ) {
     int ops = DND.DROP_NONE;
 
+    System.out.println("I am here");
+    
     if ( this.lastTarget != null ) {
     	
       ICloudElement[] elements = getElements();
