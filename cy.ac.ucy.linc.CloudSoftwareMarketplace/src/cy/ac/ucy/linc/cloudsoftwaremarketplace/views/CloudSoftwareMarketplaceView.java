@@ -8,12 +8,12 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.actions.ImportResourcesAction;
 import org.eclipse.ui.part.*;
 import org.eclipse.ui.views.navigator.ResourceNavigator;
-import org.eclipse.camf.core.internal.model.CloudProject;
+/*import org.eclipse.camf.core.internal.model.CloudProject;
 import org.eclipse.camf.core.model.CloudModel;
 import org.eclipse.camf.core.model.ICloudElement;
 import org.eclipse.camf.core.model.ICloudProject;
 import org.eclipse.camf.core.project.CloudProjectNature;
-import org.eclipse.camf.core.project.CloudProjectProperties;
+import org.eclipse.camf.core.project.CloudProjectProperties;*/
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -107,7 +107,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 	private Text txtBin;
 	private Text txtSource;
 
-	private ICloudProject icp;
+	//private ICloudProject icp;
 	private IProject project;
 
 	/*

@@ -53,7 +53,7 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.jface.util.TransferDropTargetListener#getTransfer()
    */
   public Transfer getTransfer() {
-	  System.out.println("IN drop -> getTransfer");
+	 System.out.println("[*]"+getClass().getName()+" IN drop -> getTransfer");
     return LocalSelectionTransfer.getTransfer();
   }
 
@@ -61,8 +61,9 @@ public class SelectionTransferDropAdapter implements TransferDropTargetListener
    * @see org.eclipse.jface.util.TransferDropTargetListener#isEnabled(org.eclipse.swt.dnd.DropTargetEvent)
    */
   public boolean isEnabled( final DropTargetEvent event ) {
-	  System.out.println("IN drop -> isenabled");
+	System.out.println("IN drop -> isenabled");
     ICloudContainer target = getTarget( event );
+    //System.out.println("[*]"+getClass().getName()+" @ICloudContainer target: "+target.toString());
     return target != null;
   }
 

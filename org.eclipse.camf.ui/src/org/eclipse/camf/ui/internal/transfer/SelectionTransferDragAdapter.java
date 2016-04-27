@@ -75,6 +75,7 @@ private CloudModelViewPart view;
 	  System.out.println("Starting Drag!");
 	 
     ISelection selection = this.view.getViewer().getSelection();
+    //System.out.println("[*]"+getClass().getSimpleName()+" :"+selection.toString());
     event.doit = isDragable( selection );
     if ( event.doit ) {
       LocalSelectionTransfer.getTransfer().setSelection( selection );
