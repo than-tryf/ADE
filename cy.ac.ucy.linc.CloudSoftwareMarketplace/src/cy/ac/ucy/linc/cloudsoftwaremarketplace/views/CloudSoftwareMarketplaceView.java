@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.actions.ImportResourcesAction;
 import org.eclipse.ui.part.*;
+import org.eclipse.ui.views.navigator.ResourceNavigator;
 import org.eclipse.camf.core.internal.model.CloudProject;
 import org.eclipse.camf.core.model.CloudModel;
 import org.eclipse.camf.core.model.ICloudElement;
 import org.eclipse.camf.core.model.ICloudProject;
 import org.eclipse.camf.core.project.CloudProjectNature;
 import org.eclipse.camf.core.project.CloudProjectProperties;
-import org.eclipse.camf.tosca.editor.ToscaDiagramEditorInput;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -465,7 +465,7 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 
 			public void run() {
 				/* CODE TO GET PROJECT INFORMATION!!! */
-				IEditorPart editorPart = getSite().getWorkbenchWindow()
+				/*IEditorPart editorPart = getSite().getWorkbenchWindow()
 						.getActivePage().getActiveEditor();
 				if (editorPart != null) {
 					ToscaDiagramEditorInput inp = (ToscaDiagramEditorInput) editorPart
@@ -487,7 +487,35 @@ public class CloudSoftwareMarketplaceView extends ViewPart {
 					String path = file2.getRawLocation().toOSString();
 					// ... use activeProjectName
 					showMessage(activeProjectName);
-				}
+				}*/
+				
+				/*IProject[] projects = ResourcesPlugin.getWorkspace().getRoot().getProjects();
+				for(int i=0;i<projects.length;i++){
+					System.out.println("PROJECT: "+projects[i].getLocation().toOSString());
+					if(projects[)
+				}/*
+				
+				
+				/*
+				
+				  IViewPart [] parts =
+					     getDefault().getWorkbench().getActiveWorkbenchWindow().getActivePage().getViews();
+					    IProject activeProject = null;
+
+					    for(int i=0;i<parts.length;i++)
+					    {
+					        if(parts[i] instanceof ResourceNavigator)
+					        {
+					            ResourceNavigator navigator = (ResourceNavigator)parts[i];
+					            StructuredSelection sel   =
+					              (StructuredSelection)navigator.getTreeViewer().getSelection();
+					            IResource resource = (IResource)sel.getFirstElement();
+					            activeProject = resource.getProject();
+					            break;
+					        }
+					    }
+					    String activeProjectName = activeProject .getName();*/
+				
 				/* END CODE */
 
 
