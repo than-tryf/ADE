@@ -32,5 +32,8 @@
    <extension
          point="org.eclipse.camf.ui.cloudMarketplace">
    </extension>
+   <extension
+         point="org.eclipse.camf.ui.cloudMarketplaceLocal">
+   </extension>
 
 </plugin>

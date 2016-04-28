@@ -6,6 +6,7 @@
    <extension-point id="newCloudProviderWizards" name="org.eclipse.camf.ui.newCloudProviderWizards" schema="schema/newCloudProviderWizards.exsd"/>
    <extension-point id="cloudProviderIcon" name="org.eclipse.camf.ui.cloudProviderIcon" schema="schema/cloudProviderIcon.exsd"/>
    <extension-point id="cloudMarketplace" name="cloudMarketplace" schema="schema/cloudMarketplace.exsd"/>
+   <extension-point id="cloudMarketplaceLocal" name="cloudMarketplaceLocal" schema="schema/cloudMarketplaceLocal.exsd"/>
    
 
    <extension

@@ -62,6 +62,8 @@ import org.eclipse.ui.part.ViewPart;
  *
  */
 public abstract class CloudModelViewPart extends ViewPart implements ICloudModelListener {
+	public CloudModelViewPart() {
+	}
   
   StructuredViewer viewer;
   

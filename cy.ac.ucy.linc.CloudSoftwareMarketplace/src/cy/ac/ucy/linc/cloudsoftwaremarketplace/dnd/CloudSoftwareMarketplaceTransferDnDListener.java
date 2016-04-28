@@ -1,5 +1,11 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd;
 
+import org.eclipse.camf.core.model.ICloudContainer;
+import org.eclipse.camf.core.model.ICloudElement;
+import org.eclipse.camf.core.model.ICloudProject;
+import org.eclipse.core.filesystem.IFileStore;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.util.TransferDragSourceListener;
 import org.eclipse.jface.viewers.ISelection;
@@ -30,6 +36,7 @@ public class CloudSoftwareMarketplaceTransferDnDListener implements
 		LocalSelectionTransfer.getTransfer().setSelection(selection);
 		LocalSelectionTransfer.getTransfer().setSelectionSetTime(
 				event.time & 0xFFFFFFFFL);
+		
 
 	}
 

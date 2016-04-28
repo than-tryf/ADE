@@ -40,6 +40,8 @@ private CloudModelViewPart view;
   
 
   public SelectionTransferDragAdapter( final CloudModelViewPart view ) {
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag Constructor");
+
     Assert.isNotNull( view );
     this.view = view;
   }
@@ -48,6 +50,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.jface.util.TransferDragSourceListener#getTransfer()
    */
   public Transfer getTransfer() {
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag getTrandfer");
     return LocalSelectionTransfer.getTransfer();
   }
 
@@ -55,7 +58,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragFinished(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragFinished( final DragSourceEvent event ) {
-	  System.out.println("Dragging from CAMF Tree Finished");
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag Finished");
     LocalSelectionTransfer.getTransfer().setSelection(null);
     LocalSelectionTransfer.getTransfer().setSelectionSetTime(0);
   }
@@ -64,7 +67,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragSetData(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragSetData( final DragSourceEvent event ) {
-	  System.out.println("Drag Set Data");
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag setData");
     event.data = LocalSelectionTransfer.getTransfer().getSelection();
   }
 
@@ -72,7 +75,7 @@ private CloudModelViewPart view;
    * @see org.eclipse.swt.dnd.DragSourceListener#dragStart(org.eclipse.swt.dnd.DragSourceEvent)
    */
   public void dragStart( final DragSourceEvent event ) {
-	  System.out.println("Starting Drag!");
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag start");
 	 
     ISelection selection = this.view.getViewer().getSelection();
     //System.out.println("[*]"+getClass().getSimpleName()+" :"+selection.toString());
@@ -91,6 +94,8 @@ private CloudModelViewPart view;
    * true for all elements contained in the specified selection.
    */
   protected boolean isDragable( final ISelection selection ) {
+	  System.out.println("[*]"+getClass().getName()+" CAMF Drag isDraggable");
+
     boolean result = true;
     if ( !selection.isEmpty() && ( selection instanceof IStructuredSelection ) ) {
       IStructuredSelection sSelection = ( IStructuredSelection ) selection;

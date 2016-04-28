@@ -241,7 +241,7 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 //    
 //    addJCatascopiaMonitorProbeCompartment( ret );
 //    addUserAppsCompartment( ret );
-//    addKeyPairCompartment( ret );
+ //   addKeyPairCompartment( ret );
 //    addDeployScriptCompartment( ret );
 
     return ret.toArray( new IPaletteCompartmentEntry[ ret.size() ] );
