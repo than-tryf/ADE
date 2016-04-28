@@ -11,7 +11,11 @@ import java.util.Arrays;
 
 
 
+
+
 import org.eclipse.camf.core.model.ICloudElement;
+import org.eclipse.camf.tosca.TNodeTemplate;
+import org.eclipse.camf.tosca.ToscaFactory;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -55,13 +59,15 @@ import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 
-public class CloudSoftwareMarketplaceLocal extends ViewPart {
+public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 
 	public static final String ID = "cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"; //$NON-NLS-1$
 	public ArrayList<String> result = new ArrayList<String>();
 	private Table table;
 	private TableViewer tableViewer;
 	private Action action1;
+	
+	public ArrayList<TNodeTemplate> dummy = new ArrayList<TNodeTemplate>();
 	//private ;
 
 	class ViewContentProvider implements IStructuredContentProvider {
@@ -73,7 +79,8 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 
 		public Object[] getElements(Object parent) {
 			// return new String[] { "One", "Two", "Three", "Four", };
-			return result.toArray();
+			//return result.toArray();
+			return dummy.toArray();
 		}
 	}
 
@@ -145,12 +152,22 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart {
 		initializeMenu();
 		//result.add("MySQL");
 		File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
-		ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
+		/*----------------------------------------------*/
+		TNodeTemplate tnt = ToscaFactory.eINSTANCE.createTNodeTemplate();
+		tnt.setName("Test");
+		ArrayList<TNodeTemplate> tnt_ = new ArrayList<TNodeTemplate>();
+		tnt_.add(tnt);
+		dummy = tnt_;
+		tableViewer.setContentProvider(new ViewContentProvider());
+		tableViewer.setLabelProvider(new ViewLabelProvider());
+		tableViewer.setInput(dummy);
+		/*--------------------------------------------------*/
+		/*ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
 		result = new ArrayList<String>();
 		result=names;
 		tableViewer.setContentProvider(new ViewContentProvider());
 		tableViewer.setLabelProvider(new ViewLabelProvider());
-		tableViewer.setInput(result);
+		tableViewer.setInput(result);*/
 		
 		
 	}
