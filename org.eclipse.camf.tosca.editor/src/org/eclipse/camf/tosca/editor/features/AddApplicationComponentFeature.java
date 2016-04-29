@@ -42,6 +42,7 @@ public class AddApplicationComponentFeature extends AbstractAddShapeFeature {
   public static final int INVISIBLE_RECT_RIGHT = 6;
 
   public AddApplicationComponentFeature( final IFeatureProvider fp ) {
+	  
     super( fp );
   }
 
@@ -63,7 +64,7 @@ public class AddApplicationComponentFeature extends AbstractAddShapeFeature {
   // Adds an application component figure to the target object
   @Override
   public PictogramElement add( final IAddContext context ) {
-    
+    System.out.println("[*]"+getClass().getSimpleName()+" : I am going to add an ApplicationComponent");
     int height = context.getHeight();
     int width = context.getWidth();
     

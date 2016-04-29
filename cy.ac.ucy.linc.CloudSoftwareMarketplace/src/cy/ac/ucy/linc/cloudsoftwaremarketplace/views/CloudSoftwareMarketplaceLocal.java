@@ -13,7 +13,11 @@ import java.util.Arrays;
 
 
 
+
+
 import org.eclipse.camf.core.model.ICloudElement;
+import org.eclipse.camf.infosystem.model.base.InfoSystemFactory;
+import org.eclipse.camf.infosystem.model.base.UserApplication;
 import org.eclipse.camf.tosca.TNodeTemplate;
 import org.eclipse.camf.tosca.ToscaFactory;
 import org.eclipse.jface.action.Action;
@@ -68,6 +72,8 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	private Action action1;
 	
 	public ArrayList<TNodeTemplate> dummy = new ArrayList<TNodeTemplate>();
+	public ArrayList<ICloudElement> dummy2 = new ArrayList<ICloudElement>();
+
 	//private ;
 
 	class ViewContentProvider implements IStructuredContentProvider {
@@ -80,7 +86,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		public Object[] getElements(Object parent) {
 			// return new String[] { "One", "Two", "Three", "Four", };
 			//return result.toArray();
-			return dummy.toArray();
+			return dummy2.toArray();
 		}
 	}
 
@@ -153,6 +159,12 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		//result.add("MySQL");
 		File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
 		/*----------------------------------------------*/
+		/*UserApplication uas = InfoSystemFactory.eINSTANCE.createUserApplication();
+		uas.setName("Test");
+		ArrayList<ICloudElement> tua = new ArrayList<ICloudElement>();
+		ICloudElement ua = (ICloudElement)uas;
+		tua.add(ua);
+		//dummy2=tua;
 		TNodeTemplate tnt = ToscaFactory.eINSTANCE.createTNodeTemplate();
 		tnt.setName("Test");
 		ArrayList<TNodeTemplate> tnt_ = new ArrayList<TNodeTemplate>();
@@ -160,7 +172,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		dummy = tnt_;
 		tableViewer.setContentProvider(new ViewContentProvider());
 		tableViewer.setLabelProvider(new ViewLabelProvider());
-		tableViewer.setInput(dummy);
+		tableViewer.setInput(dummy2);*/
 		/*--------------------------------------------------*/
 		/*ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
 		result = new ArrayList<String>();

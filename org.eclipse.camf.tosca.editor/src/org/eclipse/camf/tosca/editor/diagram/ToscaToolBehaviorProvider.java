@@ -35,8 +35,10 @@ import org.eclipse.camf.infosystem.model.base.UserApplication;
 import org.eclipse.camf.infosystem.model.base.VirtualMachineImage;
 import org.eclipse.camf.infosystem.model.base.VirtualMachineImageType;
 import org.eclipse.camf.infosystem.model.base.VirtualNetwork;
+import org.eclipse.camf.tosca.PropertiesType;
 import org.eclipse.camf.tosca.TArtifactTemplate;
 import org.eclipse.camf.tosca.TDeploymentArtifact;
+import org.eclipse.camf.tosca.TDeploymentArtifacts;
 import org.eclipse.camf.tosca.TNodeTemplate;
 import org.eclipse.camf.tosca.ToscaFactory;
 import org.eclipse.camf.tosca.editor.ToscaDiagramEditor;
@@ -55,6 +57,7 @@ import org.eclipse.camf.tosca.elasticity.TNodeTemplateExtension;
 import org.eclipse.camf.tosca.elasticity.TServiceTemplateExtension;
 import org.eclipse.camf.tosca.elasticity.Tosca_Elasticity_ExtensionsFactory;
 import org.eclipse.camf.tosca.elasticity.Tosca_Elasticity_ExtensionsPackage;
+import org.eclipse.camf.tosca.impl.PropertiesTypeImpl;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -243,9 +246,59 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 //    addUserAppsCompartment( ret );
  //   addKeyPairCompartment( ret );
 //    addDeployScriptCompartment( ret );
+    
+    
+    /*---------------START REMOVE------------------*/
+    	addRepositoryCompartment(ret);
+    
+    /*---------------END REMOVE--------------------*/
 
     return ret.toArray( new IPaletteCompartmentEntry[ ret.size() ] );
   }
+  
+  /*-------------------START REMOVE------------------------------*/
+  public void addRepositoryCompartment(List<IPaletteCompartmentEntry> ret ){
+
+	  ArrayList<TNodeTemplateExtension> appComponents = new ArrayList<TNodeTemplateExtension>();
+	  TNodeTemplateExtension applicationServerComponent = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
+	  applicationServerComponent.setType( new QName( "SimpleComponent" ) );
+	    applicationServerComponent.setName( "Component" );
+	   // applicationServerComponent.setDeploymentArtifacts();
+	   // applicationServerComponent.s
+	   // applicationServerComponent.eSet("Username", "Hello");
+	    //applicationServerComponent.setProperties(properties);
+	    //applicationServerComponent.setDeploymentArtifacts(value);
+	   
+	    appComponents.add( applicationServerComponent );
+	  PaletteCompartmentEntry compartmentEntry = new PaletteCompartmentEntry( "Ready-to-use Artifacts", null ); //$NON-NLS-1$
+	  ret.add( compartmentEntry );
+	    for( TNodeTemplateExtension appComponent : appComponents ) {
+	        // add new stack entry to new compartment
+	        StackEntry stackEntry = new StackEntry( appComponent.getName(),
+	                                                appComponent.getName(),
+	                                                null );
+	        compartmentEntry.addToolEntry( stackEntry );
+	        compartmentEntry.setInitiallyOpen( true );
+	        // add all create-features to the new stack-entry
+	        IFeatureProvider featureProvider = getFeatureProvider();
+	        ICreateFeature[] createFeatures = featureProvider.getCreateFeatures();
+	        for( ICreateFeature cf : createFeatures ) {
+	          if( cf instanceof CreateApplicationComponentFeature ) {
+	            CreateApplicationComponentFeature appCompCF = ( CreateApplicationComponentFeature )cf;
+	            appCompCF.setContextObject( appComponent );
+	            ObjectCreationToolEntry objectCreationToolEntry = new ObjectCreationToolEntry( appComponent.getName(),
+	                                                                                           appCompCF.getDescription(),
+	                                                                                           appCompCF.getCreateImageId(),
+	                                                                                           appCompCF.getCreateLargeImageId(),
+	                                                                                           appCompCF );
+	            stackEntry.addCreationToolEntry( objectCreationToolEntry );
+	            break;
+	          }
+	        }
+	      }
+  }
+  
+  /*-----------------------END REMOVE---------------------------*/
 
   private void addNetworkCompartment( final List<IPaletteCompartmentEntry> ret ) {
     
@@ -900,6 +953,8 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
     }
     return super.getDecorators( pe );
   }
+  
+
   
 //Create Palette compartment for Monitoring Probes
  private void addJCatascopiaMonitorProbeCompartment( List<IPaletteCompartmentEntry> ret )

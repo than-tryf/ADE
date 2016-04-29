@@ -34,6 +34,9 @@ public class StyleUtil {
   private static final IColorConstant T_NODE_TEMPLATE_FOREGROUND = new ColorConstant( 98,
                                                                                       131,
                                                                                       167 );
+  private static final IColorConstant T_READY_TO_USE_FOREGROUND = new ColorConstant( 232,
+          252,
+          52 );
   public static final int APP_COMPONENT_WIDTH = 146;
   public static final int APP_COMPONENT_HEIGHT = 160;
   public static final int SOFT_DEPENDENCIES_COMP_WIDTH = 140;
@@ -115,4 +118,35 @@ public class StyleUtil {
     style.setLineWidth( 2 );
     style.setTransparency( 0.0 );
   }
+  
+  
+  /*-----------START: THANASIS----------*/
+  public static Style getStyleForReadyTemplate( Diagram diagram ) {
+	    final String styleId = "READYTOUSE"; //$NON-NLS-1$
+	    IGaService gaService = Graphiti.getGaService();
+	    Style parentStyle = getStyleForCommonValues( diagram );
+	    
+	  //  Style style = gaService.createPlainStyle( parentStyle, styleId );
+	   /* Style style = gaService.createStyle(parentStyle, styleId);
+	    style.setFilled( true );
+	    style.setForeground( gaService.manageColor( diagram,
+	                                                  T_READY_TO_USE_FOREGROUND ) );
+	    gaService.setRenderingStyle( style,
+                PredefinedColoredAreas.getCopperWhiteGlossAdaptions() );*/
+	    Style style = gaService.findStyle( parentStyle, styleId );
+	    
+	    if( style == null ) { // style not found - create new style
+	      style = gaService.createPlainStyle( parentStyle, styleId );
+	      style.setFilled( true );
+	      style.setForeground( gaService.manageColor( diagram,
+	                                                  T_READY_TO_USE_FOREGROUND ) );
+	      //gaService.setRenderingStyle( style,
+	       //                            PredefinedColoredAreas.getBlueWhiteGlossAdaptions() );
+	      gaService.setRenderingStyle( style,
+                  PredefinedColoredAreas.getLightYellowAdaptions() );
+	    }
+	    return style;
+	  }
+  
+  /*---------END: THANASIS-------------*/
 }

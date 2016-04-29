@@ -39,6 +39,7 @@ import org.eclipse.camf.tosca.editor.features.AddGroupFeature;
 import org.eclipse.camf.tosca.editor.features.AddKeyPairFeature;
 import org.eclipse.camf.tosca.editor.features.AddMonitorProbeFeature;
 import org.eclipse.camf.tosca.editor.features.AddNetworkFeature;
+import org.eclipse.camf.tosca.editor.features.AddReadyToUseArtifactFeature;
 import org.eclipse.camf.tosca.editor.features.AddResizingActionFeature;
 import org.eclipse.camf.tosca.editor.features.AddSecurityGroupFeature;
 import org.eclipse.camf.tosca.editor.features.AddServiceTemplateFeature;
@@ -110,7 +111,9 @@ public class ToscaFeatureProvider extends DefaultFeatureProvider {
   @Override
   public IAddFeature getAddFeature( final IAddContext context ) {
     if( context.getNewObject() instanceof TNodeTemplate ) {
-      return new AddApplicationComponentFeature( this );
+    	//new AddApplicationComponentFeature( this );
+    	return new AddReadyToUseArtifactFeature(this);
+      //return new AddApplicationComponentFeature( this );
     }
     // else if( context.getNewObject() instanceof TRelationshipTemplate
     //               && ( ( TRelationshipTemplate )context.getNewObject() ).getType().toString().compareTo("Bidirected") == 0 ) //$NON-NLS-1$
