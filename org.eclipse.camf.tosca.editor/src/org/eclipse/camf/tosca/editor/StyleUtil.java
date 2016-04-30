@@ -122,31 +122,22 @@ public class StyleUtil {
   
   /*-----------START: THANASIS----------*/
   public static Style getStyleForReadyTemplate( Diagram diagram ) {
-	    final String styleId = "READYTOUSE"; //$NON-NLS-1$
-	    IGaService gaService = Graphiti.getGaService();
-	    Style parentStyle = getStyleForCommonValues( diagram );
-	    
-	  //  Style style = gaService.createPlainStyle( parentStyle, styleId );
-	   /* Style style = gaService.createStyle(parentStyle, styleId);
-	    style.setFilled( true );
-	    style.setForeground( gaService.manageColor( diagram,
-	                                                  T_READY_TO_USE_FOREGROUND ) );
-	    gaService.setRenderingStyle( style,
-                PredefinedColoredAreas.getCopperWhiteGlossAdaptions() );*/
-	    Style style = gaService.findStyle( parentStyle, styleId );
-	    
-	    if( style == null ) { // style not found - create new style
-	      style = gaService.createPlainStyle( parentStyle, styleId );
-	      style.setFilled( true );
-	      style.setForeground( gaService.manageColor( diagram,
-	                                                  T_READY_TO_USE_FOREGROUND ) );
-	      //gaService.setRenderingStyle( style,
-	       //                            PredefinedColoredAreas.getBlueWhiteGlossAdaptions() );
-	      gaService.setRenderingStyle( style,
-                  PredefinedColoredAreas.getLightYellowAdaptions() );
-	    }
-	    return style;
+	  final String styleId = "READYTOUSE"; //$NON-NLS-1$
+
+	  IGaService gaService = Graphiti.getGaService();
+	  Style parentStyle = getStyleForCommonValues( diagram );
+	  Style style = gaService.findStyle( parentStyle, styleId );
+	  if( style == null ) { // style not found - create new style
+		  style = gaService.createPlainStyle( parentStyle, styleId );
+		  style.setFilled( true );
+		  style.setForeground( gaService.manageColor( diagram,
+				  T_READY_TO_USE_FOREGROUND ) );
+		  gaService.setRenderingStyle( style,
+				  PredefinedColoredAreas.getCopperWhiteGlossAdaptions() );
 	  }
+	  return style;
+
+  }
   
   /*---------END: THANASIS-------------*/
 }

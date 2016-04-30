@@ -53,6 +53,7 @@ import org.eclipse.camf.tosca.editor.features.CreateGroupFeature;
 import org.eclipse.camf.tosca.editor.features.CreateKeyPairFeature;
 import org.eclipse.camf.tosca.editor.features.CreateMonitorProbeFeature;
 import org.eclipse.camf.tosca.editor.features.CreateNetworkFeature;
+import org.eclipse.camf.tosca.editor.features.CreateReadyToUseArtifactFeature;
 import org.eclipse.camf.tosca.editor.features.CreateResizeActionFeature;
 import org.eclipse.camf.tosca.editor.features.CreateSecurityGroupFeature;
 import org.eclipse.camf.tosca.editor.features.CreateServiceTemplateFeature;
@@ -223,7 +224,8 @@ public class ToscaFeatureProvider extends DefaultFeatureProvider {
       new CreateUserApplicationFeature( this ),
       new CreateGroupFeature( this ),
       new CreateKeyPairFeature( this ),
-      new CreateSecurityGroupFeature( this )
+      new CreateSecurityGroupFeature( this ),
+      new CreateReadyToUseArtifactFeature(this)
     };
   }
 

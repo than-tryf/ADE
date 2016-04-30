@@ -47,6 +47,7 @@ import org.eclipse.camf.tosca.editor.features.CreateGroupFeature;
 import org.eclipse.camf.tosca.editor.features.CreateKeyPairFeature;
 import org.eclipse.camf.tosca.editor.features.CreateMonitorProbeFeature;
 import org.eclipse.camf.tosca.editor.features.CreateNetworkFeature;
+import org.eclipse.camf.tosca.editor.features.CreateReadyToUseArtifactFeature;
 import org.eclipse.camf.tosca.editor.features.CreateResizeActionFeature;
 import org.eclipse.camf.tosca.editor.features.CreateSoftwareDependencyFeature;
 import org.eclipse.camf.tosca.editor.features.CreateUserApplicationFeature;
@@ -283,8 +284,8 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 	        IFeatureProvider featureProvider = getFeatureProvider();
 	        ICreateFeature[] createFeatures = featureProvider.getCreateFeatures();
 	        for( ICreateFeature cf : createFeatures ) {
-	          if( cf instanceof CreateApplicationComponentFeature ) {
-	            CreateApplicationComponentFeature appCompCF = ( CreateApplicationComponentFeature )cf;
+	          if( cf instanceof CreateReadyToUseArtifactFeature ) {
+	            CreateReadyToUseArtifactFeature appCompCF = ( CreateReadyToUseArtifactFeature )cf;
 	            appCompCF.setContextObject( appComponent );
 	            ObjectCreationToolEntry objectCreationToolEntry = new ObjectCreationToolEntry( appComponent.getName(),
 	                                                                                           appCompCF.getDescription(),
