@@ -4,6 +4,7 @@ import java.math.BigInteger;
 
 import javax.xml.namespace.QName;
 
+import org.eclipse.camf.tosca.PropertiesType;
 import org.eclipse.camf.tosca.TDeploymentArtifact;
 import org.eclipse.camf.tosca.TDeploymentArtifacts;
 import org.eclipse.camf.tosca.TNodeTemplate;
@@ -68,7 +69,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		TNodeTemplateExtension newClass = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
 		newClass.setMinInstances( DEFAULT_MIN_INSTANCES );
 		newClass.setMaxInstances(  BigInteger.valueOf( DEFAULT_MAX_INSTANCES ) );
-		newClass.setId( ( "THANASIS" + ( Integer )newClass.hashCode() ).toString() );
+		newClass.setId( ( "C" + ( Integer )newClass.hashCode() ).toString() );
 		//newClass.setType(((TNodeTemplateExtension) this.contextObject ).getType());
 
 		//Set X and Y required for reloading tosca model in tosca editor
@@ -104,8 +105,9 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		// Add object to diagram model
 		//getDiagram().eResource().getContents().add(newClass);
 
-
-		TNodeTemplate nt = topology.getNodeTemplate().get(0);
+		int n_nt = topology.getNodeTemplate().size();
+		
+		TNodeTemplate nt = topology.getNodeTemplate().get(n_nt-1);
 		if( nt.getDeploymentArtifacts() == null ) {
 
 			final TNodeTemplate node = nt;
@@ -123,10 +125,11 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		
 		// Add the new deployment artifact to the list
 	      final TDeploymentArtifacts deploymentArtifacts = nt.getDeploymentArtifacts();
-	      
+	      final PropertiesType pt = nt.getProperties();
+	      nt.setProperties(pt);
 	      final TDeploymentArtifact deploymentArtifact = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 	      deploymentArtifact.setName( "ThanasisArtifact" );
-	      deploymentArtifact.setArtifactType( new QName("WOW") );
+	      deploymentArtifact.setArtifactType( new QName("UA") );
 	      
 	      TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( parentObject );
 	      editingDomain.getCommandStack()
