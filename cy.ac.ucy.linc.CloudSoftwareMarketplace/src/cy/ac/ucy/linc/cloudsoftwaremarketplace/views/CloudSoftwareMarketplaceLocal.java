@@ -70,6 +70,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	private Table table;
 	private TableViewer tableViewer;
 	private Action action1;
+	private Action action2;
 	
 	public ArrayList<TNodeTemplate> dummy = new ArrayList<TNodeTemplate>();
 	public ArrayList<ICloudElement> dummy2 = new ArrayList<ICloudElement>();
@@ -86,7 +87,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		public Object[] getElements(Object parent) {
 			// return new String[] { "One", "Two", "Three", "Four", };
 			//return result.toArray();
-			return dummy2.toArray();
+			return result.toArray();
 		}
 	}
 
@@ -157,6 +158,9 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		initializeToolBar();
 		initializeMenu();
 		//result.add("MySQL");
+		tableViewer.setContentProvider(new ViewContentProvider());
+		tableViewer.setLabelProvider(new ViewLabelProvider());
+		tableViewer.setInput(result);
 		File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
 		/*----------------------------------------------*/
 		/*UserApplication uas = InfoSystemFactory.eINSTANCE.createUserApplication();
@@ -205,6 +209,16 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		action1.setToolTipText("Refresh");
 
 		action1.setImageDescriptor(ResourceManager.getPluginImageDescriptor("cy.ac.ucy.linc.CloudSoftwareMarketplace", "icons/refresh.png"));
+		
+		action2 = new Action() {
+			public void run(){
+				System.out.println("[*] Clicked Add Software");
+				CloudSoftwareMarketplaceConfigureArt.main(null);
+			}
+		};
+		action2.setImageDescriptor(ResourceManager.getImageDescriptor(CloudSoftwareMarketplaceLocal.class, "/icons/addsoft.png"));
+		action1.setText("Add Artifact to Palette");
+		action1.setToolTipText("Add Artifact to Palette");
 	}
 
 	/**
@@ -214,6 +228,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		IToolBarManager toolbarManager = getViewSite().getActionBars()
 				.getToolBarManager();
 		toolbarManager.add(action1);
+		toolbarManager.add(action2);
 	}
 
 	/**
