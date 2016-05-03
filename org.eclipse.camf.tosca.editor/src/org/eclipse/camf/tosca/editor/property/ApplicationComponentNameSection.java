@@ -53,8 +53,10 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.ecore.util.FeatureMap;
 import org.eclipse.emf.ecore.util.FeatureMap.Entry;
 import org.eclipse.emf.ecore.util.FeatureMapUtil;
+import org.eclipse.emf.ecore.xml.type.impl.AnyTypeImpl;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
@@ -565,7 +567,13 @@ implements ITabbedPropertyConstants, ModifyListener, SelectionListener
 					? "" : imageName ); //$NON-NLS-1$
 
 			// set VM Flavor
-			if ( appComponent.getProperties() != null ){
+			/*-----------*/
+			FeatureMap vmFl =  appComponent.getProperties().getAny();
+			//System.out.println("The size is: "+vmFl.size());
+			if(vmFl.size()>0){
+				if(vmFl.get(0).getValue() instanceof NodePropertiesType){
+			/*-----------*/
+			if ( appComponent.getProperties() != null){
 				NodePropertiesType nodeProperties = (NodePropertiesType) appComponent.getProperties().getAny().get( 0 ).getValue();
 				String flavor = nodeProperties.getFlavor();
 				this.cmbImageSize.setText( flavor == null
@@ -574,6 +582,11 @@ implements ITabbedPropertyConstants, ModifyListener, SelectionListener
 			else{
 				this.cmbImageSize.setText( "" );
 			}
+			
+			/*-----------*/
+				}
+			}
+			/*-----------*/
 
 			if( !( bo instanceof TDeploymentArtifact ) )
 				refreshInstances();
