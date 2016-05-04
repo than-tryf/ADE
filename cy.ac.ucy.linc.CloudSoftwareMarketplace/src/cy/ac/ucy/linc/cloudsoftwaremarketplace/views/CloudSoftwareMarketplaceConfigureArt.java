@@ -8,6 +8,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
@@ -36,9 +37,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
 
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
+import cy.ac.ucy.linc.CloudSoftwareRepo.Interfaces.ICloudPropertiesViewer;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties.Property;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesEx;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactory;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactoryEx;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewContentProvider;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewLabelProvider;
 
@@ -123,6 +127,10 @@ public class CloudSoftwareMarketplaceConfigureArt {
 				break;
 			default :
 			}
+			//((PropertiesEx)getProps()).propertyChanged(p);
+			tableViewer.setContentProvider(new CloudSoftwareMarketplaceConfigureArt.PropertiesProvider());
+			tableViewer.setLabelProvider(new CloudSoftwareMarketplaceConfigureArt.PropertiesLabelProvider());
+			tableViewer.setInput(props);
 		}
 		
 	}
@@ -132,17 +140,21 @@ public class CloudSoftwareMarketplaceConfigureArt {
 	
 	
 	/*------CONTENTPROVIDER---------*/
-	class PropertiesProvider implements IStructuredContentProvider {
+	class PropertiesProvider implements IStructuredContentProvider, ICloudPropertiesViewer {
 
 		@Override
 		public void dispose() {
 			// TODO Auto-generated method stub
-			
+			//((PropertiesEx)props).removeChangeListener(this);
 		}
 
 		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 			// TODO Auto-generated method stub
+			/*if (newInput != null)
+				((PropertiesEx) newInput).addChangeListener(this);
+			if (oldInput != null)
+				((PropertiesEx) oldInput).removeChangeListener(this);*/
 			
 		}
 
@@ -151,6 +163,12 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			// TODO Auto-generated method stub
 			//return new String[] { "One", "Two", "Three", "Four", };
 			return props.getProperty().toArray();
+		}
+
+		@Override
+		public void updateProperty(Property property) {
+			// TODO Auto-generated method stub
+			tableViewer.update(property, null);
 		}
 		
 	}
@@ -316,6 +334,9 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			try {
 				JAXBContext jaxbContext = JAXBContext.newInstance(PropertiesFactory.class);
 				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+				//jaxbUnmarshaller.setProperty("javax.xml.bind", arg1);
+				//jaxbUnmarshaller.setProperty("com.sun.xml.internal.bind.ObjectFactory",
+				//	      new PropertiesFactoryEx());
 				props = (Properties) jaxbUnmarshaller.unmarshal(confFile);
 				System.out.println("[*] "+getClass().getSimpleName()+" :"+props.getProperty().get(0).getName());
 			} catch (JAXBException e) {

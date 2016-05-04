@@ -9,12 +9,18 @@
 package cy.ac.ucy.linc.CloudSoftwareRepo.XML;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+
+import cy.ac.ucy.linc.CloudSoftwareRepo.Interfaces.ICloudPropertiesViewer;
 
 
 /**
@@ -55,6 +61,7 @@ import javax.xml.bind.annotation.XmlType;
 public class Properties {
 
     protected List<Properties.Property> property;
+    
 
     /**
      * Gets the value of the property property.
@@ -167,5 +174,7 @@ public class Properties {
         }
 
     }
+    
+
 
 }
