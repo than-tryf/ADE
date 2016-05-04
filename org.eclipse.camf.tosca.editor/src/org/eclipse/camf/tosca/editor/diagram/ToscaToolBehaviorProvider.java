@@ -252,22 +252,24 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 //    addDeployScriptCompartment( ret );
     
     
-    /*---------------START REMOVE------------------*/
+    /*--------Repository compartment to palette-------*/
     	addRepositoryCompartment(ret);
     
-    /*---------------END REMOVE--------------------*/
+    /*---------------------END------------------------*/
 
     return ret.toArray( new IPaletteCompartmentEntry[ ret.size() ] );
   }
   
-  /*-------------------START REMOVE------------------------------*/
+  /*----------------------Implementation------------------------*/
   public void addRepositoryCompartment(List<IPaletteCompartmentEntry> ret ){
 
+	  //Get the list with the configured artifacts
 	  ArrayList<String> arts =CloudSoftwareMarketplaceConfigureArt.getReadyArtifacts();
 	  for(int i =0; i<arts.size();i++){
 		  System.out.println("[*] "+getClass().getSimpleName()+" : "+arts.get(i));
 	  }
-
+	  
+	  //ArrayList with the NodeTemplates for each artifact
 	  ArrayList<TNodeTemplateExtension> appComponents = new ArrayList<TNodeTemplateExtension>();
 	  TNodeTemplateExtension applicationServerComponent = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
 	  applicationServerComponent.setType( new QName( "SimpleComponent" ) );
@@ -277,10 +279,13 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 	  // applicationServerComponent.eSet("Username", "Hello");
 	  //applicationServerComponent.setProperties(properties);
 	  //applicationServerComponent.setDeploymentArtifacts(value);
+	  
+	  //Loop through all configured artifacts
 	  for(int i =0; i<arts.size();i++){
 		  applicationServerComponent = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
 		  applicationServerComponent.setType( new QName( "SimpleComponent" ) );
-		  applicationServerComponent.setName( "Component" );
+		  applicationServerComponent.setName( arts.get(i) );
+		  //Add to the palette compartment
 		  appComponents.add( applicationServerComponent );
 	  }
 
@@ -313,7 +318,7 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 	  }
   }
   
-  /*-----------------------END REMOVE---------------------------*/
+  /*-----------------------END---------------------------*/
 
   private void addNetworkCompartment( final List<IPaletteCompartmentEntry> ret ) {
     
