@@ -98,6 +98,9 @@ import org.eclipse.graphiti.tb.ImageDecorator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.*;
+
+//import
 
 //import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 
@@ -260,43 +263,54 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
   /*-------------------START REMOVE------------------------------*/
   public void addRepositoryCompartment(List<IPaletteCompartmentEntry> ret ){
 
+	  ArrayList<String> arts =CloudSoftwareMarketplaceConfigureArt.getReadyArtifacts();
+	  for(int i =0; i<arts.size();i++){
+		  System.out.println("[*] "+getClass().getSimpleName()+" : "+arts.get(i));
+	  }
+
 	  ArrayList<TNodeTemplateExtension> appComponents = new ArrayList<TNodeTemplateExtension>();
 	  TNodeTemplateExtension applicationServerComponent = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
 	  applicationServerComponent.setType( new QName( "SimpleComponent" ) );
-	    applicationServerComponent.setName( "Component" );
-	   // applicationServerComponent.setDeploymentArtifacts();
-	   // applicationServerComponent.s
-	   // applicationServerComponent.eSet("Username", "Hello");
-	    //applicationServerComponent.setProperties(properties);
-	    //applicationServerComponent.setDeploymentArtifacts(value);
-	   
-	    appComponents.add( applicationServerComponent );
+	  applicationServerComponent.setName( "Component" );
+	  // applicationServerComponent.setDeploymentArtifacts();
+	  // applicationServerComponent.s
+	  // applicationServerComponent.eSet("Username", "Hello");
+	  //applicationServerComponent.setProperties(properties);
+	  //applicationServerComponent.setDeploymentArtifacts(value);
+	  for(int i =0; i<arts.size();i++){
+		  applicationServerComponent = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
+		  applicationServerComponent.setType( new QName( "SimpleComponent" ) );
+		  applicationServerComponent.setName( "Component" );
+		  appComponents.add( applicationServerComponent );
+	  }
+
+	  //appComponents.add( applicationServerComponent );
 	  PaletteCompartmentEntry compartmentEntry = new PaletteCompartmentEntry( "Ready-to-use Artifacts", null ); //$NON-NLS-1$
 	  ret.add( compartmentEntry );
-	    for( TNodeTemplateExtension appComponent : appComponents ) {
-	        // add new stack entry to new compartment
-	        StackEntry stackEntry = new StackEntry( appComponent.getName(),
-	                                                appComponent.getName(),
-	                                                null );
-	        compartmentEntry.addToolEntry( stackEntry );
-	        compartmentEntry.setInitiallyOpen( true );
-	        // add all create-features to the new stack-entry
-	        IFeatureProvider featureProvider = getFeatureProvider();
-	        ICreateFeature[] createFeatures = featureProvider.getCreateFeatures();
-	        for( ICreateFeature cf : createFeatures ) {
-	          if( cf instanceof CreateReadyToUseArtifactFeature ) {
-	            CreateReadyToUseArtifactFeature appCompCF = ( CreateReadyToUseArtifactFeature )cf;
-	            appCompCF.setContextObject( appComponent );
-	            ObjectCreationToolEntry objectCreationToolEntry = new ObjectCreationToolEntry( appComponent.getName(),
-	                                                                                           appCompCF.getDescription(),
-	                                                                                           appCompCF.getCreateImageId(),
-	                                                                                           appCompCF.getCreateLargeImageId(),
-	                                                                                           appCompCF );
-	            stackEntry.addCreationToolEntry( objectCreationToolEntry );
-	            break;
-	          }
-	        }
-	      }
+	  for( TNodeTemplateExtension appComponent : appComponents ) {
+		  // add new stack entry to new compartment
+		  StackEntry stackEntry = new StackEntry( appComponent.getName(),
+				  appComponent.getName(),
+				  null );
+		  compartmentEntry.addToolEntry( stackEntry );
+		  compartmentEntry.setInitiallyOpen( true );
+		  // add all create-features to the new stack-entry
+		  IFeatureProvider featureProvider = getFeatureProvider();
+		  ICreateFeature[] createFeatures = featureProvider.getCreateFeatures();
+		  for( ICreateFeature cf : createFeatures ) {
+			  if( cf instanceof CreateReadyToUseArtifactFeature ) {
+				  CreateReadyToUseArtifactFeature appCompCF = ( CreateReadyToUseArtifactFeature )cf;
+				  appCompCF.setContextObject( appComponent );
+				  ObjectCreationToolEntry objectCreationToolEntry = new ObjectCreationToolEntry( appComponent.getName(),
+						  appCompCF.getDescription(),
+						  appCompCF.getCreateImageId(),
+						  appCompCF.getCreateLargeImageId(),
+						  appCompCF );
+				  stackEntry.addCreationToolEntry( objectCreationToolEntry );
+				  break;
+			  }
+		  }
+	  }
   }
   
   /*-----------------------END REMOVE---------------------------*/

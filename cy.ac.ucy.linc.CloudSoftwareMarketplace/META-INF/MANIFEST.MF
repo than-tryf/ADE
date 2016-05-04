@@ -93,8 +93,10 @@ Import-Package: com.sun.el;version="2.2.0",
  org.apache.http.util;version="4.3.3",
  org.eclipse.camf.infosystem.model.base,
  org.eclipse.camf.tosca,
+ org.eclipse.camf.tosca.editor,
  org.eclipse.camf.tosca.editor.features,
  org.eclipse.camf.tosca.elasticity,
  org.eclipse.core.filesystem,
  org.eclipse.core.resources
-Export-Package: cy.ac.ucy.linc.CloudSoftwareRepo
+Export-Package: cy.ac.ucy.linc.CloudSoftwareRepo,
+ cy.ac.ucy.linc.cloudsoftwaremarketplace.views

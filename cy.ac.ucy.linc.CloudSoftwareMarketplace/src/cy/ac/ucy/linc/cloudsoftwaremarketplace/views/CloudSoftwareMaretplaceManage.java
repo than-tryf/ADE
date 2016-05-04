@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Table;
@@ -27,10 +26,6 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Entities.*;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Exceptions.RepoExceptions;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.NameSorter;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewContentProvider;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewLabelProvider;
-
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;

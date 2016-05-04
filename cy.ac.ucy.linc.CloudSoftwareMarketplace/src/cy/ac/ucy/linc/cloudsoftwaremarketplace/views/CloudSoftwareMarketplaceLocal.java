@@ -7,19 +7,6 @@ import java.util.Arrays;
 
 
 
-
-
-
-
-
-
-
-
-import org.eclipse.camf.core.model.ICloudElement;
-import org.eclipse.camf.infosystem.model.base.InfoSystemFactory;
-import org.eclipse.camf.infosystem.model.base.UserApplication;
-import org.eclipse.camf.tosca.TNodeTemplate;
-import org.eclipse.camf.tosca.ToscaFactory;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -28,41 +15,28 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.wb.swt.ResourceManager;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.jface.util.DelegatingDragAdapter;
-import org.eclipse.jface.util.LocalSelectionTransfer;
-import org.eclipse.jface.viewers.DecoratingLabelProvider;
-import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
-import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.StyledString;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.swt.widgets.TreeColumn;
-import org.eclipse.jface.viewers.TreeViewerColumn;
 
 import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.Activator;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd.CSMTransferDnD;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd.CloudSoftwareMarketplaceDnDListener;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.dnd.CloudSoftwareMarketplaceTransferDnDListener;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewContentProvider;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceView.ViewLabelProvider;
+
+
+
 
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.swt.dnd.DragSource;
 import org.eclipse.swt.dnd.DND;
-import org.eclipse.swt.dnd.DragSourceAdapter;
-import org.eclipse.swt.dnd.DragSourceEvent;
-import org.eclipse.swt.dnd.TextTransfer;
-import org.eclipse.swt.dnd.Transfer;
 
+
+@SuppressWarnings("unused")
 public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 
 	public static final String ID = "cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal"; //$NON-NLS-1$
@@ -71,9 +45,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	private TableViewer tableViewer;
 	private Action action1;
 	private Action action2;
-	
-	public ArrayList<TNodeTemplate> dummy = new ArrayList<TNodeTemplate>();
-	public ArrayList<ICloudElement> dummy2 = new ArrayList<ICloudElement>();
+
 	
 	private static String selectedArtifact;
 
@@ -163,7 +135,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		tableViewer.setContentProvider(new ViewContentProvider());
 		tableViewer.setLabelProvider(new ViewLabelProvider());
 		tableViewer.setInput(result);
-		File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
+		//File f = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER());
 		/*----------------------------------------------*/
 		/*UserApplication uas = InfoSystemFactory.eINSTANCE.createUserApplication();
 		uas.setName("Test");
@@ -240,6 +212,7 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	 * Initialize the menu.
 	 */
 	private void initializeMenu() {
+		
 		IMenuManager menuManager = getViewSite().getActionBars()
 				.getMenuManager();
 	}
@@ -247,35 +220,6 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	@Override
 	public void setFocus() {
 		// Set the focus
-	}
-
-	private void createTreeColumns(Tree tree) {
-
-		/*
-		 * TreeColumn deplStatus = new TreeColumn(tree, SWT.NONE);
-		 * deplStatus.setText("Status"); //$NON-NLS-1$
-		 * deplStatus.setAlignment(SWT.CENTER); deplStatus.setWidth(100);
-		 * 
-		 * TreeColumn instanceID = new TreeColumn(tree, SWT.NONE);
-		 * instanceID.setText("Instance ID"); //$NON-NLS-1$
-		 * instanceID.setAlignment(SWT.CENTER); instanceID.setWidth(300);
-		 * 
-		 * TreeColumn deplIP = new TreeColumn(tree, SWT.NONE);
-		 * deplIP.setText("IP Address"); //$NON-NLS-1$
-		 * deplIP.setAlignment(SWT.CENTER); deplIP.setWidth(100);
-		 * 
-		 * TreeColumn imageID = new TreeColumn(tree, SWT.NONE);
-		 * imageID.setText("Image ID"); //$NON-NLS-1$
-		 * imageID.setAlignment(SWT.CENTER); imageID.setWidth(100);
-		 * 
-		 * TreeColumn flavorID = new TreeColumn(tree, SWT.NONE);
-		 * flavorID.setText("Flavor ID"); //$NON-NLS-1$
-		 * flavorID.setAlignment(SWT.CENTER); flavorID.setWidth(100);
-		 * 
-		 * TreeColumn keyPair = new TreeColumn(tree, SWT.NONE);
-		 * keyPair.setText("Key Pair"); //$NON-NLS-1$
-		 * keyPair.setAlignment(SWT.CENTER); keyPair.setWidth(100);
-		 */
 	}
 
 	public static String getSelectedArtifact() {

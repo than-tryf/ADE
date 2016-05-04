@@ -46,6 +46,9 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactory;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import org.eclipse.camf.tosca.editor.ToscaDiagramEditor;
+
+
 public class CloudSoftwareMarketplaceConfigureArt {
 
 	protected Shell shlSwtConfigureArtifact;
@@ -334,7 +337,9 @@ public class CloudSoftwareMarketplaceConfigureArt {
 				for(int j=0;j<readyArtifacts.size();j++){
 					System.out.println("[+] Artifact: "+readyArtifacts.get(j));
 				}
-
+				
+				//Refreshing the palette!
+				ToscaDiagramEditor.db.refreshPalette();
 				/*-------------------------------------------------*/
 
 
@@ -393,11 +398,13 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		this.props = props;
 	}
 
-	public ArrayList<String> getReadyArtifacts() {
+	public static ArrayList<String> getReadyArtifacts() {
 		return readyArtifacts;
 	}
 
-	public void setReadyArtifacts(ArrayList<String> readyArtifacts) {
+	public static void setReadyArtifacts(ArrayList<String> readyArtifacts) {
 		CloudSoftwareMarketplaceConfigureArt.readyArtifacts = readyArtifacts;
 	}
+
+
 }
