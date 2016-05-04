@@ -1,6 +1,11 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -9,14 +14,18 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 
+
+
+
+
+
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.CBanner;
-import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
@@ -29,8 +38,6 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.widgets.TableColumn;
-import org.eclipse.jface.viewers.TableViewerColumn;
-import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
@@ -40,11 +47,10 @@ import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 import cy.ac.ucy.linc.CloudSoftwareRepo.Interfaces.ICloudPropertiesViewer;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties.Property;
-import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesEx;
 import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactory;
-import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactoryEx;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewContentProvider;
-import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewLabelProvider;
+
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class CloudSoftwareMarketplaceConfigureArt {
 
@@ -76,7 +82,6 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			PROPERTY_NAME, 
 			PROPERTY_VALUE
 	};
-	private TableColumn column_1;
 
 	
 	/*------------CELLMODIFIER------------*/
@@ -145,16 +150,12 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		@Override
 		public void dispose() {
 			// TODO Auto-generated method stub
-			//((PropertiesEx)props).removeChangeListener(this);
 		}
 
 		@Override
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 			// TODO Auto-generated method stub
-			/*if (newInput != null)
-				((PropertiesEx) newInput).addChangeListener(this);
-			if (oldInput != null)
-				((PropertiesEx) oldInput).removeChangeListener(this);*/
+
 			
 		}
 
@@ -284,6 +285,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 
 		
 		btnDone = new Button(composite_1, SWT.NONE);
+
 		btnDone.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/ok.png"));
 		btnDone.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		btnDone.setText("Done");
@@ -292,11 +294,8 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		/*-------MAKE THE CELLS EDITABLE------------*/
 		CellEditor[] editors = new CellEditor[tableViewer.getTable().getColumnCount()];
 
-		/*TextCellEditor textEditor = new TextCellEditor(table);
-		editors[0] =textEditor;*/
-
 		TextCellEditor textEditorValue = new TextCellEditor(table);
-		//((Text)textEditorValue.getControl())
+
 		editors[1] =textEditorValue;
 
 		tableViewer.setCellEditors(editors);
@@ -308,12 +307,50 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		tableViewer.setInput(props);
 		
 		
-		 
+		 /*--------PROGRAM THE DONE BUTTON-------*/
+		
+		btnDone.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				/*------Create the cfg file-------------*/
+				File cfg = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+"/"+"config/config.cfg");
+				if(cfg.exists()){
+					System.out.println("[*] "+getClass().getSimpleName()+" : Exists ");
+				} else {
+					System.out.println("[*] "+getClass().getSimpleName()+" : No Exists ");
+				}
+				try {
+					FileOutputStream fos = new FileOutputStream(cfg);
+					BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
+					
+					for(int i=0;i<props.getProperty().size(); i++){
+						bw.write(props.getProperty().get(i).getName()+"="+props.getProperty().get(i).getValue());
+						bw.newLine();
+						System.out.println("[-]...."+props.getProperty().get(i).getName()+" : "+props.getProperty().get(i).getValue());
+					}
+					bw.close();
+					
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				/*--------------------------------------*/ 
+				
+
+			}
+		});
+		
+		/*---------------------------------------*/
 		 
 		System.out.println("COLS: "+tableViewer.getTable().getColumnCount());
 
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public java.util.List getColumnNames() {
 		return Arrays.asList(columnNames);
 	}
@@ -334,9 +371,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			try {
 				JAXBContext jaxbContext = JAXBContext.newInstance(PropertiesFactory.class);
 				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-				//jaxbUnmarshaller.setProperty("javax.xml.bind", arg1);
-				//jaxbUnmarshaller.setProperty("com.sun.xml.internal.bind.ObjectFactory",
-				//	      new PropertiesFactoryEx());
+
 				props = (Properties) jaxbUnmarshaller.unmarshal(confFile);
 				System.out.println("[*] "+getClass().getSimpleName()+" :"+props.getProperty().get(0).getName());
 			} catch (JAXBException e) {
