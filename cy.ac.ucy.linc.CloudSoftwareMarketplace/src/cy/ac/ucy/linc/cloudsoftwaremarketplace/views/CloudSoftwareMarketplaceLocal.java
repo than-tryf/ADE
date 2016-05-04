@@ -74,6 +74,8 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 	
 	public ArrayList<TNodeTemplate> dummy = new ArrayList<TNodeTemplate>();
 	public ArrayList<ICloudElement> dummy2 = new ArrayList<ICloudElement>();
+	
+	private static String selectedArtifact;
 
 	//private ;
 
@@ -213,6 +215,9 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		action2 = new Action() {
 			public void run(){
 				System.out.println("[*] Clicked Add Software");
+				int arIndex = tableViewer.getTable().getSelectionIndex();
+				System.out.println("[*] Selected artifact: "+result.get(arIndex));
+				CloudSoftwareMarketplaceLocal.setSelectedArtifact(result.get(arIndex));
 				CloudSoftwareMarketplaceConfigureArt.main(null);
 			}
 		};
@@ -272,5 +277,15 @@ public class CloudSoftwareMarketplaceLocal extends ViewPart  {
 		 * keyPair.setAlignment(SWT.CENTER); keyPair.setWidth(100);
 		 */
 	}
+
+	public static String getSelectedArtifact() {
+		return selectedArtifact;
+	}
+
+	public static void setSelectedArtifact(String selectedArtifact) {
+		CloudSoftwareMarketplaceLocal.selectedArtifact = selectedArtifact;
+	}
+	
+	
 
 }

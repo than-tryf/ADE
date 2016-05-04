@@ -1,10 +1,16 @@
 package cy.ac.ucy.linc.cloudsoftwaremarketplace.views;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.SWT;
@@ -29,6 +35,10 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
 
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.Properties.Property;
+import cy.ac.ucy.linc.CloudSoftwareRepo.XML.PropertiesFactory;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewContentProvider;
 import cy.ac.ucy.linc.cloudsoftwaremarketplace.views.CloudSoftwareMarketplaceLocal.ViewLabelProvider;
 
@@ -36,15 +46,23 @@ public class CloudSoftwareMarketplaceConfigureArt {
 
 	protected Shell shlSwtConfigureArtifact;
 	private Table table;
-	private TableColumn tblclmnPropertyName;
-	private TableViewerColumn tableViewerColumn;
-	private TableColumn tblclmnPropertyValue;
-	private TableViewerColumn tableViewerColumn_1;
+	
 	private Button btnDone;
 	private TableViewer tableViewer;
 	private ArrayList<String> tItems;
 	
+	private static String selectedArtifact;
 	
+	private Properties props;
+
+	public Properties getProps() {
+		return props;
+	}
+
+	public void setProps(Properties props) {
+		this.props = props;
+	}
+
 
 	// Set the table column property names
 	private final String PROPERTY_NAME 		= "propertyname";
@@ -54,6 +72,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			PROPERTY_NAME, 
 			PROPERTY_VALUE
 	};
+	private TableColumn column_1;
 
 	
 	/*------------CELLMODIFIER------------*/
@@ -72,9 +91,12 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			// Find the index of the column
 			int columnIndex = getColumnNames().indexOf(property);
 			Object result=null;
+			
+			Properties.Property p = (Property) element;
+			
 			switch (columnIndex) {
 			case 1 : // DESCRIPTION_COLUMN 
-				result = new String("TR");
+				result = p.getValue();
 				break;
 			default :
 				result = "";
@@ -87,17 +109,20 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			// TODO Auto-generated method stub
 			//int columnIndex	= tableViewerExample.getColumnNames().indexOf(property);
 			int columnIndex	= getColumnNames().indexOf(property);
-/*
+			TableItem item = (TableItem) element;
+			Properties.Property p = (Property) item.getData();
+			String valueString;
+
 			switch (columnIndex) {
 			case 0 : // COMPLETED_COLUMN 
-				task.setCompleted(((Boolean) value).booleanValue());
+				//task.setCompleted(((Boolean) value).booleanValue());
 				break;
 			case 1 : // DESCRIPTION_COLUMN 
 				valueString = ((String) value).trim();
-				task.setDescription(valueString);
+				p.setValue(valueString);
 				break;
 			default :
-			}*/
+			}
 		}
 		
 	}
@@ -125,7 +150,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		public Object[] getElements(Object inputElement) {
 			// TODO Auto-generated method stub
 			//return new String[] { "One", "Two", "Three", "Four", };
-			return tItems.toArray();
+			return props.getProperty().toArray();
 		}
 		
 	}
@@ -144,12 +169,15 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		public String getColumnText(Object element, int columnIndex) {
 			// TODO Auto-generated method stub
 			String result ="";
+			Properties.Property p = (Property) element;
 			switch(columnIndex){
 			case 0:
-				result=getText(element);
+				result=p.getName();
 				break;
 			case 1:
-				result="World";
+				result=p.getValue();
+				break;
+			default:
 				break;
 			}
 			return result;
@@ -198,7 +226,12 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		tItems.add("One");
 		tItems.add("Two");
 		tItems.add("Three");
+		CloudSoftwareMarketplaceConfigureArt.setSelectedArtifact(CloudSoftwareMarketplaceLocal.getSelectedArtifact());
+		System.out.println("[*] "+getClass().getSimpleName()+" Selected artifact: "+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact());
+		readProperties();
 		/*----------------*/
+		
+		
 		
 		shlSwtConfigureArtifact = new Shell();
 		shlSwtConfigureArtifact.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/addsoft.png"));
@@ -216,25 +249,16 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		table.setLinesVisible(true);
 		
 		TableColumn column = new TableColumn(table, SWT.CENTER, 0);
+		column.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/artifact.png"));
 		column.setWidth(191);
 		column.setText("Property Name");
 
 		// 2nd column with task Description
 		column = new TableColumn(table, SWT.LEFT, 1);
+		column.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/settings.png"));
 		column.setWidth(153);
 		column.setText("Property Value");
-		
-		/*tableViewerColumn = new TableViewerColumn(tableViewer, SWT.NONE);
-		tblclmnPropertyName = tableViewerColumn.getColumn();
-		tblclmnPropertyName.setWidth(191);
-		tblclmnPropertyName.setText("Property Name");*/
-		
-		
-		
-		/*tableViewerColumn_1 = new TableViewerColumn(tableViewer, SWT.NONE);
-		tblclmnPropertyValue = tableViewerColumn_1.getColumn();
-		tblclmnPropertyValue.setWidth(153);
-		tblclmnPropertyValue.setText("Property Value");*/
+
 		
 		Composite composite_1 = new Composite(composite, SWT.NONE);
 		composite_1.setLayout(new GridLayout(2, false));
@@ -250,10 +274,11 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		/*-------MAKE THE CELLS EDITABLE------------*/
 		CellEditor[] editors = new CellEditor[tableViewer.getTable().getColumnCount()];
 
-		TextCellEditor textEditor = new TextCellEditor(table);
-		editors[0] =textEditor;
+		/*TextCellEditor textEditor = new TextCellEditor(table);
+		editors[0] =textEditor;*/
 
 		TextCellEditor textEditorValue = new TextCellEditor(table);
+		//((Text)textEditorValue.getControl())
 		editors[1] =textEditorValue;
 
 		tableViewer.setCellEditors(editors);
@@ -262,7 +287,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		
 		tableViewer.setContentProvider(new PropertiesProvider());
 		tableViewer.setLabelProvider(new PropertiesLabelProvider());
-		tableViewer.setInput(tItems);
+		tableViewer.setInput(props);
 		
 		
 		 
@@ -273,5 +298,33 @@ public class CloudSoftwareMarketplaceConfigureArt {
 	
 	public java.util.List getColumnNames() {
 		return Arrays.asList(columnNames);
+	}
+
+	public static String getSelectedArtifact() {
+		return selectedArtifact;
+	}
+
+	public static void setSelectedArtifact(String selectedArtifact) {
+		CloudSoftwareMarketplaceConfigureArt.selectedArtifact = selectedArtifact;
+	}
+	
+	
+	public void readProperties(){
+		File confFile = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+"/"+"config/config.xml");
+		if (confFile.exists()){
+			System.out.println("[*] "+getClass().getSimpleName()+" : File Exists!");
+			try {
+				JAXBContext jaxbContext = JAXBContext.newInstance(PropertiesFactory.class);
+				Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+				props = (Properties) jaxbUnmarshaller.unmarshal(confFile);
+				System.out.println("[*] "+getClass().getSimpleName()+" :"+props.getProperty().get(0).getName());
+			} catch (JAXBException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		} else {
+			//Handle file does not exist!
+		}
 	}
 }
