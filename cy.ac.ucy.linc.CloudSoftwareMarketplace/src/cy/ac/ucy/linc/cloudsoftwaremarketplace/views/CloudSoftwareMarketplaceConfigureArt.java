@@ -14,12 +14,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 
-
-
-
-
-
-
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TableItem;
@@ -56,22 +50,16 @@ public class CloudSoftwareMarketplaceConfigureArt {
 
 	protected Shell shlSwtConfigureArtifact;
 	private Table table;
-	
+
 	private Button btnDone;
 	private TableViewer tableViewer;
 	private ArrayList<String> tItems;
-	
+
 	private static String selectedArtifact;
-	
+
 	private Properties props;
 
-	public Properties getProps() {
-		return props;
-	}
 
-	public void setProps(Properties props) {
-		this.props = props;
-	}
 
 
 	// Set the table column property names
@@ -83,7 +71,8 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			PROPERTY_VALUE
 	};
 
-	
+	private static ArrayList<String> readyArtifacts=new ArrayList<String>();
+
 	/*------------CELLMODIFIER------------*/
 	class PropertiesCellModifier implements ICellModifier {
 
@@ -96,20 +85,20 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		@Override
 		public Object getValue(Object element, String property) {
 			// TODO Auto-generated method stub
-			
+
 			// Find the index of the column
 			int columnIndex = getColumnNames().indexOf(property);
 			Object result=null;
-			
+
 			Properties.Property p = (Property) element;
-			
+
 			switch (columnIndex) {
 			case 1 : // DESCRIPTION_COLUMN 
 				result = p.getValue();
 				break;
 			default :
 				result = "";
-		}
+			}
 			return result;
 		}
 
@@ -137,13 +126,13 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			tableViewer.setLabelProvider(new CloudSoftwareMarketplaceConfigureArt.PropertiesLabelProvider());
 			tableViewer.setInput(props);
 		}
-		
+
 	}
-	
-	
+
+
 	/*------------------------------------*/
-	
-	
+
+
 	/*------CONTENTPROVIDER---------*/
 	class PropertiesProvider implements IStructuredContentProvider, ICloudPropertiesViewer {
 
@@ -156,7 +145,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 			// TODO Auto-generated method stub
 
-			
+
 		}
 
 		@Override
@@ -171,10 +160,10 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			// TODO Auto-generated method stub
 			tableViewer.update(property, null);
 		}
-		
+
 	}
 	/*-------------------------------*/
-	
+
 	/*---------LABELPROVIDER----------*/
 	class PropertiesLabelProvider extends LabelProvider implements ITableLabelProvider{
 
@@ -201,10 +190,10 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			}
 			return result;
 		}
-		
+
 	}
-	
-	
+
+
 	/*----------------------------------*/
 
 	/**
@@ -239,7 +228,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 	 * Create contents of the window.
 	 */
 	protected void createContents() {
-		
+
 		/*-INIT-*/
 		tItems = new ArrayList<>();
 		tItems.add("One");
@@ -249,24 +238,24 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		System.out.println("[*] "+getClass().getSimpleName()+" Selected artifact: "+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact());
 		readProperties();
 		/*----------------*/
-		
-		
-		
+
+
+
 		shlSwtConfigureArtifact = new Shell();
 		shlSwtConfigureArtifact.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/addsoft.png"));
 		shlSwtConfigureArtifact.setSize(706, 464);
 		shlSwtConfigureArtifact.setText("Configure Artifact and Add to Palette");
 		shlSwtConfigureArtifact.setLayout(new FillLayout(SWT.HORIZONTAL));
-		
+
 		Composite composite = new Composite(shlSwtConfigureArtifact, SWT.NONE);
 		composite.setLayout(new FillLayout(SWT.HORIZONTAL));
-		
+
 		tableViewer = new TableViewer(composite, SWT.MULTI | SWT.H_SCROLL
 				| SWT.V_SCROLL);
 		table = tableViewer.getTable();
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-		
+
 		TableColumn column = new TableColumn(table, SWT.CENTER, 0);
 		column.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/artifact.png"));
 		column.setWidth(191);
@@ -278,18 +267,18 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		column.setWidth(153);
 		column.setText("Property Value");
 
-		
+
 		Composite composite_1 = new Composite(composite, SWT.NONE);
 		composite_1.setLayout(new GridLayout(2, false));
 		new Label(composite_1, SWT.NONE);
 
-		
+
 		btnDone = new Button(composite_1, SWT.NONE);
 
 		btnDone.setImage(SWTResourceManager.getImage(CloudSoftwareMarketplaceConfigureArt.class, "/icons/ok.png"));
 		btnDone.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		btnDone.setText("Done");
-		
+
 		tableViewer.setColumnProperties(columnNames);
 		/*-------MAKE THE CELLS EDITABLE------------*/
 		CellEditor[] editors = new CellEditor[tableViewer.getTable().getColumnCount()];
@@ -301,14 +290,14 @@ public class CloudSoftwareMarketplaceConfigureArt {
 		tableViewer.setCellEditors(editors);
 		tableViewer.setCellModifier(new PropertiesCellModifier());
 		/*------------------------------------------*/
-		
+
 		tableViewer.setContentProvider(new PropertiesProvider());
 		tableViewer.setLabelProvider(new PropertiesLabelProvider());
 		tableViewer.setInput(props);
-		
-		
-		 /*--------PROGRAM THE DONE BUTTON-------*/
-		
+
+
+		/*--------PROGRAM THE DONE BUTTON-------*/
+
 		btnDone.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -322,14 +311,14 @@ public class CloudSoftwareMarketplaceConfigureArt {
 				try {
 					FileOutputStream fos = new FileOutputStream(cfg);
 					BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos));
-					
+
 					for(int i=0;i<props.getProperty().size(); i++){
 						bw.write(props.getProperty().get(i).getName()+"="+props.getProperty().get(i).getValue());
 						bw.newLine();
 						System.out.println("[-]...."+props.getProperty().get(i).getName()+" : "+props.getProperty().get(i).getValue());
 					}
 					bw.close();
-					
+
 				} catch (FileNotFoundException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -339,17 +328,25 @@ public class CloudSoftwareMarketplaceConfigureArt {
 					e1.printStackTrace();
 				}
 				/*--------------------------------------*/ 
-				
+				/*---ADD THE CONFIGURED ARTIFACT TO AN ARRAYLIST-----*/
+				readyArtifacts.add(getSelectedArtifact());
+
+				for(int j=0;j<readyArtifacts.size();j++){
+					System.out.println("[+] Artifact: "+readyArtifacts.get(j));
+				}
+
+				/*-------------------------------------------------*/
+
 
 			}
 		});
-		
+
 		/*---------------------------------------*/
-		 
+
 		System.out.println("COLS: "+tableViewer.getTable().getColumnCount());
 
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public java.util.List getColumnNames() {
 		return Arrays.asList(columnNames);
@@ -362,8 +359,8 @@ public class CloudSoftwareMarketplaceConfigureArt {
 	public static void setSelectedArtifact(String selectedArtifact) {
 		CloudSoftwareMarketplaceConfigureArt.selectedArtifact = selectedArtifact;
 	}
-	
-	
+
+
 	public void readProperties(){
 		File confFile = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+"/"+"config/config.xml");
 		if (confFile.exists()){
@@ -378,9 +375,29 @@ public class CloudSoftwareMarketplaceConfigureArt {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
+
 		} else {
 			//Handle file does not exist!
 		}
+	}
+
+
+	/*----------GETTERS & SETTERS------------*/
+
+
+	public Properties getProps() {
+		return props;
+	}
+
+	public void setProps(Properties props) {
+		this.props = props;
+	}
+
+	public ArrayList<String> getReadyArtifacts() {
+		return readyArtifacts;
+	}
+
+	public void setReadyArtifacts(ArrayList<String> readyArtifacts) {
+		CloudSoftwareMarketplaceConfigureArt.readyArtifacts = readyArtifacts;
 	}
 }
