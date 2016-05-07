@@ -305,6 +305,7 @@ public class ToscaToolBehaviorProvider extends DefaultToolBehaviorProvider {
 		  for( ICreateFeature cf : createFeatures ) {
 			  if( cf instanceof CreateReadyToUseArtifactFeature ) {
 				  CreateReadyToUseArtifactFeature appCompCF = ( CreateReadyToUseArtifactFeature )cf;
+				  appCompCF.setArtName(appComponent.getName());
 				  appCompCF.setContextObject( appComponent );
 				  ObjectCreationToolEntry objectCreationToolEntry = new ObjectCreationToolEntry( appComponent.getName(),
 						  appCompCF.getDescription(),

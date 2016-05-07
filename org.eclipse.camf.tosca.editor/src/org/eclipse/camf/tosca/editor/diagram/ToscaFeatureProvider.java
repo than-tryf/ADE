@@ -113,7 +113,13 @@ public class ToscaFeatureProvider extends DefaultFeatureProvider {
   public IAddFeature getAddFeature( final IAddContext context ) {
     if( context.getNewObject() instanceof TNodeTemplate ) {
     	//new AddApplicationComponentFeature( this );
-    	return new AddReadyToUseArtifactFeature(this);
+    	if(((TNodeTemplate)context.getNewObject()).getId().contains("RUA")){
+    		return new AddReadyToUseArtifactFeature(this);
+    	} else{
+    		return new AddApplicationComponentFeature( this );
+    	}
+    	
+    	
       //return new AddApplicationComponentFeature( this );
     }
     // else if( context.getNewObject() instanceof TRelationshipTemplate

@@ -1,5 +1,6 @@
 package org.eclipse.camf.tosca.editor.features;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
@@ -62,12 +63,15 @@ import org.eclipse.graphiti.features.IFeatureProvider;
 import org.eclipse.graphiti.features.context.ICreateContext;
 import org.eclipse.graphiti.features.impl.AbstractCreateFeature;
 import org.eclipse.graphiti.mm.pictograms.Diagram;
+import org.eclipse.jdt.internal.corext.codemanipulation.tostringgeneration.ToStringTemplateParser;
 import org.eclipse.ui.*;
 import org.eclipse.ui.part.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
+import cy.ac.ucy.linc.CloudSoftwareRepo.CloudSoftwareRepo;
 
 
 
@@ -81,7 +85,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 	//-1 means not specified by user
 	private static int DEFAULT_MAX_INSTANCES = -1;
 
-
+	private String artName;
 
 	public CreateReadyToUseArtifactFeature(IFeatureProvider fp) {
 		super(fp, "Ready To Use Artifact", "Create a Ready to use artifact");
@@ -116,7 +120,8 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		TNodeTemplateExtension newClass = Tosca_Elasticity_ExtensionsFactory.eINSTANCE.createTNodeTemplateExtension();
 		newClass.setMinInstances( DEFAULT_MIN_INSTANCES );
 		newClass.setMaxInstances(  BigInteger.valueOf( DEFAULT_MAX_INSTANCES ) );
-		newClass.setId( ( "C" + ( Integer )newClass.hashCode() ).toString() );
+		newClass.setId( ( "RUA" + ( Integer )newClass.hashCode() ).toString() );
+		newClass.setName(getArtName());
 
 
 
@@ -173,6 +178,100 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 
 		}
 		
+		/*------------------LOOK INTO THE FOLDER OF THE ARTIFACT-----------------------*/
+		final TDeploymentArtifacts dArts = nt.getDeploymentArtifacts();
+		String aFolder = CloudSoftwareRepo.getARTIFACTS_FOLDER();
+		String arF = getArtName();
+		System.out.println("[*] The artifact:  "+getClass().getSimpleName()+" : "+ aFolder+"/"+arF);
+		File locArtFolder = new File(aFolder+"/"+arF);
+		if(locArtFolder.exists()){
+			/*-----------CHECK IF THE FODLER INSTALL EXISTS-------*/
+			String install_folder = aFolder+"/"+arF+"/install";
+			File install = new File(install_folder);
+			if(install.exists()){
+				int nFilesInstall = install.listFiles().length;
+				for(int i=0;i<nFilesInstall;i++){
+					
+					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
+					dArt.setArtifactType(new QName("RUA"));
+					dArt.setName(install.list()[i]);
+					TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( nt );
+					editingDomain.getCommandStack().execute(new RecordingCommand( editingDomain ) {
+
+						protected void doExecute() {
+							dArts.getDeploymentArtifact().add( dArt );
+						}
+					} );
+					
+					//Copy the files to the directory
+					System.out.println("[*] "+getClass().getSimpleName()+" : folder "+install.getAbsolutePath()+" : "+install.list()[i]);
+
+				}
+
+			}
+			
+			/*---------------------------------------------------*/
+			
+			/*----------CHECK IF THE FOLDER CONFIG EXISTS---------*/
+			String config_folder = aFolder+"/"+arF+"/config";
+			File config = new File(config_folder);
+			if(config.exists()){
+				
+				//Check if there is a file named confg.cfg
+				File cfg = new File(config_folder+"/"+arF+".cfg");
+				if(cfg.exists()){
+					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
+					dArt.setArtifactType(new QName("RUA"));
+					dArt.setName(arF+".cfg");
+					TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( nt );
+					editingDomain.getCommandStack().execute(new RecordingCommand( editingDomain ) {
+
+						protected void doExecute() {
+							dArts.getDeploymentArtifact().add( dArt );
+						}
+					} );
+					System.out.println("[*] "+getClass().getSimpleName()+" : folder "+config.getAbsolutePath()+" : "+arF+".cfg");
+					//Copy the file to the directory
+				}
+
+			}
+			
+			/*---------------------------------------------------*/
+			
+			/*--------------CHECK IF THE FOLDER BIN EXISTS-------*/
+			String bin_folder = aFolder+"/"+arF+"/bin";
+			File bin = new File(bin_folder);
+			if(bin.exists()){
+				int nFilesBin = bin.listFiles().length;
+				for(int i=0;i<nFilesBin;i++){
+					
+					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
+					dArt.setArtifactType(new QName("RUA"));
+					dArt.setName(bin.list()[i]);
+					TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( nt );
+					editingDomain.getCommandStack().execute(new RecordingCommand( editingDomain ) {
+
+						protected void doExecute() {
+							dArts.getDeploymentArtifact().add( dArt );
+						}
+					} );
+					
+					//Copy the files to the directory
+					System.out.println("[*] "+getClass().getSimpleName()+" : folder "+bin.getAbsolutePath()+" : "+bin.list()[i]);
+
+				}
+
+			}
+			
+			/*---------------------------------------------------*/
+		} else{
+			System.out.println("[*] The artifact:  Does not exisst");
+		}
+		//File localArtFolder = new File(aFolder+)
+		
+		
+		/*----------------------------------------------------------------------------*/
+		
 		// Add the new deployment artifact to the list
 	      final TDeploymentArtifacts deploymentArtifacts = nt.getDeploymentArtifacts();
 	     // final PropertiesType pt = nt.getProperties();
@@ -180,6 +279,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 	      final TDeploymentArtifact deploymentArtifact = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 	      deploymentArtifact.setName( "ThanasisArtifact" );
 	      deploymentArtifact.setArtifactType( new QName("RUA") );
+	      //deploymentArtifact.s
 	      
 	      
 	      TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( nt );
@@ -215,6 +315,14 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 				deploymentArtifact
 		};
 
+	}
+
+	public String getArtName() {
+		return artName;
+	}
+
+	public void setArtName(String artName) {
+		this.artName = artName;
 	}
 
 }
