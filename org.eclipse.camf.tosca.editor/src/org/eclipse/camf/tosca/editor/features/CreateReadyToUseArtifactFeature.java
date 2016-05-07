@@ -264,6 +264,32 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 			}
 			
 			/*---------------------------------------------------*/
+			/*--------CHECK IF THE SOURCE FOLDER EXISTS----------*/
+			String src_folder = aFolder+"/"+arF+"/src";
+			File src = new File(src_folder);
+			if(src.exists()){
+				int nFilesSrc = src.listFiles().length;
+				for(int i=0;i<nFilesSrc;i++){
+					
+					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
+					dArt.setArtifactType(new QName("RUA"));
+					dArt.setName(src.list()[i]);
+					TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain( nt );
+					editingDomain.getCommandStack().execute(new RecordingCommand( editingDomain ) {
+
+						protected void doExecute() {
+							dArts.getDeploymentArtifact().add( dArt );
+						}
+					} );
+					
+					//Copy the files to the directory
+					System.out.println("[*] "+getClass().getSimpleName()+" : folder "+src.getAbsolutePath()+" : "+src.list()[i]);
+
+				}
+
+			}
+			
+			/*-------------------------------------------------*/
 		} else{
 			System.out.println("[*] The artifact:  Does not exisst");
 		}
@@ -271,7 +297,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		
 		
 		/*----------------------------------------------------------------------------*/
-		
+		/*
 		// Add the new deployment artifact to the list
 	      final TDeploymentArtifacts deploymentArtifacts = nt.getDeploymentArtifacts();
 	     // final PropertiesType pt = nt.getProperties();
@@ -289,7 +315,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 	          protected void doExecute() {
 	            deploymentArtifacts.getDeploymentArtifact().add( deploymentArtifact );
 	          }
-	        } );
+	        } );*/
 
 
 //	      PropertiesType prop = ToscaFactory.eINSTANCE.createPropertiesType();
@@ -312,7 +338,7 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 		// return newly created business object(s)
 		return new Object[]{
 				newClass,
-				deploymentArtifact
+				//deploymentArtifact
 		};
 
 	}
