@@ -1,9 +1,15 @@
 package org.eclipse.camf.tosca.editor.features;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.math.BigInteger;
+import java.nio.file.*;
+import java.nio.file.StandardCopyOption.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -32,6 +38,7 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
@@ -178,6 +185,16 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 
 		}
 		
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot(); 
+		IProject[] projects = root.getProjects(); 
+		String project_name = projects[0].getLocation().toOSString();
+		String destination_fodler = project_name+"/Artifacts/Applications";
+		File desFolder = new File(destination_fodler);
+		if(desFolder.exists()){
+			System.out.println("[**] Destination folder exists: "+desFolder.getAbsolutePath().toString());
+		}
+		System.out.println("[*] Project Name: "+project_name);
+		
 		/*------------------LOOK INTO THE FOLDER OF THE ARTIFACT-----------------------*/
 		final TDeploymentArtifacts dArts = nt.getDeploymentArtifacts();
 		String aFolder = CloudSoftwareRepo.getARTIFACTS_FOLDER();
@@ -191,6 +208,24 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 			if(install.exists()){
 				int nFilesInstall = install.listFiles().length;
 				for(int i=0;i<nFilesInstall;i++){
+
+					System.out.println("[* File path: ] "+install.listFiles()[i].getAbsolutePath().toString());	
+					try {
+						File copFile = new File(destination_fodler+"/"+install.list()[i]);
+						File originFile = install.listFiles()[i];
+						InputStream inStream = new FileInputStream(originFile);
+						OutputStream outStream = new FileOutputStream(copFile);
+						byte[] buffer = new byte[1024];
+						int length;
+						while((length=inStream.read(buffer))>0){
+							outStream.write(buffer, 0, length);
+						}
+						
+						
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
 					
 					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 					dArt.setArtifactType(new QName("RUA"));
@@ -220,6 +255,23 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 				//Check if there is a file named confg.cfg
 				File cfg = new File(config_folder+"/"+arF+".cfg");
 				if(cfg.exists()){
+					
+					try {
+						File copFile = new File(destination_fodler+"/"+arF+".cfg");
+						File originFile = cfg;
+						InputStream inStream = new FileInputStream(originFile);
+						OutputStream outStream = new FileOutputStream(copFile);
+						byte[] buffer = new byte[1024];
+						int length;
+						while((length=inStream.read(buffer))>0){
+							outStream.write(buffer, 0, length);
+						}
+						
+						
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
 					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 					dArt.setArtifactType(new QName("RUA"));
 					dArt.setName(arF+".cfg");
@@ -244,6 +296,23 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 			if(bin.exists()){
 				int nFilesBin = bin.listFiles().length;
 				for(int i=0;i<nFilesBin;i++){
+					
+					try {
+						File copFile = new File(destination_fodler+"/"+bin.list()[i]);
+						File originFile = bin.listFiles()[i];
+						InputStream inStream = new FileInputStream(originFile);
+						OutputStream outStream = new FileOutputStream(copFile);
+						byte[] buffer = new byte[1024];
+						int length;
+						while((length=inStream.read(buffer))>0){
+							outStream.write(buffer, 0, length);
+						}
+						
+						
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
 					
 					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 					dArt.setArtifactType(new QName("RUA"));
@@ -271,6 +340,23 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 				int nFilesSrc = src.listFiles().length;
 				for(int i=0;i<nFilesSrc;i++){
 					
+					try {
+						File copFile = new File(destination_fodler+"/"+src.list()[i]);
+						File originFile = src.listFiles()[i];
+						InputStream inStream = new FileInputStream(originFile);
+						OutputStream outStream = new FileOutputStream(copFile);
+						byte[] buffer = new byte[1024];
+						int length;
+						while((length=inStream.read(buffer))>0){
+							outStream.write(buffer, 0, length);
+						}
+						
+						
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} 
+					
 					final TDeploymentArtifact dArt = ToscaFactory.eINSTANCE.createTDeploymentArtifact();
 					dArt.setArtifactType(new QName("RUA"));
 					dArt.setName(src.list()[i]);
@@ -290,6 +376,12 @@ public class CreateReadyToUseArtifactFeature extends AbstractCreateFeature {
 			}
 			
 			/*-------------------------------------------------*/
+			
+			
+			
+
+		
+
 		} else{
 			System.out.println("[*] The artifact:  Does not exisst");
 		}

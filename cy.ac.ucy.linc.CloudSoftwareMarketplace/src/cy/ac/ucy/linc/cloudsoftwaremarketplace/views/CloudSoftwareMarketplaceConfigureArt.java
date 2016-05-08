@@ -305,7 +305,7 @@ public class CloudSoftwareMarketplaceConfigureArt {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				/*------Create the cfg file-------------*/
-				File cfg = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+"/"+"config/config.cfg");
+				File cfg = new File(CloudSoftwareRepo.getARTIFACTS_FOLDER()+"/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+"/"+"config/"+CloudSoftwareMarketplaceConfigureArt.getSelectedArtifact()+".cfg");
 				if(cfg.exists()){
 					System.out.println("[*] "+getClass().getSimpleName()+" : Exists ");
 				} else {
